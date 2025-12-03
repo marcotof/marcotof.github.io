@@ -1,0 +1,362 @@
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Project details data
+const projectDetails = {
+    'redelivery-hub': {
+        title: 'Redelivery Hub',
+        description: 'A comprehensive automation platform that revolutionizes Prime Video redelivery workflows through intelligent automation and real-time monitoring.',
+        features: [
+            'Multi-tool automation platform with unified interface',
+            'Automated ticket creation with Selenium WebDriver',
+            'Real-time status tracking and progress monitoring',
+            'File processing and validation systems',
+            'FileHunter for automated file discovery and copying',
+            'Redelivery Validator for quality assurance',
+            'TicketEye for bulk ticket management',
+            'Integrated SOP documentation system'
+        ],
+        technologies: ['Python', 'Flask', 'Selenium WebDriver', 'HTML/CSS', 'JavaScript', 'Pandas', 'PyAutoGUI'],
+        impact: [
+            'Reduced manual ticket creation time by 90%',
+            'Automated file processing for 100+ jobs weekly',
+            'Eliminated human errors in repetitive tasks',
+            'Centralized multiple tools into single platform'
+        ],
+        architecture: 'Flask web application with threaded background processes, real-time WebSocket communication, and modular tool integration.'
+    },
+    'lqa-extension': {
+        title: 'LQA Tool Extension',
+        description: 'Chrome extension that enhances the LQA Tool workflow with convenient comment selection and improved user experience.',
+        features: [
+            'Select Comment button for quick comment insertion',
+            'Blurb selection popup for improved workflow efficiency',
+            'Seamless integration with existing LQA Tool interface',
+            'Localization support for es-419 language codes',
+            'Enhanced user interface elements'
+        ],
+        technologies: ['JavaScript', 'Chrome Extension API', 'HTML/CSS', 'JSON'],
+        impact: [
+            'Improved QA workflow efficiency by 40%',
+            'Reduced comment selection time',
+            'Enhanced user experience for quality assurance team'
+        ],
+        architecture: 'Manifest V3 Chrome extension with content scripts and web accessible resources for seamless integration.'
+    },
+    'redelivery-agent': {
+        title: 'Redelivery Agent',
+        description: 'Web-based tool for processing redelivery Excel files with clean separation of UI and business logic.',
+        features: [
+            'Excel file processing with XLSX.js library',
+            'Multiple file upload and processing',
+            'Clean separation of UI and business logic',
+            'Modular JavaScript architecture',
+            'Export functionality for processed data',
+            'Requestor alias and intake source management'
+        ],
+        technologies: ['JavaScript', 'HTML/CSS', 'XLSX.js', 'File API'],
+        impact: [
+            'Streamlined redelivery file processing',
+            'Reduced manual data entry errors',
+            'Improved data consistency across workflows'
+        ],
+        architecture: 'Client-side web application with modular JavaScript design and Excel processing capabilities.'
+    },
+    'filemaster': {
+        title: 'FileMaster',
+        description: 'Python utility for advanced file management and processing operations, streamlining file organization tasks.',
+        features: [
+            'Advanced file management operations',
+            'Batch processing capabilities',
+            'File organization and sorting',
+            'Automated file operations',
+            'Error handling and logging'
+        ],
+        technologies: ['Python', 'File System APIs', 'OS Module'],
+        impact: [
+            'Automated repetitive file operations',
+            'Improved file organization efficiency',
+            'Reduced manual file management tasks'
+        ],
+        architecture: 'Python script with modular functions for various file operations and comprehensive error handling.'
+    },
+    'timestamps-converter': {
+        title: 'TimeStamps Converter',
+        description: 'Specialized tool for converting and processing timestamp formats in media files, essential for subtitle workflows.',
+        features: [
+            'Multiple timestamp format support',
+            'Batch conversion capabilities',
+            'Media file timestamp processing',
+            'Format validation and error checking',
+            'Subtitle synchronization support'
+        ],
+        technologies: ['Python', 'Regular Expressions', 'File I/O'],
+        impact: [
+            'Automated timestamp conversion processes',
+            'Improved subtitle synchronization accuracy',
+            'Reduced manual timestamp editing time'
+        ],
+        architecture: 'Python utility with regex-based parsing and conversion algorithms for various timestamp formats.'
+    },
+    'proxy-generation': {
+        title: 'Proxy Generation Tools',
+        description: 'Documentation and templates for proxy generation processes, including SOPs and Excel templates.',
+        features: [
+            'Comprehensive process documentation',
+            'Excel templates for partner support',
+            'Standard Operating Procedures (SOPs)',
+            'Partner support workflow templates',
+            'Process standardization tools'
+        ],
+        technologies: ['Microsoft Excel', 'Microsoft Word', 'Process Documentation'],
+        impact: [
+            'Standardized proxy generation processes',
+            'Improved partner support efficiency',
+            'Reduced process variation and errors'
+        ],
+        architecture: 'Document-based system with standardized templates and comprehensive process documentation.'
+    }
+};
+
+// Show localization projects
+function showLocalizationProjects() {
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = `
+        <h2>Localization Projects Portfolio</h2>
+        <p class="project-description">40+ video game localization projects translated to Italian (it-IT)</p>
+        
+        <h3>VIP Projects</h3>
+        <div class="localization-projects">
+            <div class="project-item">
+                <h4>Dragon's Dogma II</h4>
+                <p><strong>Client:</strong> Capcom</p>
+                <p><strong>Genre:</strong> Fantasy RPG</p>
+                <p><strong>Scope:</strong> Full game localization including dialogue, UI, and narrative elements</p>
+            </div>
+            <div class="project-item">
+                <h4>Super Mario Party Jamboree</h4>
+                <p><strong>Client:</strong> Nintendo</p>
+                <p><strong>Genre:</strong> Party Game</p>
+                <p><strong>Scope:</strong> Complete localization with focus on family-friendly content and accessibility</p>
+            </div>
+        </div>
+        
+        <h3>Additional Projects</h3>
+        <p>38+ other video game localization projects across various genres including:</p>
+        <ul class="genre-list">
+            <li>Action/Adventure Games</li>
+            <li>Role-Playing Games (RPGs)</li>
+            <li>Strategy Games</li>
+            <li>Casual/Family Games</li>
+            <li>Mobile Games</li>
+        </ul>
+        
+        <h3>Specializations</h3>
+        <div class="specializations">
+            <span class="spec-tag">Video Game Localization</span>
+            <span class="spec-tag">Cultural Adaptation</span>
+            <span class="spec-tag">UI/UX Translation</span>
+            <span class="spec-tag">Character Dialogue</span>
+            <span class="spec-tag">Quality Assurance</span>
+        </div>
+    `;
+    
+    document.getElementById('project-modal').style.display = 'block';
+}
+
+// Show project details in modal
+function showProjectDetails(projectId) {
+    const project = projectDetails[projectId];
+    if (!project) return;
+
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = `
+        <h2>${project.title}</h2>
+        <p class="project-description">${project.description}</p>
+        
+        <h3>Key Features</h3>
+        <ul class="feature-list">
+            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+        </ul>
+        
+        <h3>Technologies Used</h3>
+        <div class="tech-tags">
+            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+        </div>
+        
+        <h3>Impact & Results</h3>
+        <ul class="impact-list">
+            ${project.impact.map(impact => `<li>${impact}</li>`).join('')}
+        </ul>
+        
+        <h3>Architecture</h3>
+        <p class="architecture-description">${project.architecture}</p>
+    `;
+
+    document.getElementById('project-modal').style.display = 'block';
+}
+
+// Close modal functionality
+document.querySelector('.close').addEventListener('click', function() {
+    document.getElementById('project-modal').style.display = 'none';
+});
+
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('project-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// Add some dynamic styling for modal content
+const style = document.createElement('style');
+style.textContent = `
+    .project-description {
+        font-size: 1.1rem;
+        color: #64748b;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+    }
+    
+    .modal-content h2 {
+        color: #1e293b;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+    
+    .modal-content h3 {
+        color: #2563eb;
+        margin: 2rem 0 1rem 0;
+        font-size: 1.3rem;
+    }
+    
+    .feature-list, .impact-list {
+        margin-bottom: 1.5rem;
+    }
+    
+    .feature-list li, .impact-list li {
+        margin-bottom: 0.5rem;
+        color: #475569;
+        line-height: 1.5;
+    }
+    
+    .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .tech-tag {
+        background: #2563eb;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .architecture-description {
+        color: #64748b;
+        line-height: 1.6;
+        font-style: italic;
+    }
+    
+    .localization-projects {
+        margin-bottom: 2rem;
+    }
+    
+    .project-item {
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        border-left: 4px solid #2563eb;
+    }
+    
+    .project-item h4 {
+        color: #1e293b;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+    }
+    
+    .project-item p {
+        margin-bottom: 0.5rem;
+        color: #475569;
+    }
+    
+    .genre-list {
+        columns: 2;
+        margin-bottom: 2rem;
+    }
+    
+    .genre-list li {
+        margin-bottom: 0.5rem;
+        color: #475569;
+    }
+    
+    .specializations {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .spec-tag {
+        background: #2563eb;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+`;
+document.head.appendChild(style);
+
+// Add scroll effect to navbar
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+    }
+});
+
+// Add animation on scroll for project cards
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe project cards when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
