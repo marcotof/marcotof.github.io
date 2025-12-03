@@ -236,7 +236,7 @@ style.textContent = `
     }
     
     .modal-content h3 {
-        color: #2563eb;
+        color: #374151;
         margin: 2rem 0 1rem 0;
         font-size: 1.3rem;
     }
@@ -259,7 +259,7 @@ style.textContent = `
     }
     
     .tech-tag {
-        background: #2563eb;
+        background: #374151;
         color: white;
         padding: 6px 12px;
         border-radius: 15px;
@@ -282,7 +282,7 @@ style.textContent = `
         padding: 1.5rem;
         border-radius: 10px;
         margin-bottom: 1rem;
-        border-left: 4px solid #2563eb;
+        border-left: 4px solid #374151;
     }
     
     .project-item h4 {
@@ -297,8 +297,8 @@ style.textContent = `
     }
     
     .genre-list {
-        columns: 2;
         margin-bottom: 2rem;
+        padding-left: 1.5rem;
     }
     
     .genre-list li {
@@ -313,7 +313,7 @@ style.textContent = `
     }
     
     .spec-tag {
-        background: #2563eb;
+        background: #374151;
         color: white;
         padding: 6px 12px;
         border-radius: 15px;

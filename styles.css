@@ -41,7 +41,7 @@ body {
 .nav-logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #374151;
 }
 
 .nav-menu {
@@ -58,7 +58,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: #2563eb;
+    color: #374151;
 }
 
 /* Hero Section */
@@ -69,7 +69,7 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
     color: white;
     padding: 0 20px;
 }
@@ -109,11 +109,14 @@ body {
 }
 
 .btn-primary {
-    background: white;
-    color: #2563eb;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
 }
 
 .btn-primary:hover {
+    background: white;
+    color: #374151;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
@@ -126,7 +129,7 @@ body {
 
 .btn-secondary:hover {
     background: white;
-    color: #2563eb;
+    color: #374151;
 }
 
 .hero-stats {
@@ -165,6 +168,49 @@ body {
     align-items: center;
 }
 
+.about-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    overflow: hidden;
+    align-self: flex-start;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.profile-picture:hover img {
+    filter: grayscale(0%);
+}
+
+.profile-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #e2e8f0;
+    border-radius: 15px;
+}
+
+.profile-placeholder i {
+    font-size: 3rem;
+    color: #94a3b8;
+}
+
 .about-text p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
@@ -185,7 +231,7 @@ body {
 
 .highlight i {
     font-size: 1.5rem;
-    color: #2563eb;
+    color: #374151;
     margin-top: 0.25rem;
 }
 
@@ -311,7 +357,7 @@ body {
     width: 120px;
     text-align: center;
     font-weight: 600;
-    color: #2563eb;
+    color: #374151;
     font-size: 1.1rem;
     display: flex;
     align-items: center;
@@ -324,12 +370,12 @@ body {
     padding: 1.5rem;
     border-radius: 10px;
     margin: 0 2rem;
-    border-left: 4px solid #2563eb;
+    border-left: 4px solid #374151;
     position: relative;
 }
 
 .timeline-item.current .timeline-content {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
     color: white;
     border-left-color: #fbbf24;
 }
@@ -362,7 +408,7 @@ body {
 .timeline-location {
     font-size: 0.9rem;
     font-weight: 500;
-    color: #2563eb;
+    color: #374151;
 }
 
 .timeline-item.current .timeline-location {
@@ -376,7 +422,7 @@ body {
     top: 50%;
     width: 12px;
     height: 12px;
-    background: #2563eb;
+    background: #374151;
     border-radius: 50%;
     transform: translateY(-50%);
     z-index: 1;
@@ -400,7 +446,7 @@ body {
 /* Localization Section */
 .localization {
     padding: 100px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
     color: white;
 }
 
@@ -542,9 +588,9 @@ body {
 }
 
 .btn-localization {
-    background: white;
-    color: #2563eb;
-    border: none;
+    background: transparent;
+    color: white;
+    border: 2px solid white;
     padding: 12px 30px;
     border-radius: 50px;
     font-weight: 600;
@@ -554,6 +600,8 @@ body {
 }
 
 .btn-localization:hover {
+    background: white;
+    color: #374151;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
@@ -591,7 +639,7 @@ body {
 }
 
 .project-card.featured {
-    border: 2px solid #2563eb;
+    border: 2px solid #374151;
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
@@ -608,7 +656,7 @@ body {
 }
 
 .project-tag {
-    background: #2563eb;
+    background: #374151;
     color: white;
     padding: 4px 12px;
     border-radius: 20px;
@@ -646,7 +694,7 @@ body {
 
 .project-tech i {
     font-size: 1.5rem;
-    color: #2563eb;
+    color: #374151;
 }
 
 .project-links {
@@ -655,7 +703,7 @@ body {
 }
 
 .btn-demo {
-    background: #2563eb;
+    background: #374151;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -666,7 +714,7 @@ body {
 }
 
 .btn-demo:hover {
-    background: #1d4ed8;
+    background: #1f2937;
     transform: translateY(-2px);
 }
 
@@ -711,7 +759,7 @@ body {
 }
 
 .skill-items span {
-    background: #2563eb;
+    background: #374151;
     color: white;
     padding: 6px 14px;
     border-radius: 20px;
@@ -724,26 +772,26 @@ body {
 }
 
 .skill-items .native {
-    background: #059669;
+    background: #374151;
 }
 
 .skill-items .c2 {
-    background: #2563eb;
+    background: #374151;
 }
 
 .skill-items .c1 {
-    background: #7c3aed;
+    background: #374151;
 }
 
 .skill-items .n5 {
-    background: #dc2626;
+    background: #374151;
 }
 
 /* Contact Section */
 .contact {
     padding: 100px 0;
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
     color: white;
 }
 
@@ -758,10 +806,18 @@ body {
     opacity: 0.9;
 }
 
+.contact-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
 .contact-info {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .contact-link {
@@ -779,7 +835,7 @@ body {
 
 .contact-link:hover {
     background: white;
-    color: #2563eb;
+    color: #374151;
 }
 
 /* Modal */
@@ -833,12 +889,27 @@ body {
         gap: 2rem;
     }
     
+    .about-left {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        align-self: center;
+    }
+    
     .projects-grid {
         grid-template-columns: 1fr;
     }
     
-    .contact-info {
+    .contact-content {
         flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .contact-info {
         align-items: center;
     }
     
