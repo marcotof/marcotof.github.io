@@ -336,6 +336,18 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Profile picture toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const profileImg = document.querySelector('.profile-picture img');
+    if (profileImg) {
+        let isColored = false;
+        profileImg.addEventListener('click', function() {
+            isColored = !isColored;
+            this.style.filter = isColored ? 'grayscale(0%)' : 'grayscale(100%)';
+        });
+    }
+});
+
 // Add animation on scroll for project cards
 const observerOptions = {
     threshold: 0.1,
