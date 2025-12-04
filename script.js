@@ -243,6 +243,7 @@ style.textContent = `
     
     .feature-list, .impact-list {
         margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
     }
     
     .feature-list li, .impact-list li {
