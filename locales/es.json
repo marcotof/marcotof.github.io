@@ -11,42 +11,42 @@
 
   "hero.subtitle": "Traductor políglota y desarrollador",
   "hero.lead": "Traductor políglota apasionado por el desarrollo, construyo soluciones de automatización inteligentes en Prime Video para unir lenguaje y tecnología",
-  "btn.viewProjects": "Ver Proyectos",
-  "btn.viewLocalization": "Ver Localización",
+  "btn.viewProjects": "Ver proyectos",
+  "btn.viewLocalization": "Ver localización",
   "btn.getInTouch": "Contactarme",
 
-  "stats.tools": "Herramientas de Automatización",
+  "stats.tools": "Herramientas de automatización",
   "stats.hours": "Horas ahorradas semanalmente",
   "stats.languages": "Lenguajes de programación",
 
   "about.title": "Acerca de mí",
 
-  "awards.title": "Premios y Reconocimientos",
+  "awards.title": "Premios y reconocimientos",
 
-  "timeline.title": "Trayectoria Profesional",
+  "timeline.title": "Trayectoria profesional",
 
-  "localization.title": "Experiencia en Localización",
+  "localization.title": "Experiencia en localización",
   "localization.intro": "Más de 40 proyectos de localización de videojuegos traducidos al italiano (it-IT), aportando autenticidad cultural y precisión lingüística.",
   "localization.vipProjects": "Proyectos VIP",
 
-  "projects.title": "Proyectos Destacados",
-  "skills.title": "Habilidades Técnicas",
+  "projects.title": "Proyectos destacados",
+  "skills.title": "Habilidades técnicas",
 
-  "contact.title": "Ponte en Contacto",
-  "contact.lead": "¿Interesado en soluciones de automatización o en colaborar?",
+  "contact.title": "Ponte en contacto",
+  "contact.lead": "¿Te interesan las soluciones de automatización o en colaborar?",
   "contact.linkedin": "Perfil de LinkedIn",
   "contact.email": "tofanimarco16@gmail.com",
 
   "projects": {
     "redelivery-hub": {
       "title": "Redelivery Hub",
-      "description": "Plataforma de automatización integral que revoluciona los flujos de reenvío de Prime Video mediante automatización inteligente y monitorización en tiempo real.",
+      "description": "Plataforma de automatización integral que revoluciona los flujos de Redelivery de Prime Video mediante automatización inteligente y monitorización en tiempo real.",
       "features": [
         "Plataforma de automatización multi-herramienta con interfaz unificada",
         "Creación automática de tickets con Selenium WebDriver",
         "Seguimiento del estado en tiempo real",
         "Sistemas de procesamiento y validación de archivos",
-        "FileHunter para descubrimiento y copia automática de archivos",
+        "FileHunter para buscar y copiar archivos automáticamente",
         "Redelivery Validator para aseguramiento de la calidad",
         "TicketEye para gestión masiva de tickets",
         "Sistema integrado de documentación SOP"
@@ -61,17 +61,17 @@
       "architecture": "Aplicación web Flask con procesos en segundo plano, comunicación WebSocket en tiempo real e integración modular de herramientas.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "lqa-extension": {
       "title": "Extensión LQA Tool",
-      "description": "Extensión de Chrome que mejora el flujo de trabajo de LQA Tool con selección conveniente de comentarios y mejor experiencia de usuario.",
+      "description": "Extensión de Chrome que mejora el flujo del LQA Tool con selección conveniente de comentarios y mejor experiencia de usuario.",
       "features": [
         "Botón Seleccionar Comentario para inserción rápida",
         "Popup de selección para mejorar la eficiencia del flujo de trabajo",
         "Integración sin fisuras con la interfaz existente de LQA Tool",
-        "Soporte de localización para códigos de idioma es-419",
+        "Soporte de localización para es-419",
         "Elementos de IU mejorados"
       ],
       "technologies": ["JavaScript", "Chrome Extension API", "HTML/CSS", "JSON"],
@@ -83,12 +83,12 @@
       "architecture": "Extensión Chrome Manifest V3 con content scripts y recursos accesibles para integración fluida.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "redelivery-agent": {
       "title": "Redelivery Agent",
-      "description": "Herramienta web para procesar archivos Excel de reenvío con clara separación entre UI y lógica de negocio.",
+      "description": "Herramienta web para procesar archivos Excel de Redelivery con clara separación entre UI y lógica de negocio.",
       "features": [
         "Procesamiento de archivos Excel con la librería XLSX.js",
         "Carga y procesamiento de múltiples archivos",
@@ -99,14 +99,14 @@
       ],
       "technologies": ["JavaScript", "HTML/CSS", "XLSX.js", "File API"],
       "impact": [
-        "Optimización del procesamiento de archivos de reenvío",
+        "Optimización del procesamiento de archivos de Redelivery",
         "Reducción de errores manuales en la entrada de datos",
         "Mejora de la consistencia de datos en los flujos de trabajo"
       ],
       "architecture": "Aplicación del lado del cliente con diseño modular en JavaScript y capacidades de procesamiento de Excel.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "filemaster": {
@@ -128,7 +128,7 @@
       "architecture": "Script Python con funciones modulares para varias operaciones de archivos y manejo completo de errores.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "timestamps-converter": {
@@ -150,7 +150,7 @@
       "architecture": "Utilidad Python con parsing basado en regex y algoritmos de conversión para varios formatos de timestamp.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "proxy-generation": {
@@ -172,7 +172,7 @@
       "architecture": "Sistema basado en documentos con plantillas estandarizadas y documentación completa de procesos.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     }
   }
@@ -190,41 +190,41 @@
 
   "hero.subtitle": "Traductor políglota y desarrollador",
   "hero.lead": "Traductor políglota apasionado por el desarrollo, construyo soluciones de automatización inteligentes en Prime Video para unir lenguaje y tecnología",
-  "btn.viewProjects": "Ver Proyectos",
-  "btn.viewLocalization": "Ver Localización",
+  "btn.viewProjects": "Ver proyectos",
+  "btn.viewLocalization": "Ver localización",
   "btn.getInTouch": "Contactarme",
 
-  "stats.tools": "Herramientas de Automatización",
+  "stats.tools": "Herramientas de automatización",
   "stats.hours": "Horas ahorradas semanalmente",
   "stats.languages": "Lenguajes de programación",
 
   "about.title": "Acerca de mí",
 
-  "awards.title": "Premios y Reconocimientos",
+  "awards.title": "Premios y reconocimientos",
 
-  "timeline.title": "Trayectoria Profesional",
+  "timeline.title": "Trayectoria profesional",
 
-  "localization.title": "Experiencia en Localización",
+  "localization.title": "Experiencia en localización",
   "localization.intro": "Más de 40 proyectos de localización de videojuegos traducidos al italiano (it-IT), aportando autenticidad cultural y precisión lingüística.",
   "localization.vipProjects": "Proyectos VIP",
 
-  "projects.title": "Proyectos Destacados",
-  "skills.title": "Habilidades Técnicas",
+  "projects.title": "Proyectos destacados",
+  "skills.title": "Habilidades técnicas",
 
   "contact.title": "Ponte en Contacto",
-  "contact.lead": "¿Interesado en soluciones de automatización o en colaborar?",
+  "contact.lead": "¿Te interesan las soluciones de automatización o en colaborar?",
   "contact.linkedin": "Perfil de LinkedIn",
   "contact.email": "tofanimarco16@gmail.com"
   ,"projects": {
     "redelivery-hub": {
       "title": "Redelivery Hub",
-      "description": "Plataforma de automatización integral que revoluciona los flujos de reenvío de Prime Video mediante automatización inteligente y monitorización en tiempo real.",
+      "description": "Plataforma de automatización integral que revoluciona los flujos de Redelivery de Prime Video mediante automatización inteligente y monitorización en tiempo real.",
       "features": [
         "Plataforma de automatización multi-herramienta con interfaz unificada",
         "Creación automática de tickets con Selenium WebDriver",
         "Seguimiento del estado en tiempo real",
         "Sistemas de procesamiento y validación de archivos",
-        "FileHunter para descubrimiento y copia automática de archivos",
+        "FileHunter para buscar y copiar archivos automáticamente",
         "Redelivery Validator para aseguramiento de la calidad",
         "TicketEye para gestión masiva de tickets",
         "Sistema integrado de documentación SOP"
@@ -239,17 +239,17 @@
       "architecture": "Aplicación web Flask con procesos en segundo plano, comunicación WebSocket en tiempo real e integración modular de herramientas.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "lqa-extension": {
       "title": "Extensión LQA Tool",
-      "description": "Extensión de Chrome que mejora el flujo de trabajo de LQA Tool con selección conveniente de comentarios y mejor experiencia de usuario.",
+      "description": "Extensión de Chrome que mejora el flujo del LQA Tool con selección conveniente de comentarios y mejor experiencia de usuario.",
       "features": [
         "Botón Seleccionar Comentario para inserción rápida",
         "Popup de selección para mejorar la eficiencia del flujo de trabajo",
         "Integración sin fisuras con la interfaz existente de LQA Tool",
-        "Soporte de localización para códigos de idioma es-419",
+        "Soporte de localización para es-419",
         "Elementos de IU mejorados"
       ],
       "technologies": ["JavaScript","Chrome Extension API","HTML/CSS","JSON"],
@@ -261,12 +261,12 @@
       "architecture": "Extensión Chrome Manifest V3 con content scripts y recursos accesibles para integración fluida.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "redelivery-agent": {
       "title": "Redelivery Agent",
-      "description": "Herramienta web para procesar archivos Excel de reenvío con clara separación entre UI y lógica de negocio.",
+      "description": "Herramienta web para procesar archivos Excel de Redelivery con clara separación entre UI y lógica de negocio.",
       "features": [
         "Procesamiento de archivos Excel con la librería XLSX.js",
         "Carga y procesamiento de múltiples archivos",
@@ -277,14 +277,14 @@
       ],
       "technologies": ["JavaScript","HTML/CSS","XLSX.js","File API"],
       "impact": [
-        "Optimización del procesamiento de archivos de reenvío",
+        "Optimización del procesamiento de archivos de Redelivery",
         "Reducción de errores manuales en la entrada de datos",
         "Mejora de la consistencia de datos en los flujos de trabajo"
       ],
       "architecture": "Aplicación del lado del cliente con diseño modular en JavaScript y capacidades de procesamiento de Excel.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "filemaster": {
@@ -306,7 +306,7 @@
       "architecture": "Script Python con funciones modulares para varias operaciones de archivos y manejo completo de errores.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "timestamps-converter": {
@@ -328,7 +328,7 @@
       "architecture": "Utilidad Python con parsing basado en regex y algoritmos de conversión para varios formatos de timestamp.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     },
     "proxy-generation": {
@@ -350,7 +350,7 @@
       "architecture": "Sistema basado en documentos con plantillas estandarizadas y documentación completa de procesos.",
       "keyFeaturesHeading": "Características clave",
       "technologiesHeading": "Tecnologías utilizadas",
-      "impactHeading": "Impacto y Resultados",
+      "impactHeading": "Impacto y resultados",
       "architectureHeading": "Arquitectura"
     }
   }
