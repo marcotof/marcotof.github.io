@@ -11,16 +11,23 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Marco Tofani</div>
+            <div class="nav-logo" data-i18n="nav.logo">Marco Tofani</div>
+            <div class="nav-lang">
+                <select id="lang-select" aria-label="Select language">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="es">🇪🇸 Español</option>
+                </select>
+            </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#awards">Awards</a></li>
-                <li><a href="#timeline">Timeline</a></li>
-                <li><a href="#localization">Localization</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#awards" data-i18n="nav.awards">Awards</a></li>
+                <li><a href="#timeline" data-i18n="nav.timeline">Timeline</a></li>
+                <li><a href="#localization" data-i18n="nav.localization">Localization</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -28,33 +35,33 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Marco Tofani</h1>
-            <h2>Polyglot Translator & Developer</h2>
-            <p>Polyglot translator with a passion for development, building intelligent automation solutions at Prime Video to bridge language and technology</p>
+            <h2 data-i18n="hero.subtitle">Polyglot Translator & Developer</h2>
+            <p data-i18n="hero.lead">Polyglot translator with a passion for development, building intelligent automation solutions at Prime Video to bridge language and technology</p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn-primary">View Projects</a>
-                <a href="#localization" class="btn-secondary">View Localization</a>
-                <a href="#contact" class="btn-secondary">Get In Touch</a>
+                <a href="#projects" class="btn-primary" data-i18n="btn.viewProjects">View Projects</a>
+                <a href="#localization" class="btn-secondary" data-i18n="btn.viewLocalization">View Localization</a>
+                <a href="#contact" class="btn-secondary" data-i18n="btn.getInTouch">Get In Touch</a>
             </div>
         </div>
         <div class="hero-stats">
             <div class="stat">
                 <h3>5+</h3>
-                <p>Automation Tools</p>
+                <p data-i18n="stats.tools">Automation Tools</p>
             </div>
             <div class="stat">
                 <h3>100+</h3>
-                <p>Hours Saved Weekly</p>
+                <p data-i18n="stats.hours">Hours Saved Weekly</p>
             </div>
             <div class="stat">
                 <h3>3</h3>
-                <p>Programming Languages</p>
+                <p data-i18n="stats.languages">Programming Languages</p>
             </div>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
-            <h2>About Me</h2>
+            <h2 data-i18n="about.title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>Polyglot translator and Language Content Specialist at Prime Video with a passion for development and automation. With 40+ video game localization projects translated to Italian (it-IT), including VIP projects like Dragon's Dogma II and Super Mario Party Jamboree, I bring deep linguistic expertise to the tech world.</p>
@@ -83,7 +90,7 @@
 
     <section id="awards" class="awards">
         <div class="container">
-            <h2>Awards & Recognition</h2>
+            <h2 data-i18n="awards.title">Awards & Recognition</h2>
             <div class="awards-grid">
                 <div class="award-card">
                     <div class="award-icon">
@@ -105,7 +112,7 @@
 
     <section id="timeline" class="timeline">
         <div class="container">
-            <h2>Professional Journey</h2>
+            <h2 data-i18n="timeline.title">Professional Journey</h2>
             <div class="timeline-container">
                 <div class="timeline-item">
                     <div class="timeline-date">Jun 2022</div>
@@ -145,9 +152,9 @@
 
     <section id="localization" class="localization">
         <div class="container">
-            <h2>Localization Expertise</h2>
+            <h2 data-i18n="localization.title">Localization Expertise</h2>
             <div class="localization-intro">
-                <p>40+ video game localization projects translated to Italian (it-IT), bringing global gaming experiences to Italian audiences with cultural authenticity and linguistic precision.</p>
+                <p data-i18n="localization.intro">40+ video game localization projects translated to Italian (it-IT), bringing global gaming experiences to Italian audiences with cultural authenticity and linguistic precision.</p>
             </div>
             <div class="vip-projects">
                 <h3>VIP Projects</h3>
@@ -212,7 +219,7 @@
 
     <section id="projects" class="projects">
         <div class="container">
-            <h2>Featured Projects</h2>
+            <h2 data-i18n="projects.title">Featured Projects</h2>
             <div class="projects-grid">
                 
                 <div class="project-card featured">
@@ -340,7 +347,7 @@
 
     <section id="skills" class="skills">
         <div class="container">
-            <h2>Technical Skills</h2>
+            <h2 data-i18n="skills.title">Technical Skills</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Languages</h3>
@@ -404,8 +411,8 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p>Interested in automation solutions or collaboration opportunities?</p>
+            <h2 data-i18n="contact.title">Get In Touch</h2>
+            <p data-i18n="contact.lead">Interested in automation solutions or collaboration opportunities?</p>
             <div class="contact-content">
                 <div class="profile-picture">
                     <img src="profile-picture.jpg" alt="Marco Tofani" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
@@ -414,11 +421,11 @@
                     </div>
                 </div>
                 <div class="contact-info">
-                    <a href="https://www.linkedin.com/in/marco-tofani/" class="contact-link">
+                    <a href="https://www.linkedin.com/in/marco-tofani/" class="contact-link" data-i18n="contact.linkedin">
                         <i class="fab fa-linkedin"></i>
                         LinkedIn Profile
                     </a>
-                    <a href="mailto:tofanimarco16@gmail.com" class="contact-link">
+                    <a href="mailto:tofanimarco16@gmail.com" class="contact-link" data-i18n="contact.email">
                         <i class="fas fa-envelope"></i>
                         tofanimarco16@gmail.com
                     </a>

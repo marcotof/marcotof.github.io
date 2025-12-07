@@ -1,0 +1,358 @@
+{
+  "nav.logo": "Marco Tofani",
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.awards": "Awards",
+  "nav.timeline": "Timeline",
+  "nav.localization": "Localization",
+  "nav.projects": "Projects",
+  "nav.skills": "Skills",
+  "nav.contact": "Contact",
+
+  "hero.subtitle": "Polyglot Translator & Developer",
+  "hero.lead": "Polyglot translator with a passion for development, building intelligent automation solutions at Prime Video to bridge language and technology",
+  "btn.viewProjects": "View Projects",
+  "btn.viewLocalization": "View Localization",
+  "btn.getInTouch": "Get In Touch",
+
+  "stats.tools": "Automation Tools",
+  "stats.hours": "Hours Saved Weekly",
+  "stats.languages": "Programming Languages",
+
+  "about.title": "About Me",
+
+  "awards.title": "Awards & Recognition",
+
+  "timeline.title": "Professional Journey",
+
+  "localization.title": "Localization Expertise",
+  "localization.intro": "40+ video game localization projects translated to Italian (it-IT), bringing global gaming experiences to Italian audiences with cultural authenticity and linguistic precision.",
+  "localization.vipProjects": "VIP Projects",
+
+  "projects.title": "Featured Projects",
+  "skills.title": "Technical Skills",
+
+  "contact.title": "Get In Touch",
+  "contact.lead": "Interested in automation solutions or collaboration opportunities?",
+  "contact.linkedin": "LinkedIn Profile",
+  "contact.email": "tofanimarco16@gmail.com",
+
+  "projects": {
+    "redelivery-hub": {
+      "title": "Redelivery Hub",
+      "description": "A comprehensive automation platform that revolutionizes Prime Video redelivery workflows through intelligent automation and real-time monitoring.",
+      "features": [
+        "Multi-tool automation platform with unified interface",
+        "Automated ticket creation with Selenium WebDriver",
+        "Real-time status tracking and progress monitoring",
+        "File processing and validation systems",
+        "FileHunter for automated file discovery and copying",
+        "Redelivery Validator for quality assurance",
+        "TicketEye for bulk ticket management",
+        "Integrated SOP documentation system"
+      ],
+      "technologies": ["Python", "Flask", "Selenium WebDriver", "HTML/CSS", "JavaScript", "Pandas", "PyAutoGUI"],
+      "impact": [
+        "Reduced manual ticket creation time by 90%",
+        "Automated file processing for 100+ jobs weekly",
+        "Eliminated human errors in repetitive tasks",
+        "Centralized multiple tools into single platform"
+      ],
+      "architecture": "Flask web application with threaded background processes, real-time WebSocket communication, and modular tool integration.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "lqa-extension": {
+      "title": "LQA Tool Extension",
+      "description": "Chrome extension that enhances the LQA Tool workflow with convenient comment selection and improved user experience.",
+      "features": [
+        "Select Comment button for quick comment insertion",
+        "Blurb selection popup for improved workflow efficiency",
+        "Seamless integration with existing LQA Tool interface",
+        "Localization support for es-419 language codes",
+        "Enhanced user interface elements"
+      ],
+      "technologies": ["JavaScript", "Chrome Extension API", "HTML/CSS", "JSON"],
+      "impact": [
+        "Improved QA workflow efficiency by 40%",
+        "Reduced comment selection time",
+        "Enhanced user experience for quality assurance team"
+      ],
+      "architecture": "Manifest V3 Chrome extension with content scripts and web accessible resources for seamless integration.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "redelivery-agent": {
+      "title": "Redelivery Agent",
+      "description": "Web-based tool for processing redelivery Excel files with clean separation of UI and business logic.",
+      "features": [
+        "Excel file processing with XLSX.js library",
+        "Multiple file upload and processing",
+        "Clean separation of UI and business logic",
+        "Modular JavaScript architecture",
+        "Export functionality for processed data",
+        "Requestor alias and intake source management"
+      ],
+      "technologies": ["JavaScript", "HTML/CSS", "XLSX.js", "File API"],
+      "impact": [
+        "Streamlined redelivery file processing",
+        "Reduced manual data entry errors",
+        "Improved data consistency across workflows"
+      ],
+      "architecture": "Client-side web application with modular JavaScript design and Excel processing capabilities.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "filemaster": {
+      "title": "FileMaster",
+      "description": "Python utility for advanced file management and processing operations, streamlining file organization tasks.",
+      "features": [
+        "Advanced file management operations",
+        "Batch processing capabilities",
+        "File organization and sorting",
+        "Automated file operations",
+        "Error handling and logging"
+      ],
+      "technologies": ["Python", "File System APIs", "OS Module"],
+      "impact": [
+        "Automated repetitive file operations",
+        "Improved file organization efficiency",
+        "Reduced manual file management tasks"
+      ],
+      "architecture": "Python script with modular functions for various file operations and comprehensive error handling.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "timestamps-converter": {
+      "title": "TimeStamps Converter",
+      "description": "Specialized tool for converting and processing timestamp formats in media files, essential for subtitle workflows.",
+      "features": [
+        "Multiple timestamp format support",
+        "Batch conversion capabilities",
+        "Media file timestamp processing",
+        "Format validation and error checking",
+        "Subtitle synchronization support"
+      ],
+      "technologies": ["Python", "Regular Expressions", "File I/O"],
+      "impact": [
+        "Automated timestamp conversion processes",
+        "Improved subtitle synchronization accuracy",
+        "Reduced manual timestamp editing time"
+      ],
+      "architecture": "Python utility with regex-based parsing and conversion algorithms for various timestamp formats.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "proxy-generation": {
+      "title": "Proxy Generation Tools",
+      "description": "Documentation and templates for proxy generation processes, including SOPs and Excel templates.",
+      "features": [
+        "Comprehensive process documentation",
+        "Excel templates for partner support",
+        "Standard Operating Procedures (SOPs)",
+        "Partner support workflow templates",
+        "Process standardization tools"
+      ],
+      "technologies": ["Microsoft Excel", "Microsoft Word", "Process Documentation"],
+      "impact": [
+        "Standardized proxy generation processes",
+        "Improved partner support efficiency",
+        "Reduced process variation and errors"
+      ],
+      "architecture": "Document-based system with standardized templates and comprehensive process documentation.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    }
+  }
+}
+{
+  "nav.logo": "Marco Tofani",
+  "nav.home": "Home",
+  "nav.about": "About",
+  "nav.awards": "Awards",
+  "nav.timeline": "Timeline",
+  "nav.localization": "Localization",
+  "nav.projects": "Projects",
+  "nav.skills": "Skills",
+  "nav.contact": "Contact",
+
+  "hero.subtitle": "Polyglot Translator & Developer",
+  "hero.lead": "Polyglot translator with a passion for development, building intelligent automation solutions at Prime Video to bridge language and technology",
+  "btn.viewProjects": "View Projects",
+  "btn.viewLocalization": "View Localization",
+  "btn.getInTouch": "Get In Touch",
+
+  "stats.tools": "Automation Tools",
+  "stats.hours": "Hours Saved Weekly",
+  "stats.languages": "Programming Languages",
+
+  "about.title": "About Me",
+
+  "awards.title": "Awards & Recognition",
+
+  "timeline.title": "Professional Journey",
+
+  "localization.title": "Localization Expertise",
+  "localization.intro": "40+ video game localization projects translated to Italian (it-IT), bringing global gaming experiences to Italian audiences with cultural authenticity and linguistic precision.",
+  "localization.vipProjects": "VIP Projects",
+
+  "projects.title": "Featured Projects",
+  "skills.title": "Technical Skills",
+
+  "contact.title": "Get In Touch",
+  "contact.lead": "Interested in automation solutions or collaboration opportunities?",
+  "contact.linkedin": "LinkedIn Profile",
+  "contact.email": "tofanimarco16@gmail.com"
+  ,"projects": {
+    "redelivery-hub": {
+      "title": "Redelivery Hub",
+      "description": "A comprehensive automation platform that revolutionizes Prime Video redelivery workflows through intelligent automation and real-time monitoring.",
+      "features": [
+        "Multi-tool automation platform with unified interface",
+        "Automated ticket creation with Selenium WebDriver",
+        "Real-time status tracking and progress monitoring",
+        "File processing and validation systems",
+        "FileHunter for automated file discovery and copying",
+        "Redelivery Validator for quality assurance",
+        "TicketEye for bulk ticket management",
+        "Integrated SOP documentation system"
+      ],
+      "technologies": ["Python","Flask","Selenium WebDriver","HTML/CSS","JavaScript","Pandas","PyAutoGUI"],
+      "impact": [
+        "Reduced manual ticket creation time by 90%",
+        "Automated file processing for 100+ jobs weekly",
+        "Eliminated human errors in repetitive tasks",
+        "Centralized multiple tools into single platform"
+      ],
+      "architecture": "Flask web application with threaded background processes, real-time WebSocket communication, and modular tool integration.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "lqa-extension": {
+      "title": "LQA Tool Extension",
+      "description": "Chrome extension that enhances the LQA Tool workflow with convenient comment selection and improved user experience.",
+      "features": [
+        "Select Comment button for quick comment insertion",
+        "Blurb selection popup for improved workflow efficiency",
+        "Seamless integration with existing LQA Tool interface",
+        "Localization support for es-419 language codes",
+        "Enhanced user interface elements"
+      ],
+      "technologies": ["JavaScript","Chrome Extension API","HTML/CSS","JSON"],
+      "impact": [
+        "Improved QA workflow efficiency by 40%",
+        "Reduced comment selection time",
+        "Enhanced user experience for quality assurance team"
+      ],
+      "architecture": "Manifest V3 Chrome extension with content scripts and web accessible resources for seamless integration.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "redelivery-agent": {
+      "title": "Redelivery Agent",
+      "description": "Web-based tool for processing redelivery Excel files with clean separation of UI and business logic.",
+      "features": [
+        "Excel file processing with XLSX.js library",
+        "Multiple file upload and processing",
+        "Clean separation of UI and business logic",
+        "Modular JavaScript architecture",
+        "Export functionality for processed data",
+        "Requestor alias and intake source management"
+      ],
+      "technologies": ["JavaScript","HTML/CSS","XLSX.js","File API"],
+      "impact": [
+        "Streamlined redelivery file processing",
+        "Reduced manual data entry errors",
+        "Improved data consistency across workflows"
+      ],
+      "architecture": "Client-side web application with modular JavaScript design and Excel processing capabilities.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "filemaster": {
+      "title": "FileMaster",
+      "description": "Python utility for advanced file management and processing operations, streamlining file organization tasks.",
+      "features": [
+        "Advanced file management operations",
+        "Batch processing capabilities",
+        "File organization and sorting",
+        "Automated file operations",
+        "Error handling and logging"
+      ],
+      "technologies": ["Python","File System APIs","OS Module"],
+      "impact": [
+        "Automated repetitive file operations",
+        "Improved file organization efficiency",
+        "Reduced manual file management tasks"
+      ],
+      "architecture": "Python script with modular functions for various file operations and comprehensive error handling.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "timestamps-converter": {
+      "title": "TimeStamps Converter",
+      "description": "Specialized tool for converting and processing timestamp formats in media files, essential for subtitle workflows.",
+      "features": [
+        "Multiple timestamp format support",
+        "Batch conversion capabilities",
+        "Media file timestamp processing",
+        "Format validation and error checking",
+        "Subtitle synchronization support"
+      ],
+      "technologies": ["Python","Regular Expressions","File I/O"],
+      "impact": [
+        "Automated timestamp conversion processes",
+        "Improved subtitle synchronization accuracy",
+        "Reduced manual timestamp editing time"
+      ],
+      "architecture": "Python utility with regex-based parsing and conversion algorithms for various timestamp formats.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    },
+    "proxy-generation": {
+      "title": "Proxy Generation Tools",
+      "description": "Documentation and templates for proxy generation processes, including SOPs and Excel templates.",
+      "features": [
+        "Comprehensive process documentation",
+        "Excel templates for partner support",
+        "Standard Operating Procedures (SOPs)",
+        "Partner support workflow templates",
+        "Process standardization tools"
+      ],
+      "technologies": ["Microsoft Excel","Microsoft Word","Process Documentation"],
+      "impact": [
+        "Standardized proxy generation processes",
+        "Improved partner support efficiency",
+        "Reduced process variation and errors"
+      ],
+      "architecture": "Document-based system with standardized templates and comprehensive process documentation.",
+      "keyFeaturesHeading": "Key Features",
+      "technologiesHeading": "Technologies Used",
+      "impactHeading": "Impact & Results",
+      "architectureHeading": "Architecture"
+    }
+  }
+}
+

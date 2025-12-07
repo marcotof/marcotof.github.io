@@ -1,0 +1,358 @@
+{
+  "nav.logo": "Marco Tofani",
+  "nav.home": "Inicio",
+  "nav.about": "Acerca",
+  "nav.awards": "Reconocimientos",
+  "nav.timeline": "Trayectoria",
+  "nav.localization": "Localización",
+  "nav.projects": "Proyectos",
+  "nav.skills": "Habilidades",
+  "nav.contact": "Contacto",
+
+  "hero.subtitle": "Traductor políglota y desarrollador",
+  "hero.lead": "Traductor políglota apasionado por el desarrollo, construyo soluciones de automatización inteligentes en Prime Video para unir lenguaje y tecnología",
+  "btn.viewProjects": "Ver Proyectos",
+  "btn.viewLocalization": "Ver Localización",
+  "btn.getInTouch": "Contactarme",
+
+  "stats.tools": "Herramientas de Automatización",
+  "stats.hours": "Horas ahorradas semanalmente",
+  "stats.languages": "Lenguajes de programación",
+
+  "about.title": "Acerca de mí",
+
+  "awards.title": "Premios y Reconocimientos",
+
+  "timeline.title": "Trayectoria Profesional",
+
+  "localization.title": "Experiencia en Localización",
+  "localization.intro": "Más de 40 proyectos de localización de videojuegos traducidos al italiano (it-IT), aportando autenticidad cultural y precisión lingüística.",
+  "localization.vipProjects": "Proyectos VIP",
+
+  "projects.title": "Proyectos Destacados",
+  "skills.title": "Habilidades Técnicas",
+
+  "contact.title": "Ponte en Contacto",
+  "contact.lead": "¿Interesado en soluciones de automatización o en colaborar?",
+  "contact.linkedin": "Perfil de LinkedIn",
+  "contact.email": "tofanimarco16@gmail.com",
+
+  "projects": {
+    "redelivery-hub": {
+      "title": "Redelivery Hub",
+      "description": "Plataforma de automatización integral que revoluciona los flujos de reenvío de Prime Video mediante automatización inteligente y monitorización en tiempo real.",
+      "features": [
+        "Plataforma de automatización multi-herramienta con interfaz unificada",
+        "Creación automática de tickets con Selenium WebDriver",
+        "Seguimiento del estado en tiempo real",
+        "Sistemas de procesamiento y validación de archivos",
+        "FileHunter para descubrimiento y copia automática de archivos",
+        "Redelivery Validator para aseguramiento de la calidad",
+        "TicketEye para gestión masiva de tickets",
+        "Sistema integrado de documentación SOP"
+      ],
+      "technologies": ["Python", "Flask", "Selenium WebDriver", "HTML/CSS", "JavaScript", "Pandas", "PyAutoGUI"],
+      "impact": [
+        "Reducción del tiempo de creación de tickets manuales en un 90%",
+        "Procesamiento automático de más de 100 trabajos semanales",
+        "Eliminación de errores humanos en tareas repetitivas",
+        "Centralización de múltiples herramientas en una sola plataforma"
+      ],
+      "architecture": "Aplicación web Flask con procesos en segundo plano, comunicación WebSocket en tiempo real e integración modular de herramientas.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "lqa-extension": {
+      "title": "Extensión LQA Tool",
+      "description": "Extensión de Chrome que mejora el flujo de trabajo de LQA Tool con selección conveniente de comentarios y mejor experiencia de usuario.",
+      "features": [
+        "Botón Seleccionar Comentario para inserción rápida",
+        "Popup de selección para mejorar la eficiencia del flujo de trabajo",
+        "Integración sin fisuras con la interfaz existente de LQA Tool",
+        "Soporte de localización para códigos de idioma es-419",
+        "Elementos de IU mejorados"
+      ],
+      "technologies": ["JavaScript", "Chrome Extension API", "HTML/CSS", "JSON"],
+      "impact": [
+        "Mejora de la eficiencia del flujo QA en un 40%",
+        "Reducción del tiempo de selección de comentarios",
+        "Mejora de la experiencia de usuario para el equipo de control de calidad"
+      ],
+      "architecture": "Extensión Chrome Manifest V3 con content scripts y recursos accesibles para integración fluida.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "redelivery-agent": {
+      "title": "Redelivery Agent",
+      "description": "Herramienta web para procesar archivos Excel de reenvío con clara separación entre UI y lógica de negocio.",
+      "features": [
+        "Procesamiento de archivos Excel con la librería XLSX.js",
+        "Carga y procesamiento de múltiples archivos",
+        "Separación clara entre UI y lógica de negocio",
+        "Arquitectura JavaScript modular",
+        "Funcionalidad de exportación para datos procesados",
+        "Gestión de alias del solicitante y fuente de entrada"
+      ],
+      "technologies": ["JavaScript", "HTML/CSS", "XLSX.js", "File API"],
+      "impact": [
+        "Optimización del procesamiento de archivos de reenvío",
+        "Reducción de errores manuales en la entrada de datos",
+        "Mejora de la consistencia de datos en los flujos de trabajo"
+      ],
+      "architecture": "Aplicación del lado del cliente con diseño modular en JavaScript y capacidades de procesamiento de Excel.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "filemaster": {
+      "title": "FileMaster",
+      "description": "Utilidad en Python para administración avanzada de archivos y operaciones de procesamiento, optimizando la organización de archivos.",
+      "features": [
+        "Operaciones avanzadas de gestión de archivos",
+        "Capacidades de procesamiento por lotes",
+        "Organización y clasificación de archivos",
+        "Operaciones de archivos automatizadas",
+        "Manejo de errores y registro"
+      ],
+      "technologies": ["Python", "File System APIs", "OS Module"],
+      "impact": [
+        "Automatización de operaciones repetitivas con archivos",
+        "Mejora de la eficiencia en la organización de archivos",
+        "Reducción de tareas manuales de gestión de archivos"
+      ],
+      "architecture": "Script Python con funciones modulares para varias operaciones de archivos y manejo completo de errores.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "timestamps-converter": {
+      "title": "TimeStamps Converter",
+      "description": "Herramienta especializada para convertir y procesar formatos de timestamp en archivos multimedia, esencial para flujos de trabajo de subtítulos.",
+      "features": [
+        "Soporte para múltiples formatos de timestamp",
+        "Capacidades de conversión por lotes",
+        "Procesamiento de timestamps en archivos multimedia",
+        "Validación del formato y comprobación de errores",
+        "Soporte para sincronización de subtítulos"
+      ],
+      "technologies": ["Python", "Regular Expressions", "File I/O"],
+      "impact": [
+        "Automatización de procesos de conversión de timestamps",
+        "Mejora de la precisión en la sincronización de subtítulos",
+        "Reducción del tiempo de edición manual de timestamps"
+      ],
+      "architecture": "Utilidad Python con parsing basado en regex y algoritmos de conversión para varios formatos de timestamp.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "proxy-generation": {
+      "title": "Proxy Generation Tools",
+      "description": "Documentación y plantillas para los procesos de generación de proxies, incluidos SOP y plantillas Excel.",
+      "features": [
+        "Documentación integral de procesos",
+        "Plantillas Excel para soporte a partners",
+        "Procedimientos operativos estándar (SOP)",
+        "Plantillas de flujo de soporte a partners",
+        "Herramientas para la estandarización de procesos"
+      ],
+      "technologies": ["Microsoft Excel", "Microsoft Word", "Process Documentation"],
+      "impact": [
+        "Estandarización de los procesos de generación de proxies",
+        "Mejora de la eficiencia del soporte a partners",
+        "Reducción de la variación del proceso y errores"
+      ],
+      "architecture": "Sistema basado en documentos con plantillas estandarizadas y documentación completa de procesos.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    }
+  }
+}
+{
+  "nav.logo": "Marco Tofani",
+  "nav.home": "Inicio",
+  "nav.about": "Acerca",
+  "nav.awards": "Reconocimientos",
+  "nav.timeline": "Trayectoria",
+  "nav.localization": "Localización",
+  "nav.projects": "Proyectos",
+  "nav.skills": "Habilidades",
+  "nav.contact": "Contacto",
+
+  "hero.subtitle": "Traductor políglota y desarrollador",
+  "hero.lead": "Traductor políglota apasionado por el desarrollo, construyo soluciones de automatización inteligentes en Prime Video para unir lenguaje y tecnología",
+  "btn.viewProjects": "Ver Proyectos",
+  "btn.viewLocalization": "Ver Localización",
+  "btn.getInTouch": "Contactarme",
+
+  "stats.tools": "Herramientas de Automatización",
+  "stats.hours": "Horas ahorradas semanalmente",
+  "stats.languages": "Lenguajes de programación",
+
+  "about.title": "Acerca de mí",
+
+  "awards.title": "Premios y Reconocimientos",
+
+  "timeline.title": "Trayectoria Profesional",
+
+  "localization.title": "Experiencia en Localización",
+  "localization.intro": "Más de 40 proyectos de localización de videojuegos traducidos al italiano (it-IT), aportando autenticidad cultural y precisión lingüística.",
+  "localization.vipProjects": "Proyectos VIP",
+
+  "projects.title": "Proyectos Destacados",
+  "skills.title": "Habilidades Técnicas",
+
+  "contact.title": "Ponte en Contacto",
+  "contact.lead": "¿Interesado en soluciones de automatización o en colaborar?",
+  "contact.linkedin": "Perfil de LinkedIn",
+  "contact.email": "tofanimarco16@gmail.com"
+  ,"projects": {
+    "redelivery-hub": {
+      "title": "Redelivery Hub",
+      "description": "Plataforma de automatización integral que revoluciona los flujos de reenvío de Prime Video mediante automatización inteligente y monitorización en tiempo real.",
+      "features": [
+        "Plataforma de automatización multi-herramienta con interfaz unificada",
+        "Creación automática de tickets con Selenium WebDriver",
+        "Seguimiento del estado en tiempo real",
+        "Sistemas de procesamiento y validación de archivos",
+        "FileHunter para descubrimiento y copia automática de archivos",
+        "Redelivery Validator para aseguramiento de la calidad",
+        "TicketEye para gestión masiva de tickets",
+        "Sistema integrado de documentación SOP"
+      ],
+      "technologies": ["Python","Flask","Selenium WebDriver","HTML/CSS","JavaScript","Pandas","PyAutoGUI"],
+      "impact": [
+        "Reducción del tiempo de creación de tickets manuales en un 90%",
+        "Procesamiento automático de más de 100 trabajos semanales",
+        "Eliminación de errores humanos en tareas repetitivas",
+        "Centralización de múltiples herramientas en una sola plataforma"
+      ],
+      "architecture": "Aplicación web Flask con procesos en segundo plano, comunicación WebSocket en tiempo real e integración modular de herramientas.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "lqa-extension": {
+      "title": "Extensión LQA Tool",
+      "description": "Extensión de Chrome que mejora el flujo de trabajo de LQA Tool con selección conveniente de comentarios y mejor experiencia de usuario.",
+      "features": [
+        "Botón Seleccionar Comentario para inserción rápida",
+        "Popup de selección para mejorar la eficiencia del flujo de trabajo",
+        "Integración sin fisuras con la interfaz existente de LQA Tool",
+        "Soporte de localización para códigos de idioma es-419",
+        "Elementos de IU mejorados"
+      ],
+      "technologies": ["JavaScript","Chrome Extension API","HTML/CSS","JSON"],
+      "impact": [
+        "Mejora de la eficiencia del flujo QA en un 40%",
+        "Reducción del tiempo de selección de comentarios",
+        "Mejora de la experiencia de usuario para el equipo de control de calidad"
+      ],
+      "architecture": "Extensión Chrome Manifest V3 con content scripts y recursos accesibles para integración fluida.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "redelivery-agent": {
+      "title": "Redelivery Agent",
+      "description": "Herramienta web para procesar archivos Excel de reenvío con clara separación entre UI y lógica de negocio.",
+      "features": [
+        "Procesamiento de archivos Excel con la librería XLSX.js",
+        "Carga y procesamiento de múltiples archivos",
+        "Separación clara entre UI y lógica de negocio",
+        "Arquitectura JavaScript modular",
+        "Funcionalidad de exportación para datos procesados",
+        "Gestión de alias del solicitante y fuente de entrada"
+      ],
+      "technologies": ["JavaScript","HTML/CSS","XLSX.js","File API"],
+      "impact": [
+        "Optimización del procesamiento de archivos de reenvío",
+        "Reducción de errores manuales en la entrada de datos",
+        "Mejora de la consistencia de datos en los flujos de trabajo"
+      ],
+      "architecture": "Aplicación del lado del cliente con diseño modular en JavaScript y capacidades de procesamiento de Excel.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "filemaster": {
+      "title": "FileMaster",
+      "description": "Utilidad en Python para administración avanzada de archivos y operaciones de procesamiento, optimizando la organización de archivos.",
+      "features": [
+        "Operaciones avanzadas de gestión de archivos",
+        "Capacidades de procesamiento por lotes",
+        "Organización y clasificación de archivos",
+        "Operaciones de archivos automatizadas",
+        "Manejo de errores y registro"
+      ],
+      "technologies": ["Python","File System APIs","OS Module"],
+      "impact": [
+        "Automatización de operaciones repetitivas con archivos",
+        "Mejora de la eficiencia en la organización de archivos",
+        "Reducción de tareas manuales de gestión de archivos"
+      ],
+      "architecture": "Script Python con funciones modulares para varias operaciones de archivos y manejo completo de errores.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "timestamps-converter": {
+      "title": "TimeStamps Converter",
+      "description": "Herramienta especializada para convertir y procesar formatos de timestamp en archivos multimedia, esencial para flujos de trabajo de subtítulos.",
+      "features": [
+        "Soporte para múltiples formatos de timestamp",
+        "Capacidades de conversión por lotes",
+        "Procesamiento de timestamps en archivos multimedia",
+        "Validación del formato y comprobación de errores",
+        "Soporte para sincronización de subtítulos"
+      ],
+      "technologies": ["Python","Regular Expressions","File I/O"],
+      "impact": [
+        "Automatización de procesos de conversión de timestamps",
+        "Mejora de la precisión en la sincronización de subtítulos",
+        "Reducción del tiempo de edición manual de timestamps"
+      ],
+      "architecture": "Utilidad Python con parsing basado en regex y algoritmos de conversión para varios formatos de timestamp.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    },
+    "proxy-generation": {
+      "title": "Proxy Generation Tools",
+      "description": "Documentación y plantillas para los procesos de generación de proxies, incluidos SOP y plantillas Excel.",
+      "features": [
+        "Documentación integral de procesos",
+        "Plantillas Excel para soporte a partners",
+        "Procedimientos operativos estándar (SOP)",
+        "Plantillas de flujo de soporte a partners",
+        "Herramientas para la estandarización de procesos"
+      ],
+      "technologies": ["Microsoft Excel","Microsoft Word","Process Documentation"],
+      "impact": [
+        "Estandarización de los procesos de generación de proxies",
+        "Mejora de la eficiencia del soporte a partners",
+        "Reducción de la variación del proceso y errores"
+      ],
+      "architecture": "Sistema basado en documentos con plantillas estandarizadas y documentación completa de procesos.",
+      "keyFeaturesHeading": "Características clave",
+      "technologiesHeading": "Tecnologías utilizadas",
+      "impactHeading": "Impacto y Resultados",
+      "architectureHeading": "Arquitectura"
+    }
+  }
+}
+

@@ -12,6 +12,65 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// Simple client-side i18n loader (supports en, it, es)
+const supportedLangs = ['en', 'it', 'es'];
+const _localesCache = {};
+
+async function loadLocale(lang) {
+    if (!supportedLangs.includes(lang)) lang = 'en';
+    if (_localesCache[lang]) {
+        applyTranslations(_localesCache[lang]);
+        return _localesCache[lang];
+    }
+    try {
+        const res = await fetch(`locales/${lang}.json`);
+        if (!res.ok) throw new Error('Locale not found');
+        const data = await res.json();
+        _localesCache[lang] = data;
+        window.currentLocaleData = data;
+        applyTranslations(data);
+        return data;
+    } catch (err) {
+        console.warn('Locale load failed for', lang, err);
+        if (lang !== 'en') return loadLocale('en');
+    }
+}
+
+function applyTranslations(t) {
+    if (!t) return;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        const val = t[key];
+        if (val === undefined) return;
+        const tag = el.tagName.toLowerCase();
+        if (tag === 'input' || tag === 'textarea') {
+            el.placeholder = val;
+        } else {
+            el.textContent = val;
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const saved = localStorage.getItem('lang');
+    let lang = saved || (navigator.language || navigator.userLanguage || 'en').split('-')[0];
+    if (!supportedLangs.includes(lang)) lang = 'en';
+
+    const select = document.getElementById('lang-select');
+    if (select) {
+        // set select to saved or detected language
+        select.value = lang;
+        select.addEventListener('change', function() {
+            const chosen = this.value;
+            if (!supportedLangs.includes(chosen)) return;
+            localStorage.setItem('lang', chosen);
+            loadLocale(chosen);
+        });
+    }
+
+    loadLocale(lang);
+});
+
 // Project details data
 const projectDetails = {
     'redelivery-hub': {
@@ -180,28 +239,38 @@ function showProjectDetails(projectId) {
     const project = projectDetails[projectId];
     if (!project) return;
 
+    // Prefer localized project content when available
+    const localized = (window.currentLocaleData && window.currentLocaleData.projects && window.currentLocaleData.projects[projectId]) || {};
+
+    const title = localized.title || project.title;
+    const description = localized.description || project.description;
+    const features = localized.features || project.features || [];
+    const technologies = localized.technologies || project.technologies || [];
+    const impact = localized.impact || project.impact || [];
+    const architecture = localized.architecture || project.architecture || '';
+
     const modalBody = document.getElementById('modal-body');
     modalBody.innerHTML = `
-        <h2>${project.title}</h2>
-        <p class="project-description">${project.description}</p>
+        <h2>${title}</h2>
+        <p class="project-description">${description}</p>
         
-        <h3>Key Features</h3>
+        <h3>${(localized.keyFeaturesHeading || 'Key Features')}</h3>
         <ul class="feature-list">
-            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+            ${features.map(feature => `<li>${feature}</li>`).join('')}
         </ul>
         
-        <h3>Technologies Used</h3>
+        <h3>${(localized.technologiesHeading || 'Technologies Used')}</h3>
         <div class="tech-tags">
-            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            ${technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
         </div>
         
-        <h3>Impact & Results</h3>
+        <h3>${(localized.impactHeading || 'Impact & Results')}</h3>
         <ul class="impact-list">
-            ${project.impact.map(impact => `<li>${impact}</li>`).join('')}
+            ${impact.map(i => `<li>${i}</li>`).join('')}
         </ul>
         
-        <h3>Architecture</h3>
-        <p class="architecture-description">${project.architecture}</p>
+        <h3>${(localized.architectureHeading || 'Architecture')}</h3>
+        <p class="architecture-description">${architecture}</p>
     `;
 
     document.getElementById('project-modal').style.display = 'block';

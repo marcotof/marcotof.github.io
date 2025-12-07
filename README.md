@@ -125,3 +125,31 @@ For questions about this portfolio or collaboration opportunities:
 ---
 
 *Built with ❤️ for showcasing automation engineering excellence at Prime Video*
+
+## Localization (i18n)
+
+This site includes a simple client-side localization system using one JSON file per language stored in the `locales/` folder. Current languages: English (`en`), Italian (`it`) and Spanish (`es`).
+
+How it works:
+- Translation files: `locales/en.json`, `locales/it.json`, `locales/es.json`.
+- Elements to translate are marked with `data-i18n="key"` attributes in `index.html`.
+- The language selector is a dropdown (`#lang-select`) in the navbar displaying flag emojis (🇬🇧 English, 🇮🇹 Italiano, 🇪🇸 Español).
+- The current language is saved to `localStorage` so the choice persists across visits.
+- Project modal contents are localized via keys under the `projects` object in each locale file.
+
+Adding/updating translations:
+1. Open `locales/en.json` to see the structure and keys used on the site.
+2. Add or update the same key in `locales/it.json` and `locales/es.json` with the translated string or array.
+   - Project modal entries are nested under `projects.<projectId>` and can include `title`, `description`, `features` (array), `technologies` (array), `impact` (array), and `architecture`.
+3. If you add new translatable text to `index.html`, add a `data-i18n` attribute (e.g. `data-i18n="nav.newKey"`) and include the key in each locale file.
+
+Testing locally (recommended to serve files so fetch works correctly):
+```powershell
+# from the project folder
+python -m http.server 8000
+# then open http://localhost:8000 in your browser
+```
+
+Notes & next steps:
+- For complex pluralization or interpolation consider integrating a library such as `i18next`.
+- For SEO-sensitive localized pages, consider pre-rendering separate language pages and adding `hreflang` tags.
