@@ -46,7 +46,19 @@ function applyTranslations(t) {
         if (tag === 'input' || tag === 'textarea') {
             el.placeholder = val;
         } else {
-            el.textContent = val;
+            // For elements with child nodes (like links with icons), replace only text nodes
+            let textNodeFound = false;
+            for (let node of el.childNodes) {
+                if (node.nodeType === Node.TEXT_NODE) {
+                    node.textContent = val;
+                    textNodeFound = true;
+                    break;
+                }
+            }
+            // If no text node found, set textContent directly
+            if (!textNodeFound) {
+                el.textContent = val;
+            }
         }
     });
 }
