@@ -1,3 +1,27 @@
+// Dark mode toggle
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
+const darkModeIcon = darkModeToggle?.querySelector('i');
+
+// Check for saved dark mode preference or default to light mode
+const currentMode = localStorage.getItem('darkMode');
+if (currentMode === 'enabled') {
+    document.body.classList.add('dark-mode');
+    if (darkModeIcon) darkModeIcon.classList.replace('fa-moon', 'fa-sun');
+}
+
+darkModeToggle?.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    // Update icon
+    if (document.body.classList.contains('dark-mode')) {
+        darkModeIcon?.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        darkModeIcon?.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('darkMode', 'disabled');
+    }
+});
+
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -431,11 +455,13 @@ document.head.appendChild(style);
 // Add scroll effect to navbar
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.98)' : 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = isDarkMode ? '0 2px 20px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.95)' : 'rgba(255, 255, 255, 0.95)';
         navbar.style.boxShadow = 'none';
     }
 });

@@ -4,8 +4,11 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 
 ## Features
 
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
+- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
+- **Dark Mode**: Toggle between light and dark themes with persistent preference
+- **Multi-language Support**: English, Italian, and Spanish with embedded translations
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
+- **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Clean design with smooth animations and transitions
 - **Professional Presentation**: Optimized for recruiters and technical managers
 
@@ -32,20 +35,27 @@ Documentation and templates for partner support workflows
 
 ## Technologies Used
 
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Styling**: Modern CSS Grid/Flexbox, Custom animations
-- **Icons**: Font Awesome
+- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
+- **Styling**: CSS Variables for theming, Modern CSS Grid/Flexbox, Custom animations
+- **Dark Mode**: CSS variables with localStorage persistence
+- **Internationalization**: Embedded JSON translations in JavaScript
+- **Icons**: Font Awesome 6
 - **Fonts**: Inter (Google Fonts)
-- **Responsive**: Mobile-first design approach
+- **Responsive**: Mobile-first design with hamburger navigation
 
 ## File Structure
 
 ```
 portfolio-website/
-├── index.html          # Main HTML structure
-├── styles.css          # CSS styling and animations
-├── script.js           # JavaScript functionality
-└── README.md          # This file
+├── index.html                    # Main HTML structure
+├── styles.css                    # CSS styling with dark mode variables
+├── script.js                     # JavaScript functionality (dark mode, mobile menu, i18n)
+├── locales.js                    # Embedded translations (en, it, es)
+├── Marco Tofani_Resume.pdf       # Downloadable resume
+├── profile-picture.jpg           # Profile image
+├── dragons-dogma-2.jpg           # VIP project image
+├── super-mario-party-jamboree.jpg # VIP project image
+└── README.md                     # This file
 ```
 
 ## Setup Instructions
@@ -107,14 +117,20 @@ portfolio-website/
 2. Upload files to web hosting service
 3. Configure DNS settings
 
+## Recent Updates (December 2025)
+
+- ✅ **Dark Mode Toggle**: Persistent theme switching with CSS variables
+- ✅ **Mobile Optimization**: Hamburger menu and responsive layouts
+- ✅ **Downloadable Resume**: Direct PDF download functionality
+- ✅ **Embedded Translations**: Migrated from JSON files to JavaScript for CORS-free deployment
+
 ## Future Enhancements
 
-- [ ] Add dark mode toggle
 - [ ] Include project screenshots/demos
 - [ ] Add blog section for technical articles
 - [ ] Implement contact form with backend
 - [ ] Add project filtering by technology
-- [ ] Include downloadable resume
+- [ ] Additional language support
 
 ## Contact
 
@@ -128,28 +144,27 @@ For questions about this portfolio or collaboration opportunities:
 
 ## Localization (i18n)
 
-This site includes a simple client-side localization system using one JSON file per language stored in the `locales/` folder. Current languages: English (`en`), Italian (`it`) and Spanish (`es`).
+This site includes a client-side localization system with translations embedded directly in JavaScript. Current languages: English (`en`), Italian (`it`), and Spanish (`es`).
 
-How it works:
-- Translation files: `locales/en.json`, `locales/it.json`, `locales/es.json`.
-- Elements to translate are marked with `data-i18n="key"` attributes in `index.html`.
-- The language selector is a dropdown (`#lang-select`) in the navbar displaying flag emojis (🇬🇧 English, 🇮🇹 Italiano, 🇪🇸 Español).
-- The current language is saved to `localStorage` so the choice persists across visits.
-- Project modal contents are localized via keys under the `projects` object in each locale file.
+**How it works:**
+- All translations are embedded in `locales.js` to avoid CORS issues on GitHub Pages
+- Elements to translate are marked with `data-i18n="key"` attributes in `index.html`
+- The language selector is located in the contact section with flag emojis (🇬🇧 English, 🇮🇹 Italiano, 🇪🇸 Español)
+- Default language: English
+- Current language is saved to `localStorage` for persistence across visits
 
-Adding/updating translations:
-1. Open `locales/en.json` to see the structure and keys used on the site.
-2. Add or update the same key in `locales/it.json` and `locales/es.json` with the translated string or array.
-   - Project modal entries are nested under `projects.<projectId>` and can include `title`, `description`, `features` (array), `technologies` (array), `impact` (array), and `architecture`.
-3. If you add new translatable text to `index.html`, add a `data-i18n` attribute (e.g. `data-i18n="nav.newKey"`) and include the key in each locale file.
+**Adding/updating translations:**
+1. Open `locales.js` to see the `locales` object structure
+2. Add or update keys in all three language objects (`en`, `it`, `es`)
+3. For new translatable elements in `index.html`, add a `data-i18n` attribute (e.g., `data-i18n="section.newKey"`)
+4. Add the corresponding key-value pairs to all language objects in `locales.js`
 
-Testing locally (recommended to serve files so fetch works correctly):
-```powershell
-# from the project folder
-python -m http.server 8000
-# then open http://localhost:8000 in your browser
-```
+**Testing:**
+- Simply open `index.html` in any browser - no server required!
+- Use the language selector in the contact section to test translations
+- Check browser console for any missing translation keys
 
-Notes & next steps:
-- For complex pluralization or interpolation consider integrating a library such as `i18next`.
-- For SEO-sensitive localized pages, consider pre-rendering separate language pages and adding `hreflang` tags.
+**Notes:**
+- Embedded approach eliminates CORS issues with GitHub Pages
+- For complex pluralization or interpolation, consider libraries like `i18next`
+- For SEO optimization, consider pre-rendering separate language pages with `hreflang` tags
