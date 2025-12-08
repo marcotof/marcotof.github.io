@@ -11,14 +11,24 @@ if (currentMode === 'enabled') {
 
 darkModeToggle?.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
+    const isDarkMode = document.body.classList.contains('dark-mode');
     
     // Update icon
-    if (document.body.classList.contains('dark-mode')) {
+    if (isDarkMode) {
         darkModeIcon?.classList.replace('fa-moon', 'fa-sun');
         localStorage.setItem('darkMode', 'enabled');
     } else {
         darkModeIcon?.classList.replace('fa-sun', 'fa-moon');
         localStorage.setItem('darkMode', 'disabled');
+    }
+    
+    // Update navbar background immediately
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 100) {
+        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.98)' : 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = isDarkMode ? '0 2px 20px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.1)';
+    } else {
+        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.95)' : 'rgba(255, 255, 255, 0.95)';
     }
 });
 
