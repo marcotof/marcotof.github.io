@@ -259,44 +259,45 @@ const projectDetails = {
 
 // Show localization projects
 function showLocalizationProjects() {
+    const t = window.currentLocaleData || locales.en;
     const modalBody = document.getElementById('modal-body');
     modalBody.innerHTML = `
-        <h2>Localization Projects Portfolio</h2>
-        <p class="project-description">40+ video game localization projects translated to Italian (it-IT)</p>
+        <h2>${t['modal.localization.title'] || 'Localization Projects Portfolio'}</h2>
+        <p class="project-description">${t['modal.localization.description'] || '40+ video game localization projects translated to Italian (it-IT)'}</p>
         
-        <h3>VIP Projects</h3>
+        <h3>${t['modal.localization.vipProjectsTitle'] || 'VIP Projects'}</h3>
         <div class="localization-projects">
             <div class="project-item">
                 <h4>Dragon's Dogma II</h4>
-                <p><strong>Client:</strong> Capcom</p>
-                <p><strong>Genre:</strong> Fantasy RPG</p>
-                <p><strong>Scope:</strong> Full game localization including dialogue, UI, and narrative elements</p>
+                <p><strong>${t['modal.localization.client'] || 'Client'}:</strong> Capcom</p>
+                <p><strong>${t['modal.localization.genre'] || 'Genre'}:</strong> ${t['modal.localization.dragons.genre'] || 'Fantasy RPG'}</p>
+                <p><strong>${t['modal.localization.scope'] || 'Scope'}:</strong> ${t['modal.localization.dragons.scope'] || 'Full game localization including dialogue, UI, and narrative elements'}</p>
             </div>
             <div class="project-item">
                 <h4>Super Mario Party Jamboree</h4>
-                <p><strong>Client:</strong> Nintendo</p>
-                <p><strong>Genre:</strong> Party Game</p>
-                <p><strong>Scope:</strong> Complete localization with focus on family-friendly content and accessibility</p>
+                <p><strong>${t['modal.localization.client'] || 'Client'}:</strong> Nintendo</p>
+                <p><strong>${t['modal.localization.genre'] || 'Genre'}:</strong> ${t['modal.localization.mario.genre'] || 'Party Game'}</p>
+                <p><strong>${t['modal.localization.scope'] || 'Scope'}:</strong> ${t['modal.localization.mario.scope'] || 'Complete localization with focus on family-friendly content and accessibility'}</p>
             </div>
         </div>
         
-        <h3>Additional Projects</h3>
-        <p>38+ other video game localization projects across various genres including:</p>
+        <h3>${t['modal.localization.additionalTitle'] || 'Additional Projects'}</h3>
+        <p>${t['modal.localization.additionalText'] || '38+ other video game localization projects across various genres including:'}</p>
         <ul class="genre-list">
-            <li>Action/Adventure Games</li>
-            <li>Role-Playing Games (RPGs)</li>
-            <li>Strategy Games</li>
-            <li>Casual/Family Games</li>
-            <li>Mobile Games</li>
+            <li>${t['modal.localization.genre1'] || 'Action/Adventure Games'}</li>
+            <li>${t['modal.localization.genre2'] || 'Role-Playing Games (RPGs)'}</li>
+            <li>${t['modal.localization.genre3'] || 'Strategy Games'}</li>
+            <li>${t['modal.localization.genre4'] || 'Casual/Family Games'}</li>
+            <li>${t['modal.localization.genre5'] || 'Mobile Games'}</li>
         </ul>
         
-        <h3>Specializations</h3>
+        <h3>${t['modal.localization.specializationsTitle'] || 'Specializations'}</h3>
         <div class="specializations">
-            <span class="spec-tag">Video Game Localization</span>
-            <span class="spec-tag">Cultural Adaptation</span>
-            <span class="spec-tag">UI/UX Translation</span>
-            <span class="spec-tag">Character Dialogue</span>
-            <span class="spec-tag">Quality Assurance</span>
+            <span class="spec-tag">${t['modal.localization.spec1'] || 'Video Game Localization'}</span>
+            <span class="spec-tag">${t['modal.localization.spec2'] || 'Cultural Adaptation'}</span>
+            <span class="spec-tag">${t['modal.localization.spec3'] || 'UI/UX Translation'}</span>
+            <span class="spec-tag">${t['modal.localization.spec4'] || 'Character Dialogue'}</span>
+            <span class="spec-tag">${t['modal.localization.spec5'] || 'Quality Assurance'}</span>
         </div>
     `;
     
@@ -308,37 +309,44 @@ function showProjectDetails(projectId) {
     const project = projectDetails[projectId];
     if (!project) return;
 
-    // Prefer localized project content when available
-    const localized = (window.currentLocaleData && window.currentLocaleData.projects && window.currentLocaleData.projects[projectId]) || {};
+    // Helper function to get translation with fallback
+    const t = (key, fallback) => {
+        return (window.currentLocaleData && window.currentLocaleData[key]) || fallback;
+    };
 
-    const title = localized.title || project.title;
-    const description = localized.description || project.description;
-    const features = localized.features || project.features || [];
-    const technologies = localized.technologies || project.technologies || [];
-    const impact = localized.impact || project.impact || [];
-    const architecture = localized.architecture || project.architecture || '';
+    const title = t(`projects.${projectId}.title`, project.title);
+    const description = t(`projects.${projectId}.description`, project.description);
+    const features = t(`projects.${projectId}.features`, project.features) || [];
+    const technologies = t(`projects.${projectId}.technologies`, project.technologies) || [];
+    const impact = t(`projects.${projectId}.impact`, project.impact) || [];
+    const architecture = t(`projects.${projectId}.architecture`, project.architecture) || '';
+    
+    const keyFeaturesHeading = t(`projects.${projectId}.keyFeaturesHeading`, 'Key Features');
+    const technologiesHeading = t(`projects.${projectId}.technologiesHeading`, 'Technologies Used');
+    const impactHeading = t(`projects.${projectId}.impactHeading`, 'Impact & Results');
+    const architectureHeading = t(`projects.${projectId}.architectureHeading`, 'Architecture');
 
     const modalBody = document.getElementById('modal-body');
     modalBody.innerHTML = `
         <h2>${title}</h2>
         <p class="project-description">${description}</p>
         
-        <h3>${(localized.keyFeaturesHeading || 'Key Features')}</h3>
+        <h3>${keyFeaturesHeading}</h3>
         <ul class="feature-list">
             ${features.map(feature => `<li>${feature}</li>`).join('')}
         </ul>
         
-        <h3>${(localized.technologiesHeading || 'Technologies Used')}</h3>
+        <h3>${technologiesHeading}</h3>
         <div class="tech-tags">
             ${technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
         </div>
         
-        <h3>${(localized.impactHeading || 'Impact & Results')}</h3>
+        <h3>${impactHeading}</h3>
         <ul class="impact-list">
             ${impact.map(i => `<li>${i}</li>`).join('')}
         </ul>
         
-        <h3>${(localized.architectureHeading || 'Architecture')}</h3>
+        <h3>${architectureHeading}</h3>
         <p class="architecture-description">${architecture}</p>
     `;
 

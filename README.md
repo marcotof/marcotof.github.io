@@ -120,9 +120,12 @@ portfolio-website/
 ## Recent Updates (December 2025)
 
 - ✅ **Dark Mode Toggle**: Persistent theme switching with CSS variables
-- ✅ **Mobile Optimization**: Hamburger menu and responsive layouts
+- ✅ **Mobile Optimization**: Hamburger menu and responsive layouts with fixed timeline
 - ✅ **Downloadable Resume**: Direct PDF download functionality
 - ✅ **Embedded Translations**: Migrated from JSON files to JavaScript for CORS-free deployment
+- ✅ **Complete Localization**: All sections fully translated (English, Italian, Spanish)
+- ✅ **Project Modal Translations**: Features, technologies, and impact metrics translated
+- ✅ **Technical Skills Translation**: Category headers and language proficiencies localized
 
 ## Future Enhancements
 

@@ -1319,13 +1319,14 @@ body {
         font-weight: 700;
         margin-bottom: 0.5rem;
         display: block;
+        padding-left: 5px;
     }
     
     .timeline-date::after {
-        left: -25px !important;
+        left: -40px !important;
         right: auto !important;
-        top: 8px !important;
-        transform: none;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
     }
     
     .timeline-content {
