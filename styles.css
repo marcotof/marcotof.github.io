@@ -1162,25 +1162,36 @@ body {
     }
     
     .timeline-container::before {
-        left: 20px;
+        left: 30px;
     }
     
     .timeline-item {
         flex-direction: row !important;
+        padding-left: 0;
     }
     
     .timeline-item::before {
-        left: 20px !important;
+        left: 30px !important;
     }
     
     .timeline-date {
-        width: 80px;
-        font-size: 0.9rem;
+        position: absolute;
+        left: 0;
+        width: 60px;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    
+    .timeline-date::after {
+        left: 30px !important;
+        right: auto !important;
+        transform: translate(-50%, -50%);
     }
     
     .timeline-content {
-        margin-left: 3rem;
+        margin-left: 70px;
         margin-right: 0;
+        width: calc(100% - 70px);
     }
     
     .timeline-content h3 {
