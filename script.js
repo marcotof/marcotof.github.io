@@ -406,12 +406,17 @@ style.textContent = `
     }
     
     .tech-tag {
-        background: #374151;
-        color: white;
+        background: #374151 !important;
+        color: white !important;
         padding: 6px 12px;
         border-radius: 15px;
         font-size: 0.9rem;
         font-weight: 500;
+    }
+    
+    body:not(.dark-mode) .tech-tag {
+        background: #1e293b !important;
+        color: white !important;
     }
     
     .architecture-description {
@@ -430,6 +435,12 @@ style.textContent = `
         border-radius: 10px;
         margin-bottom: 1rem;
         border-left: 4px solid #374151;
+    }
+    
+    body:not(.dark-mode) .project-item {
+        background: #cbd5e1 !important;
+        border-left: 4px solid #1e293b !important;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     
     .project-item h4 {
@@ -460,12 +471,17 @@ style.textContent = `
     }
     
     .spec-tag {
-        background: #374151;
-        color: white;
+        background: #374151 !important;
+        color: white !important;
         padding: 6px 12px;
         border-radius: 15px;
         font-size: 0.9rem;
         font-weight: 500;
+    }
+    
+    body:not(.dark-mode) .spec-tag {
+        background: #1e293b !important;
+        color: white !important;
     }
 `;
 document.head.appendChild(style);
