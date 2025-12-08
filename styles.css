@@ -1322,7 +1322,7 @@ body {
     }
     
     .timeline-date::after {
-        left: -20px !important;
+        left: -25px !important;
         right: auto !important;
         top: 8px !important;
         transform: none;
