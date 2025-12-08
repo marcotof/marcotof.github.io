@@ -7,18 +7,12 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="locales.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo" data-i18n="nav.logo">Marco Tofani</div>
-            <div class="nav-lang">
-                <select id="lang-select" aria-label="Select language">
-                    <option value="en">🇬🇧 English</option>
-                    <option value="it">🇮🇹 Italiano</option>
-                    <option value="es">🇪🇸 Español</option>
-                </select>
-            </div>
             <ul class="nav-menu">
                 <li><a href="#home" data-i18n="nav.home">Home</a></li>
                 <li><a href="#about" data-i18n="nav.about">About</a></li>
@@ -64,24 +58,24 @@
             <h2 data-i18n="about.title">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Polyglot translator and Language Content Specialist at Prime Video with a passion for development and automation. With 40+ video game localization projects translated to Italian (it-IT), including VIP projects like Dragon's Dogma II and Super Mario Party Jamboree, I bring deep linguistic expertise to the tech world.</p>
-                    <p>I combine translation mastery with technical skills, creating automation solutions that bridge language and technology. From CAT tools and localization workflows to Python automation and web development, I solve complex problems at the intersection of linguistics and engineering.</p>
+                    <p data-i18n="about.paragraph1">Polyglot translator and Language Content Specialist at Prime Video with a passion for development and automation. With 40+ video game localization projects translated to Italian (it-IT), including VIP projects like Dragon's Dogma II and Super Mario Party Jamboree, I bring deep linguistic expertise to the tech world.</p>
+                    <p data-i18n="about.paragraph2">I combine translation mastery with technical skills, creating automation solutions that bridge language and technology. From CAT tools and localization workflows to Python automation and web development, I solve complex problems at the intersection of linguistics and engineering.</p>
                 </div>
                 <div class="about-highlights">
                     <div class="highlight">
                         <i class="fas fa-language"></i>
-                        <h4>Video Game Localization</h4>
-                        <p>40+ projects, CAT tools, cultural adaptation, it-IT specialization</p>
+                        <h4 data-i18n="about.highlight1Title">Video Game Localization</h4>
+                        <p data-i18n="about.highlight1">40+ projects, CAT tools, cultural adaptation, it-IT specialization</p>
                     </div>
                     <div class="highlight">
                         <i class="fas fa-robot"></i>
-                        <h4>Process Automation</h4>
-                        <p>Selenium WebDriver, Python scripting, workflow optimization</p>
+                        <h4 data-i18n="about.highlight2Title">Process Automation</h4>
+                        <p data-i18n="about.highlight2">Selenium WebDriver, Python scripting, workflow optimization</p>
                     </div>
                     <div class="highlight">
                         <i class="fas fa-code"></i>
-                        <h4>Full-Stack Development</h4>
-                        <p>Flask web applications, JavaScript, Chrome extensions</p>
+                        <h4 data-i18n="about.highlight3Title">Full-Stack Development</h4>
+                        <p data-i18n="about.highlight3">Flask web applications, JavaScript, Chrome extensions</p>
                     </div>
                 </div>
             </div>
@@ -96,15 +90,15 @@
                     <div class="award-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h3>Prime Video Digiflex Ace of Spades</h3>
-                    <p>Recognition for outstanding performance and excellence in Prime Video operations</p>
+                    <h3 data-i18n="awards.award1Title">Prime Video Digiflex Ace of Spades</h3>
+                    <p data-i18n="awards.award1Desc">Recognition for outstanding performance and excellence in Prime Video operations</p>
                 </div>
                 <div class="award-card">
                     <div class="award-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3>Seed Digiflex Ignite - Invent & Simplify</h3>
-                    <p>Award for innovation and process improvement through creative automation solutions</p>
+                    <h3 data-i18n="awards.award2Title">Seed Digiflex Ignite - Invent & Simplify</h3>
+                    <p data-i18n="awards.award2Desc">Award for innovation and process improvement through creative automation solutions</p>
                 </div>
             </div>
         </div>
@@ -117,23 +111,23 @@
                 <div class="timeline-item">
                     <div class="timeline-date">Jun 2022</div>
                     <div class="timeline-content">
-                        <h3>Bachelor's Degree in Language Mediation and Intercultural Communication</h3>
-                        <p>Università Gabriele D'Annunzio di Chieti-Pescara</p>
+                        <h3 data-i18n="timeline.degree">Bachelor's Degree in Language Mediation and Intercultural Communication</h3>
+                        <p data-i18n="timeline.degreeSchool">Università Gabriele D'Annunzio di Chieti-Pescara</p>
                         <span class="timeline-location">🇮🇹 Pescara, Italy</span>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Jul 2022</div>
                     <div class="timeline-content">
-                        <h3>Italian Localization QA Specialist</h3>
-                        <p>Localsoft - Translation & Localization Company</p>
+                        <h3 data-i18n="timeline.qa">Italian Localization QA Specialist</h3>
+                        <p data-i18n="timeline.qaCompany">Localsoft - Translation & Localization Company</p>
                         <span class="timeline-location">🇪🇸 Málaga, Spain</span>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Sep 2024</div>
                     <div class="timeline-content">
-                        <h3>Digital Content Specialist</h3>
+                        <h3 data-i18n="timeline.specialist">Digital Content Specialist</h3>
                         <p>Prime Video</p>
                         <span class="timeline-location">🇪🇸 Madrid, Spain</span>
                     </div>
@@ -141,8 +135,8 @@
                 <div class="timeline-item current">
                     <div class="timeline-date">Nov 2024</div>
                     <div class="timeline-content">
-                        <h3>Italian Language Content Specialist</h3>
-                        <p>Prime Video - Current Role</p>
+                        <h3 data-i18n="timeline.specialistRole">Italian Language Content Specialist</h3>
+                        <p data-i18n="timeline.specialistCurrent">Prime Video - Current Role</p>
                         <span class="timeline-location">🇪🇸 Madrid, Spain</span>
                     </div>
                 </div>
@@ -157,19 +151,19 @@
                 <p data-i18n="localization.intro">40+ video game localization projects translated to Italian (it-IT), bringing global gaming experiences to Italian audiences with cultural authenticity and linguistic precision.</p>
             </div>
             <div class="vip-projects">
-                <h3>VIP Projects</h3>
+                <h3 data-i18n="localization.vipProjectsTitle">VIP Projects</h3>
                 <div class="games-showcase">
                     <div class="game-card">
                         <div class="game-image">
                             <img src="dragons-dogma-2.jpg" alt="Dragon's Dogma II" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <div class="image-placeholder" style="display:none;">
                                 <i class="fas fa-dragon"></i>
-                                <p>Dragon's Dogma II</p>
+                                <p data-i18n="localization.dragonsdogma">Dragon's Dogma II</p>
                             </div>
                         </div>
                         <div class="game-info">
-                            <h4>Dragon's Dogma II</h4>
-                            <p>Epic fantasy RPG localization featuring complex narrative, character dialogue, and immersive world-building elements.</p>
+                            <h4 data-i18n="localization.dragonsdogma">Dragon's Dogma II</h4>
+                            <p data-i18n="localization.dragonsDesc">Epic fantasy RPG localization featuring complex narrative, character dialogue, and immersive world-building elements.</p>
                             <div class="game-tags">
                                 <span>RPG</span>
                                 <span>Fantasy</span>
@@ -182,12 +176,12 @@
                             <img src="super-mario-party-jamboree.jpg" alt="Super Mario Party Jamboree" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <div class="image-placeholder" style="display:none;">
                                 <i class="fas fa-gamepad"></i>
-                                <p>Super Mario Party Jamboree</p>
+                                <p data-i18n="localization.mario">Super Mario Party Jamboree</p>
                             </div>
                         </div>
                         <div class="game-info">
-                            <h4>Super Mario Party Jamboree</h4>
-                            <p>Family-friendly party game localization with focus on accessibility, humor, and maintaining Nintendo's iconic character voices.</p>
+                            <h4 data-i18n="localization.mario">Super Mario Party Jamboree</h4>
+                            <p data-i18n="localization.marioDesc">Family-friendly party game localization with focus on accessibility, humor, and maintaining Nintendo's iconic character voices.</p>
                             <div class="game-tags">
                                 <span>Party Game</span>
                                 <span>Family</span>
@@ -200,19 +194,19 @@
             <div class="localization-stats">
                 <div class="stat">
                     <h3>40+</h3>
-                    <p>Games Localized</p>
+                    <p data-i18n="localization.statsGames">Games Localized</p>
                 </div>
                 <div class="stat">
                     <h3>it-IT</h3>
-                    <p>Target Language</p>
+                    <p data-i18n="localization.statsLang">Target Language</p>
                 </div>
                 <div class="stat">
                     <h3>2</h3>
-                    <p>VIP Projects</p>
+                    <p data-i18n="localization.statsVip">VIP Projects</p>
                 </div>
             </div>
             <div class="localization-cta">
-                <button class="btn-localization" onclick="showLocalizationProjects()">View All Localization Projects</button>
+                <button class="btn-localization" onclick="showLocalizationProjects()" data-i18n="localization.viewAll">View All Localization Projects</button>
             </div>
         </div>
     </section>
@@ -224,10 +218,10 @@
                 
                 <div class="project-card featured">
                     <div class="project-header">
-                        <h3>Redelivery Hub</h3>
-                        <span class="project-tag">Featured</span>
+                        <h3 data-i18n="projects.redelivery-hub.cardTitle">Redelivery Hub</h3>
+                        <span class="project-tag" data-i18n="projects.redelivery-hub.featured">Featured</span>
                     </div>
-                    <p>Comprehensive automation platform for Prime Video redelivery workflows. Multi-tool hub with real-time status tracking and automated ticket creation.</p>
+                    <p data-i18n="projects.redelivery-hub.cardDesc">Comprehensive automation platform for Prime Video redelivery workflows. Multi-tool hub with real-time status tracking and automated ticket creation.</p>
                     <div class="project-features">
                         <span>Flask Web App</span>
                         <span>Selenium Automation</span>
@@ -240,15 +234,15 @@
                         <i class="fab fa-js"></i>
                     </div>
                     <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('redelivery-hub')">View Details</button>
+                        <button class="btn-demo" onclick="showProjectDetails('redelivery-hub')" data-i18n="projects.viewDetails">View Details</button>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>LQA Tool Extension</h3>
+                        <h3 data-i18n="projects.lqa-extension.cardTitle">LQA Tool Extension</h3>
                     </div>
-                    <p>Chrome extension that enhances the LQA Tool workflow with convenient comment selection and improved user experience for quality assurance processes.</p>
+                    <p data-i18n="projects.lqa-extension.cardDesc">Chrome extension that enhances the LQA Tool workflow with convenient comment selection and improved user experience for quality assurance processes.</p>
                     <div class="project-features">
                         <span>Chrome Extension</span>
                         <span>Workflow Enhancement</span>
@@ -260,15 +254,15 @@
                         <i class="fab fa-html5"></i>
                     </div>
                     <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('lqa-extension')">View Details</button>
+                        <button class="btn-demo" onclick="showProjectDetails('lqa-extension')" data-i18n="projects.viewDetails">View Details</button>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Redelivery Agent</h3>
+                        <h3 data-i18n="projects.redelivery-agent.cardTitle">Redelivery Agent</h3>
                     </div>
-                    <p>Web-based tool for processing redelivery Excel files with clean separation of UI and business logic. Handles multiple file formats and exports.</p>
+                    <p data-i18n="projects.redelivery-agent.cardDesc">Web-based tool for processing redelivery Excel files with clean separation of UI and business logic. Handles multiple file formats and exports.</p>
                     <div class="project-features">
                         <span>Excel Processing</span>
                         <span>Modular Architecture</span>
@@ -280,15 +274,15 @@
                         <i class="fas fa-file-excel"></i>
                     </div>
                     <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('redelivery-agent')">View Details</button>
+                        <button class="btn-demo" onclick="showProjectDetails('redelivery-agent')" data-i18n="projects.viewDetails">View Details</button>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>FileMaster</h3>
+                        <h3 data-i18n="projects.filemaster.cardTitle">FileMaster</h3>
                     </div>
-                    <p>Python utility for advanced file management and processing operations. Streamlines file organization and batch processing tasks.</p>
+                    <p data-i18n="projects.filemaster.cardDesc">Python utility for advanced file management and processing operations. Streamlines file organization and batch processing tasks.</p>
                     <div class="project-features">
                         <span>File Management</span>
                         <span>Batch Processing</span>
@@ -299,15 +293,15 @@
                         <i class="fas fa-folder"></i>
                     </div>
                     <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('filemaster')">View Details</button>
+                        <button class="btn-demo" onclick="showProjectDetails('filemaster')" data-i18n="projects.viewDetails">View Details</button>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>TimeStamps Converter</h3>
+                        <h3 data-i18n="projects.timestamps-converter.cardTitle">TimeStamps Converter</h3>
                     </div>
-                    <p>Specialized tool for converting and processing timestamp formats in media files. Essential for subtitle and timing synchronization workflows.</p>
+                    <p data-i18n="projects.timestamps-converter.cardDesc">Specialized tool for converting and processing timestamp formats in media files. Essential for subtitle and timing synchronization workflows.</p>
                     <div class="project-features">
                         <span>Timestamp Processing</span>
                         <span>Format Conversion</span>
@@ -318,15 +312,15 @@
                         <i class="fas fa-clock"></i>
                     </div>
                     <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('timestamps-converter')">View Details</button>
+                        <button class="btn-demo" onclick="showProjectDetails('timestamps-converter')" data-i18n="projects.viewDetails">View Details</button>
                     </div>
                 </div>
 
                 <div class="project-card">
                     <div class="project-header">
-                        <h3>Proxy Generation Tools</h3>
+                        <h3 data-i18n="projects.proxy-generation.cardTitle">Proxy Generation Tools</h3>
                     </div>
-                    <p>Documentation and templates for proxy generation processes. Includes SOPs and Excel templates for partner support workflows.</p>
+                    <p data-i18n="projects.proxy-generation.cardDesc">Documentation and templates for proxy generation processes. Includes SOPs and Excel templates for partner support workflows.</p>
                     <div class="project-features">
                         <span>Process Documentation</span>
                         <span>Excel Templates</span>
@@ -337,7 +331,7 @@
                         <i class="fas fa-file-word"></i>
                     </div>
                     <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('proxy-generation')">View Details</button>
+                        <button class="btn-demo" onclick="showProjectDetails('proxy-generation')" data-i18n="projects.viewDetails">View Details</button>
                     </div>
                 </div>
 
@@ -411,8 +405,20 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 data-i18n="contact.title">Get In Touch</h2>
-            <p data-i18n="contact.lead">Interested in automation solutions or collaboration opportunities?</p>
+            <div class="contact-header">
+                <div>
+                    <h2 data-i18n="contact.title">Get In Touch</h2>
+                    <p data-i18n="contact.lead">Interested in automation solutions or collaboration opportunities?</p>
+                </div>
+                <div class="language-selector">
+                    <label for="lang-select" data-i18n="contact.selectLanguage">Select Language:</label>
+                    <select id="lang-select" aria-label="Select language">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="it">🇮🇹 Italiano</option>
+                        <option value="es">🇪🇸 Español</option>
+                    </select>
+                </div>
+            </div>
             <div class="contact-content">
                 <div class="profile-picture">
                     <img src="profile-picture.jpg" alt="Marco Tofani" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">

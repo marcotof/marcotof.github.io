@@ -13,27 +13,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Simple client-side i18n loader (supports en, it, es)
+// Uses embedded locales from locales.js to avoid CORS issues on GitHub Pages
 const supportedLangs = ['en', 'it', 'es'];
-const _localesCache = {};
 
-async function loadLocale(lang) {
+function loadLocale(lang) {
     if (!supportedLangs.includes(lang)) lang = 'en';
-    if (_localesCache[lang]) {
-        applyTranslations(_localesCache[lang]);
-        return _localesCache[lang];
+    if (!locales[lang]) {
+        console.warn('Locale not found for', lang);
+        lang = 'en';
     }
-    try {
-        const res = await fetch(`locales/${lang}.json`);
-        if (!res.ok) throw new Error('Locale not found');
-        const data = await res.json();
-        _localesCache[lang] = data;
-        window.currentLocaleData = data;
-        applyTranslations(data);
-        return data;
-    } catch (err) {
-        console.warn('Locale load failed for', lang, err);
-        if (lang !== 'en') return loadLocale('en');
-    }
+    const data = locales[lang];
+    window.currentLocaleData = data;
+    applyTranslations(data);
+    return data;
 }
 
 function applyTranslations(t) {
@@ -64,13 +56,19 @@ function applyTranslations(t) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    const saved = localStorage.getItem('lang');
-    let lang = saved || (navigator.language || navigator.userLanguage || 'en').split('-')[0];
-    if (!supportedLangs.includes(lang)) lang = 'en';
+    let lang = localStorage.getItem('lang');
+    
+    // Always default to English if no preference is saved
+    if (!lang || !supportedLangs.includes(lang)) {
+        lang = 'en';
+    }
+
+    // Load locale first
+    loadLocale(lang);
 
     const select = document.getElementById('lang-select');
     if (select) {
-        // set select to saved or detected language
+        // set select to current language
         select.value = lang;
         select.addEventListener('change', function() {
             const chosen = this.value;
@@ -79,8 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
             loadLocale(chosen);
         });
     }
-
-    loadLocale(lang);
 });
 
 // Project details data
