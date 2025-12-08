@@ -2,6 +2,8 @@
 
 A modern, responsive portfolio website showcasing automation tools and full-stack development projects created for Prime Video workflows.
 
+🌐 **Live Site**: [https://marcotof.github.io/](https://marcotof.github.io/)
+
 ## Features
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
