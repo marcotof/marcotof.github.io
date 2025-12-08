@@ -1046,6 +1046,143 @@ body {
     max-width: 800px;
     max-height: 80vh;
     overflow-y: auto;
+    color: var(--text-primary) !important;
+}
+
+.modal-content * {
+    color: var(--text-primary);
+}
+
+.modal-content h2 {
+    color: var(--text-secondary) !important;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.modal-content h3 {
+    color: var(--text-secondary) !important;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.modal-content h4 {
+    color: var(--text-secondary) !important;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.modal-content p {
+    color: var(--text-primary) !important;
+    margin-bottom: 1rem;
+}
+
+.modal-content ul {
+    color: var(--text-primary) !important;
+}
+
+.modal-content li {
+    color: var(--text-primary) !important;
+    margin-bottom: 0.5rem;
+}
+
+.modal-content strong {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.modal-content span {
+    color: var(--text-primary) !important;
+}
+
+.modal-content div {
+    color: var(--text-primary);
+}
+
+.project-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.project-item {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.genre-list li,
+.feature-list li,
+.impact-list li {
+    color: var(--text-primary);
+}
+
+.spec-tag,
+.tech-tag {
+    background: var(--card-hover);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 4px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+}
+
+.localization-projects {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.specializations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content .localization-projects .project-item,
+.modal-content .project-item {
+    background: var(--bg-secondary);
+    padding: 1.25rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.modal-content .project-item h4 {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.modal-content .project-item p {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.modal-content .genre-list,
+.modal-content .feature-list,
+.modal-content .impact-list {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-content .architecture-info {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--text-secondary);
+    margin-top: 1rem;
+    color: var(--text-primary);
 }
 
 .close {
