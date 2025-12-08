@@ -1304,12 +1304,13 @@ body {
     
     .timeline-item {
         flex-direction: column !important;
-        padding-left: 35px;
+        padding-left: 0;
         align-items: flex-start !important;
+        margin-left: 35px;
     }
     
     .timeline-item::before {
-        left: 15px !important;
+        left: -20px !important;
     }
     
     .timeline-date {
@@ -1317,16 +1318,21 @@ body {
         font-size: 0.9rem;
         text-align: left;
         font-weight: 700;
-        margin-bottom: 0.5rem;
-        display: block;
-        padding-left: 5px;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        padding-left: 0;
     }
     
     .timeline-date::after {
-        left: -40px !important;
+        position: relative !important;
+        left: auto !important;
         right: auto !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
+        top: auto !important;
+        transform: none !important;
+        order: -1;
     }
     
     .timeline-content {
@@ -1334,6 +1340,7 @@ body {
         margin-right: 0;
         width: 100%;
         border-left: 4px solid var(--text-secondary);
+        padding-left: 20px;
     }
     
     .timeline-content h3 {
