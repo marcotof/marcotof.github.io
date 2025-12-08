@@ -1162,36 +1162,40 @@ body {
     }
     
     .timeline-container::before {
-        left: 30px;
+        left: 15px;
     }
     
     .timeline-item {
-        flex-direction: row !important;
-        padding-left: 0;
+        flex-direction: column !important;
+        padding-left: 35px;
+        align-items: flex-start !important;
     }
     
     .timeline-item::before {
-        left: 30px !important;
+        left: 15px !important;
     }
     
     .timeline-date {
-        position: absolute;
-        left: 0;
-        width: 60px;
-        font-size: 0.85rem;
-        text-align: center;
+        width: auto;
+        font-size: 0.9rem;
+        text-align: left;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        display: block;
     }
     
     .timeline-date::after {
-        left: 30px !important;
+        left: -20px !important;
         right: auto !important;
-        transform: translate(-50%, -50%);
+        top: 8px !important;
+        transform: none;
     }
     
     .timeline-content {
-        margin-left: 70px;
+        margin-left: 0;
         margin-right: 0;
-        width: calc(100% - 70px);
+        width: 100%;
+        border-left: 4px solid var(--text-secondary);
     }
     
     .timeline-content h3 {
