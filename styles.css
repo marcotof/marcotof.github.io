@@ -1034,7 +1034,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.55);
 }
 
 .modal-content {
@@ -1047,6 +1047,14 @@ body {
     max-height: 80vh;
     overflow-y: auto;
     color: var(--text-primary) !important;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
+}
+
+body:not(.dark-mode) .contact-modal-content {
+    background: linear-gradient(180deg, #f9fbff 0%, #f1f5f9 100%);
+    border: 1px solid #d5dce6;
+    backdrop-filter: blur(6px);
 }
 
 .modal-content * {
@@ -1229,9 +1237,21 @@ body {
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+body:not(.dark-mode) .form-group input,
+body:not(.dark-mode) .form-group textarea {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
     color: var(--text-light);
+}
+
+body:not(.dark-mode) .form-group input::placeholder,
+body:not(.dark-mode) .form-group textarea::placeholder {
+    color: #94a3b8;
 }
 
 .form-group input:focus,
