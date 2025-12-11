@@ -576,6 +576,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Get form data
             const formData = new FormData(contactForm);
+
+            // Basic client-side validation without altering Formspree flow
+            const name = (formData.get('name') || '').toString().trim();
+            const email = (formData.get('email') || '').toString().trim();
+            const message = (formData.get('message') || '').toString().trim();
+            const t = window.currentLocaleData || locales.en;
+
+            const validationMessages = {
+                name: t['contact.validation.name'] || 'Please enter at least 2 characters for your name.',
+                email: t['contact.validation.email'] || 'Please enter a valid email address.',
+                message: t['contact.validation.message'] || 'Message should be at least 10 characters.'
+            };
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+            if (name.length < 2) {
+                formStatus.innerHTML = `<p class="error-message">${validationMessages.name}</p>`;
+                contactForm.querySelector('#name').focus();
+                return;
+            }
+
+            if (!emailPattern.test(email)) {
+                formStatus.innerHTML = `<p class="error-message">${validationMessages.email}</p>`;
+                contactForm.querySelector('#email').focus();
+                return;
+            }
+
+            if (message.length < 10) {
+                formStatus.innerHTML = `<p class="error-message">${validationMessages.message}</p>`;
+                contactForm.querySelector('#message').focus();
+                return;
+            }
             
             // Show loading state
             const submitBtn = contactForm.querySelector('.btn-submit');
@@ -583,7 +615,6 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.disabled = true;
             
             // Get localized loading text
-            const t = window.currentLocaleData || locales.en;
             const loadingText = t['contact.sending'] || 'Sending...';
             submitBtn.textContent = loadingText;
             formStatus.innerHTML = '';

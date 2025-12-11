@@ -8,9 +8,9 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
 - **Dark Mode**: Toggle between light and dark themes with persistent preference
-- **Multi-language Support**: English, Italian, and Spanish with embedded translations
+- **Multi-language Support**: English, Italian, and Spanish with embedded translations and flag-only selector in the navbar
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
-- **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions
+- **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with client-side validation and localized error messages
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Clean design with smooth animations and transitions
 - **Professional Presentation**: Optimized for recruiters and technical managers
@@ -136,6 +136,8 @@ portfolio-website/
 
 ## Recent Updates (December 2025)
 
+- ✅ **Navbar Language Selector**: Flag-only selector moved into the navbar (🇺🇸/🇮🇹/🇪🇸) with spacing fixes for long labels
+- ✅ **Localized Form Validation**: Client-side checks for name, email, and message length with translated error messages
 - ✅ **Dark Mode Toggle**: Persistent theme switching with CSS variables
 - ✅ **Mobile Optimization**: Hamburger menu and responsive layouts with fixed timeline
 - ✅ **Downloadable Resume**: Direct PDF download functionality
@@ -144,7 +146,6 @@ portfolio-website/
 - ✅ **Project Modal Translations**: Features, technologies, and impact metrics translated
 - ✅ **Technical Skills Translation**: Category headers and language proficiencies localized
 - ✅ **Contact Form Modal**: Interactive contact form with Formspree integration for email submissions
-- ✅ **Localized Form**: Contact form fully translated (English, Italian, Spanish) with localized feedback messages
 - ✅ **Featured Demos Section**: Video demonstrations for 3 production automation tools (Redelivery Hub, LQA Tool Extension, Redelivery Agent)
 - ✅ **Demos Navigation**: Added "Demos" to main navigation menu for easy access across all languages
 
@@ -160,9 +161,9 @@ portfolio-website/
 
 ### How to Use
 1. Click the email button in the contact section
-2. Fill in your name, email, and message
+2. Fill in your name, email, and message (client-side checks for name length, valid email, and message length)
 3. Click "Send Message" to submit
-4. Receive confirmation message in the selected language
+4. Receive validation feedback and confirmation message in the selected language
 
 ### Customization
 To use a different Formspree endpoint:
@@ -194,7 +195,7 @@ This site includes a client-side localization system with translations embedded 
 **How it works:**
 - All translations are embedded in `locales.js` to avoid CORS issues on GitHub Pages
 - Elements to translate are marked with `data-i18n="key"` attributes in `index.html`
-- The language selector is located in the contact section with flag emojis (🇬🇧 English, 🇮🇹 Italiano, 🇪🇸 Español)
+- The language selector is located in the navbar with flag-only options (🇺🇸 English, 🇮🇹 Italiano, 🇪🇸 Español)
 - Default language: English
 - Current language is saved to `localStorage` for persistence across visits
 
