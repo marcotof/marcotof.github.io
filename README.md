@@ -15,6 +15,17 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Modern UI/UX**: Clean design with smooth animations and transitions
 - **Professional Presentation**: Optimized for recruiters and technical managers
 
+## Featured Demos
+
+Three production automation tools with live video demonstrations:
+
+### 🎬 Video Demonstrations
+- **Redelivery Hub**: Comprehensive automation platform (90% reduction in manual work)
+- **LQA Tool Extension**: Chrome extension for workflow enhancement (40% QA efficiency improvement)
+- **Redelivery Agent**: Web-based Excel processing tool (eliminates manual data entry errors)
+
+All demo videos are embedded in the "Demos" section of the portfolio with full responsive support.
+
 ## Projects Highlighted
 
 ### 🏆 Redelivery Hub (Featured)
@@ -50,15 +61,18 @@ Documentation and templates for partner support workflows
 
 ```
 portfolio-website/
-├── index.html                    # Main HTML structure
-├── styles.css                    # CSS styling with dark mode variables
-├── script.js                     # JavaScript functionality (dark mode, mobile menu, i18n)
-├── locales.js                    # Embedded translations (en, it, es)
-├── Marco Tofani_Resume.pdf       # Downloadable resume
-├── profile-picture.jpg           # Profile image
-├── dragons-dogma-2.jpg           # VIP project image
-├── super-mario-party-jamboree.jpg # VIP project image
-└── README.md                     # This file
+├── index.html                       # Main HTML structure
+├── styles.css                       # CSS styling with dark mode variables
+├── script.js                        # JavaScript functionality (dark mode, mobile menu, i18n)
+├── locales.js                       # Embedded translations (en, it, es)
+├── Marco Tofani_Resume.pdf          # Downloadable resume
+├── profile-picture.jpg              # Profile image
+├── dragons-dogma-2.jpg              # VIP project image
+├── super-mario-party-jamboree.jpg   # VIP project image
+├── demo-redelivery-hub.mp4          # Redelivery Hub video demo
+├── demo-lqa-extension.mp4           # LQA Tool Extension video demo
+├── demo-redelivery-agent.mp4        # Redelivery Agent video demo
+└── README.md                        # This file
 ```
 
 ## Setup Instructions
@@ -131,6 +145,8 @@ portfolio-website/
 - ✅ **Technical Skills Translation**: Category headers and language proficiencies localized
 - ✅ **Contact Form Modal**: Interactive contact form with Formspree integration for email submissions
 - ✅ **Localized Form**: Contact form fully translated (English, Italian, Spanish) with localized feedback messages
+- ✅ **Featured Demos Section**: Video demonstrations for 3 production automation tools (Redelivery Hub, LQA Tool Extension, Redelivery Agent)
+- ✅ **Demos Navigation**: Added "Demos" to main navigation menu for easy access across all languages
 
 ## Contact Form
 
