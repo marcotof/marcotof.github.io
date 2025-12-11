@@ -10,6 +10,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Dark Mode**: Toggle between light and dark themes with persistent preference
 - **Multi-language Support**: English, Italian, and Spanish with embedded translations
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
+- **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Clean design with smooth animations and transitions
 - **Professional Presentation**: Optimized for recruiters and technical managers
@@ -128,14 +129,37 @@ portfolio-website/
 - ✅ **Complete Localization**: All sections fully translated (English, Italian, Spanish)
 - ✅ **Project Modal Translations**: Features, technologies, and impact metrics translated
 - ✅ **Technical Skills Translation**: Category headers and language proficiencies localized
+- ✅ **Contact Form Modal**: Interactive contact form with Formspree integration for email submissions
+- ✅ **Localized Form**: Contact form fully translated (English, Italian, Spanish) with localized feedback messages
+
+## Contact Form
+
+### Features
+- **Modal Dialog**: Non-intrusive contact form that opens in a modal when clicking the email button
+- **Formspree Integration**: Direct email delivery to tofanimarco16@gmail.com using Formspree
+- **Full Localization**: Form labels, placeholders, and feedback messages in English, Italian, and Spanish
+- **Client-side Validation**: Required field validation before submission
+- **User Feedback**: Loading states, success/error messages all localized
+- **Responsive Design**: Works seamlessly on all devices
+
+### How to Use
+1. Click the email button in the contact section
+2. Fill in your name, email, and message
+3. Click "Send Message" to submit
+4. Receive confirmation message in the selected language
+
+### Customization
+To use a different Formspree endpoint:
+1. Create a new form at [formspree.io](https://formspree.io)
+2. Update the endpoint URL in `script.js` (line with `fetch('https://formspree.io/f/...')`)
 
 ## Future Enhancements
 
 - [ ] Include project screenshots/demos
 - [ ] Add blog section for technical articles
-- [ ] Implement contact form with backend
 - [ ] Add project filtering by technology
 - [ ] Additional language support
+- [ ] Form submission notifications/confirmations
 
 ## Contact
 
@@ -163,6 +187,18 @@ This site includes a client-side localization system with translations embedded 
 2. Add or update keys in all three language objects (`en`, `it`, `es`)
 3. For new translatable elements in `index.html`, add a `data-i18n` attribute (e.g., `data-i18n="section.newKey"`)
 4. Add the corresponding key-value pairs to all language objects in `locales.js`
+
+**Contact Form Translation Keys:**
+- `contact.formTitle` - Form heading
+- `contact.formSubtitle` - Form description
+- `contact.name` - Name field label
+- `contact.emailField` - Email field label
+- `contact.message` - Message field label
+- `contact.send` - Submit button text
+- `contact.sending` - Loading state text
+- `contact.successMessage` - Success notification
+- `contact.errorMessage` - Submission error message
+- `contact.generalError` - General error message
 
 **Testing:**
 - Simply open `index.html` in any browser - no server required!

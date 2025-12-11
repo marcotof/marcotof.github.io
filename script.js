@@ -537,3 +537,91 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 });
+
+// Contact form modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const contactFormBtn = document.getElementById('contact-form-btn');
+    const contactModal = document.getElementById('contact-modal');
+    const contactModalClose = document.querySelector('.contact-modal-close');
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+
+    // Open contact modal
+    if (contactFormBtn) {
+        contactFormBtn.addEventListener('click', function() {
+            contactModal.style.display = 'block';
+        });
+    }
+
+    // Close contact modal
+    if (contactModalClose) {
+        contactModalClose.addEventListener('click', function() {
+            contactModal.style.display = 'none';
+            formStatus.innerHTML = '';
+        });
+    }
+
+    // Close contact modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === contactModal) {
+            contactModal.style.display = 'none';
+            formStatus.innerHTML = '';
+        }
+    });
+
+    // Handle form submission
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(contactForm);
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('.btn-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            
+            // Get localized loading text
+            const t = window.currentLocaleData || locales.en;
+            const loadingText = t['contact.sending'] || 'Sending...';
+            submitBtn.textContent = loadingText;
+            formStatus.innerHTML = '';
+
+            try {
+                // Submit to Formspree
+                const response = await fetch('https://formspree.io/f/xovgkbvw', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Success message (localized)
+                    const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
+                    formStatus.innerHTML = `<p class="success-message">${successMsg}</p>`;
+                    contactForm.reset();
+                    
+                    // Close modal after 2 seconds
+                    setTimeout(() => {
+                        contactModal.style.display = 'none';
+                        formStatus.innerHTML = '';
+                    }, 2000);
+                } else {
+                    // Error message (localized)
+                    const errorMsg = t['contact.errorMessage'] || 'Failed to send message. Please try again.';
+                    formStatus.innerHTML = `<p class="error-message">${errorMsg}</p>`;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                const errorMsg = t['contact.generalError'] || 'An error occurred. Please try again.';
+                formStatus.innerHTML = `<p class="error-message">${errorMsg}</p>`;
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+    }
+});
