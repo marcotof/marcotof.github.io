@@ -99,19 +99,71 @@ function applyTranslations(t) {
         if (tag === 'input' || tag === 'textarea') {
             el.placeholder = val;
         } else {
-            // For elements with child nodes (like links with icons), replace only text nodes
+            // For elements with child nodes (like labels with icons or spans), replace only text nodes
             let textNodeFound = false;
             for (let node of el.childNodes) {
-                if (node.nodeType === Node.TEXT_NODE) {
+                if (node.nodeType === Node.TEXT_NODE && node.textContent.trim().length > 0) {
                     node.textContent = val;
                     textNodeFound = true;
                     break;
                 }
             }
-            // If no text node found, set textContent directly
+            // If no significant text node found, set textContent directly
             if (!textNodeFound) {
                 el.textContent = val;
             }
+        }
+    });
+    // Force re-translation of form labels with nested elements
+    updateFormLabels(t);
+    // Trigger modal form validation state update if modal is open
+    const contactModal = document.getElementById('contact-modal');
+    if (contactModal && contactModal.style.display === 'block') {
+        // Force validation display refresh for any fields with errors
+        document.querySelectorAll('.form-group.has-error').forEach(group => {
+            const errorSpan = group.querySelector('.error-message');
+            if (errorSpan && errorSpan.textContent) {
+                // Error message will be re-generated on next validation
+                group.classList.remove('has-error');
+                errorSpan.textContent = '';
+            }
+        });
+    }
+}
+
+function updateFormLabels(t) {
+    if (!t) return;
+    // Update form labels with their base translation + char-count
+    const nameLabel = document.querySelector('label[for="name"]');
+    if (nameLabel) {
+        const baseText = t['contact.name'] || 'Name';
+        const charCount = t['contact.minChars3'] || '(min 3 characters)';
+        nameLabel.innerHTML = `${baseText} <span class="char-count" data-i18n="contact.minChars3">${charCount}</span>`;
+    }
+
+    const emailLabel = document.querySelector('label[for="email"]');
+    if (emailLabel) {
+        const emailText = t['contact.emailField'] || 'Email';
+        emailLabel.textContent = emailText;
+    }
+
+    const messageLabel = document.querySelector('label[for="message"]');
+    if (messageLabel) {
+        const baseText = t['contact.message'] || 'Message';
+        const charCount = t['contact.minChars10'] || '(min 10 characters)';
+        messageLabel.innerHTML = `${baseText} <span class="char-count" data-i18n="contact.minChars10">${charCount}</span>`;
+    }
+
+    // Re-translate error messages for fields that currently have errors
+    document.querySelectorAll('.form-group.has-error').forEach(group => {
+        const field = group.querySelector('input, textarea');
+        if (field) {
+            const fieldId = field.id;
+            const minLength = field.minLength || 0;
+            // Re-validate to update error message in new language
+            if (fieldId === 'name') validateField('name', 3);
+            else if (fieldId === 'email') validateField('email', 0);
+            else if (fieldId === 'message') validateField('message', 10);
         }
     });
 }
@@ -553,61 +605,128 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Function to reset form and clear error states
+    function resetContactForm() {
+        contactForm.reset();
+        formStatus.innerHTML = '';
+        // Clear all error states
+        document.querySelectorAll('.form-group').forEach(group => {
+            group.classList.remove('has-error');
+        });
+        document.querySelectorAll('.error-message').forEach(error => {
+            error.textContent = '';
+        });
+    }
+
     // Close contact modal
     if (contactModalClose) {
         contactModalClose.addEventListener('click', function() {
+            resetContactForm();
             contactModal.style.display = 'none';
-            formStatus.innerHTML = '';
         });
     }
 
     // Close contact modal when clicking outside
     window.addEventListener('click', function(event) {
         if (event.target === contactModal) {
+            resetContactForm();
             contactModal.style.display = 'none';
-            formStatus.innerHTML = '';
         }
     });
+
+    // Form validation functions
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
+    function validateField(fieldId, minLength) {
+        const field = document.getElementById(fieldId);
+        const errorElement = document.getElementById(fieldId + 'Error');
+        const formGroup = field.closest('.form-group');
+        const t = window.currentLocaleData || locales.en;
+        let isValid = true;
+        let errorMsg = '';
+
+        if (fieldId === 'email') {
+            if (!field.value.trim()) {
+                isValid = false;
+                errorMsg = t['contact.validation.emailRequired'] || 'Email is required';
+            } else if (!validateEmail(field.value)) {
+                isValid = false;
+                errorMsg = t['contact.validation.email'] || 'Please enter a valid email address.';
+            }
+        } else {
+            if (!field.value.trim()) {
+                isValid = false;
+                errorMsg = t[`contact.validation.${fieldId}Required`] || `${fieldId.charAt(0).toUpperCase() + fieldId.slice(1)} is required`;
+            } else if (field.value.length < minLength) {
+                isValid = false;
+                errorMsg = t[`contact.validation.${fieldId}`] || `${fieldId.charAt(0).toUpperCase() + fieldId.slice(1)} must be at least ${minLength} characters`;
+            }
+        }
+
+        if (isValid) {
+            formGroup.classList.remove('has-error');
+            errorElement.textContent = '';
+        } else {
+            formGroup.classList.add('has-error');
+            errorElement.textContent = errorMsg;
+        }
+
+        return isValid;
+    }
+
+    // Real-time validation
+    const nameField = document.getElementById('name');
+    const emailField = document.getElementById('email');
+    const messageField = document.getElementById('message');
+
+    if (nameField) {
+        nameField.addEventListener('blur', () => validateField('name', 3));
+        nameField.addEventListener('input', () => {
+            if (nameField.closest('.form-group').classList.contains('has-error')) {
+                validateField('name', 3);
+            }
+        });
+    }
+
+    if (emailField) {
+        emailField.addEventListener('blur', () => validateField('email', 0));
+        emailField.addEventListener('input', () => {
+            if (emailField.closest('.form-group').classList.contains('has-error')) {
+                validateField('email', 0);
+            }
+        });
+    }
+
+    if (messageField) {
+        messageField.addEventListener('blur', () => validateField('message', 10));
+        messageField.addEventListener('input', () => {
+            if (messageField.closest('.form-group').classList.contains('has-error')) {
+                validateField('message', 10);
+            }
+        });
+    }
 
     // Handle form submission
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            // Validate all fields before submission
+            const isNameValid = validateField('name', 3);
+            const isEmailValid = validateField('email', 0);
+            const isMessageValid = validateField('message', 10);
+
+            // If any field is invalid, stop submission
+            if (!isNameValid || !isEmailValid || !isMessageValid) {
+                return;
+            }
+
             // Get form data
             const formData = new FormData(contactForm);
-
-            // Basic client-side validation without altering Formspree flow
-            const name = (formData.get('name') || '').toString().trim();
-            const email = (formData.get('email') || '').toString().trim();
-            const message = (formData.get('message') || '').toString().trim();
             const t = window.currentLocaleData || locales.en;
-
-            const validationMessages = {
-                name: t['contact.validation.name'] || 'Please enter at least 2 characters for your name.',
-                email: t['contact.validation.email'] || 'Please enter a valid email address.',
-                message: t['contact.validation.message'] || 'Message should be at least 10 characters.'
-            };
-
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-
-            if (name.length < 2) {
-                formStatus.innerHTML = `<p class="error-message">${validationMessages.name}</p>`;
-                contactForm.querySelector('#name').focus();
-                return;
-            }
-
-            if (!emailPattern.test(email)) {
-                formStatus.innerHTML = `<p class="error-message">${validationMessages.email}</p>`;
-                contactForm.querySelector('#email').focus();
-                return;
-            }
-
-            if (message.length < 10) {
-                formStatus.innerHTML = `<p class="error-message">${validationMessages.message}</p>`;
-                contactForm.querySelector('#message').focus();
-                return;
-            }
             
             // Show loading state
             const submitBtn = contactForm.querySelector('.btn-submit');
@@ -634,6 +753,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
                     formStatus.innerHTML = `<p class="success-message">${successMsg}</p>`;
                     contactForm.reset();
+                    // Clear any error states
+                    document.querySelectorAll('.form-group').forEach(group => {
+                        group.classList.remove('has-error');
+                    });
+                    document.querySelectorAll('.error-message').forEach(error => {
+                        error.textContent = '';
+                    });
                     
                     // Close modal after 2 seconds
                     setTimeout(() => {

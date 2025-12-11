@@ -1365,6 +1365,54 @@ body.dark-mode .form-group textarea:focus {
     font-family: 'Inter', sans-serif;
 }
 
+/* Form Validation Styles */
+.error-message {
+    display: none;
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+.form-group.has-error input,
+.form-group.has-error textarea {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+body:not(.dark-mode) .form-group.has-error input,
+body:not(.dark-mode) .form-group.has-error textarea {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.form-group.has-error .error-message {
+    display: block;
+    animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.char-count {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    font-weight: 400;
+    margin-left: 0.5rem;
+}
+
+body:not(.dark-mode) .char-count {
+    color: #94a3b8;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero {
