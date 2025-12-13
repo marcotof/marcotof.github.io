@@ -1454,6 +1454,11 @@ body.dark-mode .form-group textarea:focus {
     cursor: not-allowed;
 }
 
+#form-status {
+    width: 100%;
+    display: block;
+}
+
 .success-message {
     color: #10b981;
     background-color: rgba(16, 185, 129, 0.1);
@@ -1462,6 +1467,9 @@ body.dark-mode .form-group textarea:focus {
     border-left: 4px solid #10b981;
     margin-top: 1rem;
     font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .error-message {
@@ -1472,6 +1480,9 @@ body.dark-mode .form-group textarea:focus {
     border-left: 4px solid #ef4444;
     margin-top: 1rem;
     font-weight: 500;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
 }
 
 #contact-form-btn {

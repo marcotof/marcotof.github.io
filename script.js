@@ -753,6 +753,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Success message (localized)
                 const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
                 formStatus.innerHTML = `<p class="success-message">${successMsg}</p>`;
+                
+                // Scroll to success message on mobile
+                formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
                 contactForm.reset();
                 // Clear any error states
                 document.querySelectorAll('.form-group').forEach(group => {
