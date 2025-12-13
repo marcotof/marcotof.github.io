@@ -744,7 +744,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Submit to Formspree
                 const response = await fetch('https://formspree.io/f/xovgkbvw', {
                     method: 'POST',
-                    body: formData
+                    body: formData,
+                    mode: 'no-cors'
                 });
 
                 if (response.ok) {
