@@ -760,11 +760,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         error.textContent = '';
                     });
                     
-                    // Close modal after 2 seconds
+                    // Keep success message visible and close modal after 3 seconds
                     setTimeout(() => {
                         contactModal.style.display = 'none';
-                        formStatus.innerHTML = '';
-                    }, 2000);
+                    }, 3000);
                 } else {
                     // Error message (localized)
                     const errorMsg = t['contact.errorMessage'] || 'Failed to send message. Please try again.';
