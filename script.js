@@ -748,28 +748,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     mode: 'no-cors'
                 });
 
-                if (response.ok) {
-                    // Success message (localized)
-                    const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
-                    formStatus.innerHTML = `<p class="success-message">${successMsg}</p>`;
-                    contactForm.reset();
-                    // Clear any error states
-                    document.querySelectorAll('.form-group').forEach(group => {
-                        group.classList.remove('has-error');
-                    });
-                    document.querySelectorAll('.error-message').forEach(error => {
-                        error.textContent = '';
-                    });
-                    
-                    // Keep success message visible and close modal after 3 seconds
-                    setTimeout(() => {
-                        contactModal.style.display = 'none';
-                    }, 3000);
-                } else {
-                    // Error message (localized)
-                    const errorMsg = t['contact.errorMessage'] || 'Failed to send message. Please try again.';
-                    formStatus.innerHTML = `<p class="error-message">${errorMsg}</p>`;
-                }
+                // With no-cors mode, if fetch completes without error, the form was submitted
+                // Formspree processes it server-side regardless of visible response
+                // Success message (localized)
+                const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
+                formStatus.innerHTML = `<p class="success-message">${successMsg}</p>`;
+                contactForm.reset();
+                // Clear any error states
+                document.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('has-error');
+                });
+                document.querySelectorAll('.error-message').forEach(error => {
+                    error.textContent = '';
+                });
+                
+                // Keep success message visible and close modal after 3 seconds
+                setTimeout(() => {
+                    contactModal.style.display = 'none';
+                }, 3000);
             } catch (error) {
                 console.error('Error:', error);
                 const errorMsg = t['contact.generalError'] || 'An error occurred. Please try again.';
