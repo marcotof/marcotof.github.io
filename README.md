@@ -69,6 +69,9 @@ portfolio-website/
 ├── profile-picture.jpg              # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
 ├── super-mario-party-jamboree.jpg   # VIP project image
+├── poster-redelivery-hub.png        # Poster image for Redelivery Hub demo
+├── poster-lqa-extension.png         # Poster image for LQA Tool Extension demo
+├── poster-redelivery-agent.png      # Poster image for Redelivery Agent demo
 ├── demo-redelivery-hub.mp4          # Redelivery Hub video demo
 ├── demo-lqa-extension.mp4           # LQA Tool Extension video demo
 ├── demo-redelivery-agent.mp4        # Redelivery Agent video demo
@@ -150,6 +153,7 @@ portfolio-website/
 - ✅ **Contact Form Modal**: Interactive contact form with Formspree integration for email submissions
 - ✅ **Featured Demos Section**: Video demonstrations for 3 production automation tools (Redelivery Hub, LQA Tool Extension, Redelivery Agent)
 - ✅ **Demos Navigation**: Added "Demos" to main navigation menu for easy access across all languages
+- ✅ **Dual-Theme UI Polish**: Emerald/charcoal accent tokens applied across cards, modals, timelines, tags, and contact buttons with consistent hover/focus states in light/dark modes
 
 ## Contact Form
 

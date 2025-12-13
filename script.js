@@ -2,12 +2,26 @@
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
 const darkModeIcon = darkModeToggle?.querySelector('i');
 
+function setNavbarStyles() {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    const navbarBg = getComputedStyle(document.body).getPropertyValue('--navbar-bg').trim();
+    navbar.style.background = navbarBg;
+    navbar.style.boxShadow = window.scrollY > 100
+        ? (isDarkMode ? '0 2px 20px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.1)')
+        : 'none';
+}
+
 // Check for saved dark mode preference or default to light mode
 const currentMode = localStorage.getItem('darkMode');
 if (currentMode === 'enabled') {
     document.body.classList.add('dark-mode');
     if (darkModeIcon) darkModeIcon.classList.replace('fa-moon', 'fa-sun');
 }
+
+// Initial navbar sync
+setNavbarStyles();
 
 darkModeToggle?.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -23,13 +37,7 @@ darkModeToggle?.addEventListener('click', () => {
     }
     
     // Update navbar background immediately
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.98)' : 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = isDarkMode ? '0 2px 20px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.1)';
-    } else {
-        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.95)' : 'rgba(255, 255, 255, 0.95)';
-    }
+    setNavbarStyles();
 });
 
 // Mobile menu toggle
@@ -543,16 +551,7 @@ document.head.appendChild(style);
 
 // Add scroll effect to navbar
 window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    
-    if (window.scrollY > 100) {
-        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.98)' : 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = isDarkMode ? '0 2px 20px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.1)';
-    } else {
-        navbar.style.background = isDarkMode ? 'rgba(26, 26, 26, 0.95)' : 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = 'none';
-    }
+    setNavbarStyles();
 });
 
 // Profile picture toggle functionality
