@@ -253,9 +253,8 @@ function updateLanguageSelectorText() {
         const flag = option.dataset.flag;
         
         if (isMobile) {
-            // Mobile: show flag + language name in dropdown options
-            // The selected value will show only the flag due to CSS overflow: hidden
-            option.textContent = flag + ' ' + langName;
+            // Mobile: show only flag in the option text to keep the control compact
+            option.textContent = flag || langCodes[langValue] || langValue.toUpperCase();
         } else {
             // Desktop: show language code (e.g., "EN", "IT", "ES")
             option.textContent = langCodes[langValue] || langValue.toUpperCase();
