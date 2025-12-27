@@ -258,8 +258,8 @@ function updateLanguageSelectorText() {
         const flag = option.dataset.flag;
         
         if (isMobile) {
-            // Mobile: show only emoji flags to keep control compact
-            option.textContent = flag || langCodes[langValue] || langValue.toUpperCase();
+            // Mobile: show flag + language name in native picker (navbar shows only flag via ::after)
+            option.textContent = `${flag} ${langName}` || langCodes[langValue] || langValue.toUpperCase();
         } else {
             // Desktop: show language code (e.g., "EN", "IT", "ES")
             option.textContent = langCodes[langValue] || langValue.toUpperCase();
