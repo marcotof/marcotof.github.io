@@ -428,6 +428,7 @@ body {
         text-overflow: clip;
         white-space: nowrap;
         direction: ltr;
+        color: transparent;
     }
 
     /* When expanded, show flag + language name */
@@ -436,6 +437,7 @@ body {
         width: auto;
         min-width: 160px;
         overflow: visible;
+        color: var(--text-primary);
     }
 
     /* Show full text in option dropdown on mobile */
