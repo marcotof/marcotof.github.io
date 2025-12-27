@@ -23,14 +23,25 @@
                 <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
                 <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                <li class="mobile-dark-mode-toggle">
+                    <button class="dark-mode-toggle mobile-only" aria-label="Toggle dark mode">
+                        <span class="toggle-track">
+                            <span class="toggle-thumb">
+                                <i class="fas fa-moon toggle-icon-moon"></i>
+                                <i class="fas fa-sun toggle-icon-sun"></i>
+                            </span>
+                        </span>
+                        <span class="toggle-label" data-i18n="nav.darkMode">Dark Mode</span>
+                    </button>
+                </li>
             </ul>
             <div class="nav-actions">
                 <div class="language-selector">
                     <label for="lang-select" class="sr-only" data-i18n="contact.selectLanguage">Select Language:</label>
                     <select id="lang-select" aria-label="Select language">
-                        <option value="en" aria-label="English" data-lang-name="English (US)" data-flag="">EN</option>
-                        <option value="it" aria-label="Italiano" data-lang-name="Italiano (Italia)" data-flag="">IT</option>
-                        <option value="es" aria-label="Español" data-lang-name="Español (España)" data-flag="">ES</option>
+                        <option value="en" aria-label="English" data-lang-name="English (US)" data-flag="🇺🇸">EN</option>
+                        <option value="it" aria-label="Italiano" data-lang-name="Italiano (Italia)" data-flag="🇮🇹">IT</option>
+                        <option value="es" aria-label="Español" data-lang-name="Español (España)" data-flag="🇪🇸">ES</option>
                     </select>
                 </div>
                 <button class="dark-mode-toggle" aria-label="Toggle dark mode">

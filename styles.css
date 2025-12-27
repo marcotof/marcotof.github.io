@@ -332,6 +332,63 @@ body {
         background: var(--card-hover);
     }
 
+    .mobile-dark-mode-toggle {
+        margin: 0.25rem 0;
+        padding: 0 1rem;
+    }
+
+    .mobile-dark-mode-toggle .dark-mode-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 1rem;
+        margin: 0;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .nav-menu.active .mobile-dark-mode-toggle .dark-mode-toggle {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.29s;
+    }
+
+    .mobile-dark-mode-toggle .dark-mode-toggle:hover {
+        transform: translateY(0) scale(1.02);
+        background: var(--card-hover);
+    }
+
+    .mobile-dark-mode-toggle .dark-mode-toggle:focus-visible {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+        transform: translateY(0) scale(1.02);
+        background: var(--card-hover);
+    }
+
+    .mobile-dark-mode-toggle .toggle-track {
+        width: 44px;
+        height: 24px;
+    }
+
+    .mobile-dark-mode-toggle .toggle-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    .dark-mode .mobile-dark-mode-toggle .toggle-thumb {
+        left: 22px;
+    }
+
     .nav-actions {
         gap: 0.5rem;
         position: static;
@@ -341,6 +398,10 @@ body {
         z-index: 6;
     }
 
+    .dark-mode-toggle {
+        display: none;
+    }
+
     .language-selector label {
         display: none;
     }
@@ -348,10 +409,10 @@ body {
     /* Make language selector compact - show only flag when closed */
     .language-selector select {
         padding: 0.3rem 0.75rem;
-        padding-left: 2.4rem;
+        padding-left: 2.2rem;
         font-size: 1.3rem;
-        min-width: 3.2rem;
-        width: 3.2rem;
+        min-width: 2.6rem;
+        width: 2.6rem;
         border: 1px solid var(--border-color);
         text-align: center;
         background-color: var(--bg-secondary);
@@ -378,6 +439,18 @@ body {
         padding: 0.5rem;
         text-align: left;
         direction: ltr;
+    }
+
+    /* Show emoji flag on mobile when closed */
+    .language-selector[data-selected-flag]::after {
+        content: attr(data-selected-flag);
+        position: absolute;
+        left: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        font-size: 1.3rem;
+        display: block;
     }
 
     /* Make dark mode toggle smaller on mobile */

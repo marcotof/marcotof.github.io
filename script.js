@@ -1,5 +1,5 @@
 // Dark mode toggle
-const darkModeToggle = document.querySelector('.dark-mode-toggle');
+const darkModeToggles = document.querySelectorAll('.dark-mode-toggle');
 
 function setNavbarStyles() {
     const navbar = document.querySelector('.navbar');
@@ -21,19 +21,33 @@ if (currentMode === 'enabled') {
 // Initial navbar sync
 setNavbarStyles();
 
-darkModeToggle?.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    
-    // Update localStorage
-    if (isDarkMode) {
-        localStorage.setItem('darkMode', 'enabled');
-    } else {
-        localStorage.setItem('darkMode', 'disabled');
-    }
-    
-    // Update navbar background immediately
-    setNavbarStyles();
+// Add event listeners to all dark mode toggles (desktop and mobile)
+darkModeToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        
+        // Update localStorage
+        if (isDarkMode) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+        
+        // Update navbar background immediately
+        setNavbarStyles();
+
+        // Close mobile menu if clicking the mobile toggle
+        if (toggle.classList.contains('mobile-only')) {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger && navMenu) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        }
+    });
 });
 
 // Mobile menu toggle
