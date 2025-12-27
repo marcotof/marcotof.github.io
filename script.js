@@ -225,11 +225,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const chosen = this.value;
             if (!supportedLangs.includes(chosen)) return;
             localStorage.setItem('lang', chosen);
-            // Sync flag immediately before any layout/locale updates
+            // Sync flag immediately
             syncLanguageSelectorFlag();
             loadLocale(chosen);
-            // Sync again after locale load to be safe
-            syncLanguageSelectorFlag();
+            // Force blur to ensure consistent state on mobile
+            this.blur();
         });
     }
 

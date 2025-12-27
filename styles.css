@@ -461,10 +461,6 @@ body {
         font-size: 1.3rem;
         display: block;
     }
-    /* Hide flag overlay while the select is focused */
-    .language-selector:focus-within::after {
-        display: none;
-    }
 
     /* Make dark mode toggle smaller on mobile */
     .toggle-track {
