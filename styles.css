@@ -146,6 +146,10 @@ body {
     margin: 0;
 }
 
+.mobile-dark-mode-toggle {
+    display: none;
+}
+
 /* Apple-style toggle switch */
 .toggle-track {
     width: 52px;
@@ -333,6 +337,7 @@ body {
     }
 
     .mobile-dark-mode-toggle {
+        display: block;
         margin: 0.25rem 0;
         padding: 0 1rem;
     }
