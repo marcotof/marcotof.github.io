@@ -285,6 +285,7 @@ body {
         border-bottom: 1px solid var(--border-color);
         max-height: calc(100vh - 70px);
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
         padding-right: 0;
         padding-left: 0;
         z-index: 4; /* Ensure menu overlays logo/actions so first item (Home) is clickable */
@@ -434,10 +435,10 @@ body {
     /* When expanded, show flag + language name */
     .language-selector select:focus,
     .language-selector select:active {
-        width: auto;
-        min-width: 160px;
+        width: 2.4rem;
+        min-width: 2.4rem;
         overflow: visible;
-        color: var(--text-primary);
+        color: transparent;
     }
 
     /* Show full text in option dropdown on mobile */
