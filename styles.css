@@ -1291,11 +1291,12 @@ body {
     transform: translateY(-50%);
     pointer-events: none;
     font-size: 1.25rem;
+    display: none;
 }
 
 .language-selector select {
     padding: 0.4rem 1.2rem;
-    padding-left: 2.6rem;
+    padding-left: 1.2rem;
     border: 1.5px solid var(--text-light);
     border-radius: 0.5rem;
     background: var(--bg-secondary);
@@ -1304,16 +1305,10 @@ body {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease;
-    min-width: 5rem;
+    min-width: 3.5rem;
     width: auto;
     text-align: center;
     box-shadow: 0 2px 8px var(--shadow);
-}
-
-.language-selector select:not(:focus):not(:active) {
-    color: transparent;
-    text-shadow: 0 0 0 transparent;
-    caret-color: transparent;
 }
 
 .language-selector select:focus,
