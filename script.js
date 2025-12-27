@@ -215,6 +215,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update language selector options based on screen size
         updateLanguageSelectorText();
+        // Ensure flag appears immediately on load
+        syncLanguageSelectorFlag();
         
         // Update on window resize
         window.addEventListener('resize', updateLanguageSelectorText);
@@ -223,7 +225,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const chosen = this.value;
             if (!supportedLangs.includes(chosen)) return;
             localStorage.setItem('lang', chosen);
+            // Sync flag immediately before any layout/locale updates
+            syncLanguageSelectorFlag();
             loadLocale(chosen);
+            // Sync again after locale load to be safe
             syncLanguageSelectorFlag();
         });
     }
