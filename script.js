@@ -235,11 +235,11 @@ function updateLanguageSelectorText() {
     options.forEach(option => {
         const langValue = option.value;
         const langName = option.dataset.langName;
+        const flag = option.dataset.flag;
         
-        if (isMobile && langName) {
-            // Mobile: show flag + language name (e.g., "🇺🇸 English (US)")
-            const flag = option.getAttribute('data-flag') || option.textContent.substring(0, 2);
-            option.setAttribute('data-flag', flag);
+        if (isMobile) {
+            // Mobile: show flag + language name in dropdown options
+            // The selected value will show only the flag due to CSS overflow: hidden
             option.textContent = flag + ' ' + langName;
         } else {
             // Desktop: show language code (e.g., "EN", "IT", "ES")
