@@ -102,7 +102,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    z-index: 3;
+    z-index: 5;
     position: absolute;
     right: 20px;
     top: 50%;
@@ -257,11 +257,16 @@ body {
 }
 
 @media (max-width: 800px) {
+    .nav-container {
+        align-items: center;
+    }
+
     .hamburger {
         display: flex;
     }
     
     .nav-menu {
+        display: none;
         position: fixed;
         left: -100%;
         top: 70px;
@@ -279,9 +284,11 @@ body {
         padding-right: 0;
         padding-left: 0;
         z-index: 4; /* Ensure menu overlays logo/actions so first item (Home) is clickable */
+        flex: 0 0 auto;
     }
     
     .nav-menu.active {
+        display: flex;
         left: 0;
     }
     /* Staggered reveal for menu items */
@@ -330,6 +337,8 @@ body {
         position: static;
         transform: none;
         justify-content: flex-end;
+        margin-left: auto;
+        z-index: 6;
     }
 
     .language-selector label {
@@ -338,10 +347,11 @@ body {
 
     /* Make language selector compact - show only flag when closed */
     .language-selector select {
-        padding: 0.3rem 0.5rem;
+        padding: 0.3rem 0.75rem;
+        padding-left: 2.4rem;
         font-size: 1.3rem;
-        min-width: auto;
-        width: 2.8rem;
+        min-width: 3.2rem;
+        width: 3.2rem;
         border: 1px solid var(--border-color);
         text-align: center;
         background-color: var(--bg-secondary);
@@ -352,15 +362,13 @@ body {
         text-overflow: clip;
         white-space: nowrap;
         direction: ltr;
-        text-indent: -0.1rem;
     }
 
     /* When expanded, show flag + language name */
     .language-selector select:focus,
     .language-selector select:active {
         width: auto;
-        min-width: 150px;
-        text-indent: 0;
+        min-width: 160px;
         overflow: visible;
     }
 
@@ -1266,6 +1274,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    position: relative;
 }
 
 .language-selector label {
@@ -1274,8 +1283,19 @@ body {
     color: var(--text-light);
 }
 
+.language-selector[data-selected-flag]::after {
+    content: attr(data-selected-flag);
+    position: absolute;
+    left: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 1.25rem;
+}
+
 .language-selector select {
     padding: 0.4rem 1.2rem;
+    padding-left: 2.6rem;
     border: 1.5px solid var(--text-light);
     border-radius: 0.5rem;
     background: var(--bg-secondary);
@@ -1288,6 +1308,19 @@ body {
     width: auto;
     text-align: center;
     box-shadow: 0 2px 8px var(--shadow);
+}
+
+.language-selector select:not(:focus):not(:active) {
+    color: transparent;
+    text-shadow: 0 0 0 transparent;
+    caret-color: transparent;
+}
+
+.language-selector select:focus,
+.language-selector select:active {
+    color: var(--text-primary);
+    text-shadow: none;
+    caret-color: auto;
 }
 
 .language-selector select:hover {

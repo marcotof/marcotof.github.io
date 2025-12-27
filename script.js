@@ -210,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!supportedLangs.includes(chosen)) return;
             localStorage.setItem('lang', chosen);
             loadLocale(chosen);
+            syncLanguageSelectorFlag();
         });
     }
 
@@ -246,6 +247,19 @@ function updateLanguageSelectorText() {
             option.textContent = langCodes[langValue] || langValue.toUpperCase();
         }
     });
+
+    syncLanguageSelectorFlag();
+}
+
+// Keep the closed selector showing only the selected flag
+function syncLanguageSelectorFlag() {
+    const select = document.getElementById('lang-select');
+    if (!select) return;
+    const wrapper = select.closest('.language-selector');
+    const selected = select.options[select.selectedIndex];
+    if (wrapper && selected) {
+        wrapper.dataset.selectedFlag = selected.dataset.flag || '';
+    }
 }
 
 // Function to check and reveal future timeline items
