@@ -28,13 +28,18 @@
                 <div class="language-selector">
                     <label for="lang-select" class="sr-only" data-i18n="contact.selectLanguage">Select Language:</label>
                     <select id="lang-select" aria-label="Select language">
-                        <option value="en" aria-label="English">🇺🇸</option>
-                        <option value="it" aria-label="Italiano">🇮🇹</option>
-                        <option value="es" aria-label="Español">🇪🇸</option>
+                        <option value="en" aria-label="English" data-lang-name="English (US)">🇺🇸</option>
+                        <option value="it" aria-label="Italiano" data-lang-name="Italiano (Italia)">🇮🇹</option>
+                        <option value="es" aria-label="Español" data-lang-name="Español (España)">🇪🇸</option>
                     </select>
                 </div>
                 <button class="dark-mode-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
+                    <span class="toggle-track">
+                        <span class="toggle-thumb">
+                            <i class="fas fa-moon toggle-icon-moon"></i>
+                            <i class="fas fa-sun toggle-icon-sun"></i>
+                        </span>
+                    </span>
                 </button>
                 <button class="hamburger" aria-label="Menu">
                     <span></span>
@@ -262,11 +267,19 @@
                         <span class="timeline-location">🇪🇸 Madrid, Spain</span>
                     </div>
                 </div>
-                <div class="timeline-item current">
+                <div class="timeline-item">
                     <div class="timeline-date" data-i18n="timeline.date4">Nov 2024</div>
                     <div class="timeline-content">
                         <h3 data-i18n="timeline.specialistRole">Italian Language Content Specialist</h3>
                         <p data-i18n="timeline.specialistCurrent">Prime Video - Current Role</p>
+                        <span class="timeline-location">🇪🇸 Madrid, Spain</span>
+                    </div>
+                </div>
+                <div class="timeline-item future-role" data-reveal-date="2026-01-12">
+                    <div class="timeline-date" data-i18n="timeline.date5">Jan 2026</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="timeline.feverup">Junior Marketplace QA Specialist</h3>
+                        <p data-i18n="timeline.feverupCompany">FeverUp</p>
                         <span class="timeline-location">🇪🇸 Madrid, Spain</span>
                     </div>
                 </div>

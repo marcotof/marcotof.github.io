@@ -86,6 +86,9 @@ const locales = {
     "timeline.date2": "Jul 2022",
     "timeline.date3": "Sep 2024",
     "timeline.date4": "Nov 2024",
+    "timeline.date5": "Jan 2026",
+    "timeline.feverup": "Junior Marketplace QA Specialist",
+    "timeline.feverupCompany": "FeverUp",
     "localization.vipProjectsTitle": "VIP Projects",
     "localization.dragonsdogma": "Dragon's Dogma II",
     "localization.dragonsDesc": "Epic fantasy RPG localization featuring complex narrative, character dialogue, and immersive world-building elements.",
@@ -277,6 +280,9 @@ const locales = {
     "timeline.date2": "lug 2022",
     "timeline.date3": "set 2024",
     "timeline.date4": "nov 2024",
+    "timeline.date5": "gen 2026",
+    "timeline.feverup": "Junior Marketplace QA Specialist",
+    "timeline.feverupCompany": "FeverUp",
     "localization.vipProjectsTitle": "Progetti VIP",
     "localization.dragonsdogma": "Dragon's Dogma II",
     "localization.dragonsDesc": "Localizzazione di un GDR fantasy con narrativa complessa, dialoghi dei personaggi ed elementi di world-building immersivi.",
@@ -415,7 +421,7 @@ const locales = {
   es: {
     "nav.logo": "Marco Tofani",
     "nav.home": "Inicio",
-    "nav.about": "Acerca de mí",
+    "nav.about": "Acerca",
     "nav.awards": "Reconocimientos",
     "nav.demos": "Demos",
     "nav.timeline": "Trayectoria",
@@ -486,6 +492,9 @@ const locales = {
     "timeline.date2": "jul 2022",
     "timeline.date3": "sep 2024",
     "timeline.date4": "nov 2024",
+    "timeline.date5": "ene 2026",
+    "timeline.feverup": "Junior Marketplace QA Specialist",
+    "timeline.feverupCompany": "FeverUp",
     "localization.vipProjectsTitle": "Proyectos VIP",
     "localization.dragonsdogma": "Dragon's Dogma II",
     "localization.dragonsDesc": "Localización de JDR de fantasía con narrativa compleja, diálogos de personajes y elementos de construcción de mundo inmersivos.",
@@ -617,12 +626,4 @@ const locales = {
     "modal.localization.spec4": "Diálogos de personajes",
     "modal.localization.spec5": "Control de calidad"
   }
-};
-
-// =====================================
-// GLOBAL DATA - Not Language-Specific
-// =====================================
-const contactInfo = {
-  linkedin: "LinkedIn Profile",
-  email: "tofanimarco16@gmail.com"
 };

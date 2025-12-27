@@ -7,9 +7,13 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 ## Features
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
-- **Dark Mode**: Toggle between light and dark themes with persistent preference
-- **Multi-language Support**: English, Italian, and Spanish with embedded translations and flag-only selector in the navbar
+- **Apple-style Dark Mode Toggle**: Professional iOS-inspired toggle switch with smooth animations and persistent preference
+- **Multi-language Support**: English, Italian, and Spanish with automatic browser language detection
+  - **Desktop**: Language codes (EN, IT, ES)
+  - **Mobile**: Flag + language name (🇺🇸 English (US), 🇮🇹 Italiano (Italia), 🇪🇸 Español (España))
+- **Browser Language Auto-detection**: Automatically displays portfolio in user's browser language on first visit
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
+- **Professional Timeline**: Career journey with upcoming position reveal feature (FeverUp role unlocks Jan 12, 2026)
 - **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with comprehensive client-side validation (email format, character requirements) and localized error messages in all supported languages
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Clean design with smooth animations and transitions
@@ -137,7 +141,41 @@ portfolio-website/
 2. Upload files to web hosting service
 3. Configure DNS settings
 
-## Recent Updates (December 2025)
+## Recent Updates
+
+### v1.1 - Enhanced UX & Auto-detection (December 27, 2025)
+
+#### 🎨 UI Improvements
+- **Apple-style Dark Mode Toggle**: Replaced icon button with professional iOS-inspired toggle switch
+  - Smooth animations with sliding thumb and rotating icons (moon ↔ sun)
+  - Enhanced hover states and visual feedback
+- **Smart Language Selector**: Adaptive display based on screen size
+  - Desktop: Clean language codes (EN, IT, ES)
+  - Mobile: Flag emojis + full language names for clarity
+  - Increased selector width to prevent flag truncation
+- **Spanish Navbar Optimization**: Changed "Acerca de mí" to "Acerca" to prevent text overlap
+
+#### 🌍 Localization Enhancements
+- **Browser Language Auto-detection**: Portfolio automatically displays in user's browser language on first visit
+  - Supports English, Italian, and Spanish
+  - Falls back to English for unsupported languages
+  - User selection persists via localStorage
+
+#### 🗓️ Timeline Features
+- **Future Role Reveal System**: Added upcoming FeverUp position (Jan 12, 2026)
+  - Position and company blurred with lock icon (🔒) until reveal date
+  - Automatic reveal on January 12, 2026 with celebration animation (🎉)
+  - Dynamic "current role" status transfer from Prime Video to FeverUp
+  - Fully localized in all three languages
+
+#### 🧹 Code Quality
+- Removed unused `contactInfo` object from locales.js
+- Optimized CSS selectors for better performance
+- Enhanced blur effects with proper specificity
+
+---
+
+### v1.0 - Initial Release (December 2025)
 
 - ✅ **Navbar Language Selector**: Flag-only selector moved into the navbar (🇺🇸/🇮🇹/🇪🇸) with spacing fixes for long labels
 - ✅ **Enhanced Form Validation**: Real-time validation with field-level error messages (name min 3 chars, valid email format, message min 10 chars)
@@ -209,8 +247,12 @@ This site includes a client-side localization system with translations embedded 
 - All translations are embedded in `locales.js` to avoid CORS issues on GitHub Pages
 - `locales.js` is organized with clear section comments for each language (English, Italian, Spanish)
 - Elements to translate are marked with `data-i18n="key"` attributes in `index.html`
-- The language selector is located in the navbar with flag-only options (🇺🇸 English, 🇮🇹 Italiano, 🇪🇸 Español)
-- Default language: English
+- **Browser Language Auto-detection**: On first visit, portfolio automatically displays in user's browser language
+  - Supported: English, Italian, Spanish
+  - Unsupported languages default to English
+- The language selector adapts to screen size:
+  - **Desktop**: Language codes (EN, IT, ES)
+  - **Mobile**: Flag + language name (🇺🇸 English (US), 🇮🇹 Italiano (Italia), 🇪🇸 Español (España))
 - Current language is saved to `localStorage` for persistence across visits
 
 **Adding/updating translations:**

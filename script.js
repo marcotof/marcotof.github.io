@@ -1,6 +1,5 @@
 // Dark mode toggle
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
-const darkModeIcon = darkModeToggle?.querySelector('i');
 
 function setNavbarStyles() {
     const navbar = document.querySelector('.navbar');
@@ -17,7 +16,6 @@ function setNavbarStyles() {
 const currentMode = localStorage.getItem('darkMode');
 if (currentMode === 'enabled') {
     document.body.classList.add('dark-mode');
-    if (darkModeIcon) darkModeIcon.classList.replace('fa-moon', 'fa-sun');
 }
 
 // Initial navbar sync
@@ -27,12 +25,10 @@ darkModeToggle?.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const isDarkMode = document.body.classList.contains('dark-mode');
     
-    // Update icon
+    // Update localStorage
     if (isDarkMode) {
-        darkModeIcon?.classList.replace('fa-moon', 'fa-sun');
         localStorage.setItem('darkMode', 'enabled');
     } else {
-        darkModeIcon?.classList.replace('fa-sun', 'fa-moon');
         localStorage.setItem('darkMode', 'disabled');
     }
     
@@ -182,8 +178,16 @@ function updateFormLabels(t) {
 document.addEventListener('DOMContentLoaded', function() {
     let lang = localStorage.getItem('lang');
     
-    // Always default to English if no preference is saved
-    if (!lang || !supportedLangs.includes(lang)) {
+    // If no language is saved, detect browser language
+    if (!lang) {
+        const browserLang = navigator.language || navigator.userLanguage;
+        // Extract the base language code (e.g., 'en' from 'en-US', 'it' from 'it-IT')
+        const langCode = browserLang.split('-')[0].toLowerCase();
+        
+        // Use browser language if supported, otherwise default to English
+        lang = supportedLangs.includes(langCode) ? langCode : 'en';
+    } else if (!supportedLangs.includes(lang)) {
+        // If saved language is not supported, default to English
         lang = 'en';
     }
 
@@ -194,6 +198,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (select) {
         // set select to current language
         select.value = lang;
+        
+        // Update language selector options based on screen size
+        updateLanguageSelectorText();
+        
+        // Update on window resize
+        window.addEventListener('resize', updateLanguageSelectorText);
+        
         select.addEventListener('change', function() {
             const chosen = this.value;
             if (!supportedLangs.includes(chosen)) return;
@@ -201,7 +212,75 @@ document.addEventListener('DOMContentLoaded', function() {
             loadLocale(chosen);
         });
     }
+
+    // Check and reveal future timeline items based on date
+    checkFutureRoleReveal();
 });
+
+// Function to update language selector text based on screen width
+function updateLanguageSelectorText() {
+    const select = document.getElementById('lang-select');
+    if (!select) return;
+    
+    const isMobile = window.innerWidth <= 800;
+    const options = select.querySelectorAll('option');
+    
+    // Language code mapping for desktop
+    const langCodes = {
+        'en': 'EN',
+        'it': 'IT',
+        'es': 'ES'
+    };
+    
+    options.forEach(option => {
+        const langValue = option.value;
+        const langName = option.dataset.langName;
+        
+        if (isMobile && langName) {
+            // Mobile: show flag + language name (e.g., "🇺🇸 English (US)")
+            const flag = option.getAttribute('data-flag') || option.textContent.substring(0, 2);
+            option.setAttribute('data-flag', flag);
+            option.textContent = flag + ' ' + langName;
+        } else {
+            // Desktop: show language code (e.g., "EN", "IT", "ES")
+            option.textContent = langCodes[langValue] || langValue.toUpperCase();
+        }
+    });
+}
+
+// Function to check and reveal future timeline items
+function checkFutureRoleReveal() {
+    const futureItems = document.querySelectorAll('.timeline-item.future-role');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
+    
+    futureItems.forEach(item => {
+        const revealDateStr = item.dataset.revealDate;
+        if (revealDateStr) {
+            const revealDate = new Date(revealDateStr);
+            revealDate.setHours(0, 0, 0, 0);
+            
+            // If today is on or after the reveal date, reveal the item
+            if (today >= revealDate) {
+                item.classList.add('revealed');
+                item.classList.add('current');
+                
+                // Remove 'current' class from all other timeline items
+                document.querySelectorAll('.timeline-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('current');
+                    }
+                });
+            } else {
+                // Before reveal date, make the previous role (Prime Video) current
+                const primeVideoItem = document.querySelector('.timeline-item:nth-last-child(2)');
+                if (primeVideoItem && !primeVideoItem.classList.contains('future-role')) {
+                    primeVideoItem.classList.add('current');
+                }
+            }
+        }
+    });
+}
 
 // Project details data
 const projectDetails = {
