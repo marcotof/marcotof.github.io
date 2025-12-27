@@ -258,8 +258,8 @@ function updateLanguageSelectorText() {
         const flag = option.dataset.flag;
         
         if (isMobile) {
-            // Mobile: show only flag in the option text to keep the control compact
-            option.textContent = flag || langCodes[langValue] || langValue.toUpperCase();
+            // Mobile: use full language name in native picker for readability
+            option.textContent = langName || langCodes[langValue] || langValue.toUpperCase();
         } else {
             // Desktop: show language code (e.g., "EN", "IT", "ES")
             option.textContent = langCodes[langValue] || langValue.toUpperCase();
