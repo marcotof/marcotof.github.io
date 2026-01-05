@@ -18,6 +18,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Clean design with smooth animations and transitions
 - **Professional Presentation**: Optimized for recruiters and technical managers
+- **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.json structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
 
 ## Featured Demos
 
@@ -79,6 +80,8 @@ portfolio-website/
 ├── demo-redelivery-hub.mp4          # Redelivery Hub video demo
 ├── demo-lqa-extension.mp4           # LQA Tool Extension video demo
 ├── demo-redelivery-agent.mp4        # Redelivery Agent video demo
+├── sitemap.xml                      # XML sitemap for search engine crawling
+├── robots.txt                       # Search engine crawler instructions
 └── README.md                        # This file
 ```
 
@@ -92,6 +95,40 @@ portfolio-website/
    - **GitHub Pages**: Push to GitHub and enable Pages
    - **Netlify**: Drag and drop the folder to Netlify
    - **Personal Domain**: Upload files to web hosting service
+
+## SEO & Discoverability
+
+This portfolio includes comprehensive SEO optimizations to improve visibility in recruiter searches and social media sharing:
+
+### Open Graph Meta Tags
+- Professional previews when shared on LinkedIn, Twitter, and other social platforms
+- Displays your name, description, and profile picture thumbnail
+- Enhances click-through rates from social sharing
+
+### Schema.json Structured Data
+- Machine-readable profile information using Schema.org Person schema
+- Tells search engines and recruiter automation systems:
+  - Your name, email, job title, and location
+  - Languages you know (Italian, English, Spanish)
+  - Core skills and expertise areas
+  - LinkedIn and GitHub profiles
+
+### Sitemap.xml
+- Helps search engines discover and index all portfolio sections
+- Lists priority levels for different pages (homepage highest priority)
+- Enables efficient crawling of your entire site
+
+### Robots.txt
+- Guides search engine crawlers on what to index
+- Links search engines to your sitemap
+- Allows all bots to crawl your portfolio
+
+### Impact on Discovery
+These optimizations improve:
+- **Search Visibility**: Rank higher for searches like "localization automation developer", "game localization specialist", "polyglot developer"
+- **Social Credibility**: Professional appearance when shared on LinkedIn and Twitter
+- **Recruiter Automation**: Better matching in automated recruiter systems and ATS platforms
+- **Search Engine Indexing**: Faster and more complete indexing of your portfolio
 
 ## Customization
 
@@ -175,7 +212,26 @@ portfolio-website/
 
 ---
 
-### v1.0 - Initial Release (December 2025)
+### v1.2 - SEO & Discoverability (January 5, 2026)
+
+#### 🔍 SEO Enhancements
+- **Open Graph Meta Tags**: Social media sharing now displays professional previews with thumbnail and description
+- **Schema.json Structured Data**: Added machine-readable profile information for search engines and recruiter automation systems
+  - Person schema with job title, languages, skills, and social profiles
+  - Improves visibility in recruiter searches and ATS matching
+- **Sitemap.xml**: XML sitemap for improved search engine crawling and indexing
+- **Robots.txt**: Added robots.txt file to guide search engine behavior and link to sitemap
+- **Enhanced Meta Tags**: Added description, keywords, and author meta tags for better search results
+
+#### 📈 Discoverability Impact
+- Improved ranking for recruiter searches: "localization automation developer", "game localization specialist", "polyglot developer"
+- Professional LinkedIn/Twitter sharing with thumbnails
+- Better matching in automated recruiter systems
+- Faster indexing by Google and other search engines
+
+---
+
+### v1.1 - Enhanced UX & Auto-detection (December 27, 2025)
 
 - ✅ **Navbar Language Selector**: Flag-only selector moved into the navbar (🇺🇸/🇮🇹/🇪🇸) with spacing fixes for long labels
 - ✅ **Enhanced Form Validation**: Real-time validation with field-level error messages (name min 3 chars, valid email format, message min 10 chars)
