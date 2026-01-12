@@ -297,12 +297,29 @@ function checkFutureRoleReveal() {
                 item.classList.add('revealed');
                 item.classList.add('current');
                 
-                // Remove 'current' class from all other timeline items
+                // Remove 'current' class from all other timeline items and update their text
                 document.querySelectorAll('.timeline-item').forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('current');
+                        
+                        // If this is the Prime Video role, change the i18n key to just show company name
+                        const companyParagraph = otherItem.querySelector('.timeline-content > p');
+                        if (companyParagraph && companyParagraph.getAttribute('data-i18n') === 'timeline.specialistCurrent') {
+                            companyParagraph.setAttribute('data-i18n', 'timeline.specialistCompany');
+                        }
                     }
                 });
+                
+                // Update the FeverUp item to show it as the current role
+                const feverupCompanyParagraph = item.querySelector('.timeline-content > p');
+                if (feverupCompanyParagraph) {
+                    feverupCompanyParagraph.setAttribute('data-i18n', 'timeline.feverupCurrent');
+                }
+                
+                // Re-apply translations to update the changed elements
+                if (window.currentLocaleData) {
+                    applyTranslations(window.currentLocaleData);
+                }
             } else {
                 // Before reveal date, make the previous role (Prime Video) current
                 const primeVideoItem = document.querySelector('.timeline-item:nth-last-child(2)');
