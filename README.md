@@ -18,7 +18,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
-- **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.json structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
+- **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
 
 ## Featured Demos
 
@@ -109,7 +109,7 @@ This portfolio includes comprehensive SEO optimizations to improve visibility in
 - Displays your name, description, and profile picture thumbnail
 - Enhances click-through rates from social sharing
 
-### Schema.json Structured Data
+### Schema.org Structured Data (JSON-LD)
 - Machine-readable profile information using Schema.org Person schema
 - Tells search engines and recruiter automation systems:
   - Your name, email, job title, and location
