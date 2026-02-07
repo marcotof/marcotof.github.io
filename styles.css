@@ -947,67 +947,6 @@ code, .mono {
     position: relative;
 }
 
-/* Future role styling - blurred until reveal date */
-.timeline-item.future-role .timeline-content {
-    position: relative;
-    user-select: none;
-    pointer-events: none;
-    transition: all 0.6s ease;
-}
-
-.timeline-item.future-role .timeline-content h3,
-.timeline-item.future-role .timeline-content p,
-.timeline-item.future-role .timeline-location {
-    filter: blur(10px) !important;
-    opacity: 0.2 !important;
-    transition: all 0.6s ease;
-    color: transparent !important;
-    text-shadow: 0 0 12px var(--text-primary) !important;
-}
-
-.timeline-item.future-role .timeline-date {
-    filter: blur(6px);
-    opacity: 0.4;
-    transition: all 0.6s ease;
-}
-
-.timeline-item.future-role.revealed .timeline-content h3,
-.timeline-item.future-role.revealed .timeline-content p,
-.timeline-item.future-role.revealed .timeline-location,
-.timeline-item.future-role.revealed .timeline-date {
-    filter: blur(0) !important;
-    opacity: 1 !important;
-    color: inherit !important;
-    text-shadow: none !important;
-}
-
-.timeline-item.future-role.revealed .timeline-content {
-    user-select: auto;
-    pointer-events: auto;
-}
-
-.timeline-item.future-role .timeline-content::after {
-    content: '🔒';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2.5rem;
-    z-index: 10;
-    transition: all 0.6s ease;
-    opacity: 1;
-}
-
-.timeline-item.future-role.revealed .timeline-content::after {
-    content: '🎉';
-    animation: celebrate 1s ease forwards;
-}
-
-@keyframes celebrate {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.8; }
-    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
-}
 
 /* Localization Section */
 .localization {

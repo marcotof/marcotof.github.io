@@ -242,61 +242,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Check and reveal future timeline items based on date
-    checkFutureRoleReveal();
 });
-
-
-// Function to check and reveal future timeline items
-function checkFutureRoleReveal() {
-    const futureItems = document.querySelectorAll('.timeline-item.future-role');
-    const today = new Date();
-    today.setHours(0, 0, 0, 0); // Reset time to midnight for accurate date comparison
-    
-    futureItems.forEach(item => {
-        const revealDateStr = item.dataset.revealDate;
-        if (revealDateStr) {
-            const revealDate = new Date(revealDateStr);
-            revealDate.setHours(0, 0, 0, 0);
-            
-            // If today is on or after the reveal date, reveal the item
-            if (today >= revealDate) {
-                item.classList.add('revealed');
-                item.classList.add('current');
-                
-                // Remove 'current' class from all other timeline items and update their text
-                document.querySelectorAll('.timeline-item').forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('current');
-                        
-                        // If this is the Prime Video role, change the i18n key to just show company name
-                        const companyParagraph = otherItem.querySelector('.timeline-content > p');
-                        if (companyParagraph && companyParagraph.getAttribute('data-i18n') === 'timeline.specialistCurrent') {
-                            companyParagraph.setAttribute('data-i18n', 'timeline.specialistCompany');
-                        }
-                    }
-                });
-                
-                // Update the FeverUp item to show it as the current role
-                const feverupCompanyParagraph = item.querySelector('.timeline-content > p');
-                if (feverupCompanyParagraph) {
-                    feverupCompanyParagraph.setAttribute('data-i18n', 'timeline.feverupCurrent');
-                }
-                
-                // Re-apply translations to update the changed elements
-                if (window.currentLocaleData) {
-                    applyTranslations(window.currentLocaleData);
-                }
-            } else {
-                // Before reveal date, make the previous role (Prime Video) current
-                const primeVideoItem = document.querySelector('.timeline-item:nth-last-child(2)');
-                if (primeVideoItem && !primeVideoItem.classList.contains('future-role')) {
-                    primeVideoItem.classList.add('current');
-                }
-            }
-        }
-    });
-}
 
 // Project details data
 const projectDetails = {

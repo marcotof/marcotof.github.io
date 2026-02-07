@@ -13,7 +13,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
   - **Desktop & Mobile**: Full language names (English, Italiano, Espanol)
 - **URL-based Language Routing**: `/` for English, `/it/` for Italian, `/es/` for Spanish
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
-- **Professional Timeline**: Career journey with upcoming position reveal feature (FeverUp role unlocks Jan 12, 2026)
+- **Professional Timeline**: Career journey with current role highlighted
 - **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with comprehensive client-side validation (email format, character requirements) and localized error messages in all supported languages
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
