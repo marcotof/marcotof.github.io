@@ -16,7 +16,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Professional Timeline**: Career journey with upcoming position reveal feature (FeverUp role unlocks Jan 12, 2026)
 - **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with comprehensive client-side validation (email format, character requirements) and localized error messages in all supported languages
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
-- **Modern UI/UX**: Tech-inspired layout with grouped card colors and smooth animations
+- **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
 - **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.json structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
 
@@ -188,13 +188,17 @@ These optimizations improve:
 
 ## Recent Updates
 
-### v2.0 - URL-based i18n + Visual System Refresh (February 7, 2026)
+### v1.3 - URL-based i18n + Visual System Refresh (February 7, 2026)
 
 #### 🎨 UI Improvements
 - **Permanent Dark Mode**: Removed the toggle and enforced a consistent dark theme
 - **Hamburger-only Header**: Single navigation pattern across desktop and mobile
 - **Hero Layout**: Centered hero content with a 4-button desktop row and 2x2 mobile grid
-- **Card System**: Three color groups applied across sections for consistent hierarchy
+- **Card System**: Four color groups applied across sections for consistent hierarchy
+  - Group 1: Home + Contact
+  - Group 2: About + Timeline + Skills
+  - Group 3: Awards + Localization
+  - Group 4: Projects + Demos
 - **Contact UX**: Stronger button styling and cleaner contact modal presentation
 
 #### 🌍 Localization Updates

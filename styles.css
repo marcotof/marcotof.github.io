@@ -38,16 +38,21 @@
     --card-group-1-bg: #121c28;
     --card-group-1-border: #2a3b52;
     --card-group-1-accent: #1ecad1;
-    --card-group-2-bg: #141b22;
-    --card-group-2-border: #2f3b45;
+    --card-group-2-bg: #111f1a;
+    --card-group-2-border: #2a3f36;
     --card-group-2-accent: #34d399;
-    --card-group-3-bg: #19140e;
-    --card-group-3-border: #3b2b1f;
+    --card-group-3-bg: #2a160c;
+    --card-group-3-border: #5a341c;
     --card-group-3-accent: #f97316;
+    --card-group-4-bg: #121821;
+    --card-group-4-border: #2b3646;
+    --card-group-4-accent: #7c8aa3;
     --btn-group-1-bg: linear-gradient(135deg, var(--card-group-1-accent), var(--accent-color));
     --btn-group-1-hover: linear-gradient(135deg, var(--accent-color), var(--card-group-1-accent));
     --btn-group-3-bg: linear-gradient(135deg, var(--card-group-3-accent), var(--accent-3));
     --btn-group-3-hover: linear-gradient(135deg, var(--accent-3), var(--card-group-3-accent));
+    --btn-group-4-bg: linear-gradient(135deg, var(--card-group-4-accent), #546278);
+    --btn-group-4-hover: linear-gradient(135deg, #546278, var(--card-group-4-accent));
 }
 
 body.dark-mode {
@@ -82,16 +87,21 @@ body.dark-mode {
     --card-group-1-bg: #121c28;
     --card-group-1-border: #2a3b52;
     --card-group-1-accent: #1ecad1;
-    --card-group-2-bg: #141b22;
-    --card-group-2-border: #2f3b45;
+    --card-group-2-bg: #111f1a;
+    --card-group-2-border: #2a3f36;
     --card-group-2-accent: #34d399;
-    --card-group-3-bg: #19140e;
-    --card-group-3-border: #3b2b1f;
+    --card-group-3-bg: #2a160c;
+    --card-group-3-border: #5a341c;
     --card-group-3-accent: #f97316;
+    --card-group-4-bg: #121821;
+    --card-group-4-border: #2b3646;
+    --card-group-4-accent: #7c8aa3;
     --btn-group-1-bg: linear-gradient(135deg, var(--card-group-1-accent), var(--accent-color));
     --btn-group-1-hover: linear-gradient(135deg, var(--accent-color), var(--card-group-1-accent));
     --btn-group-3-bg: linear-gradient(135deg, var(--card-group-3-accent), var(--accent-3));
     --btn-group-3-hover: linear-gradient(135deg, var(--accent-3), var(--card-group-3-accent));
+    --btn-group-4-bg: linear-gradient(135deg, var(--card-group-4-accent), #546278);
+    --btn-group-4-hover: linear-gradient(135deg, #546278, var(--card-group-4-accent));
 }
 
 body {
@@ -585,7 +595,7 @@ code, .mono {
 /* About Section */
 .about {
     padding: 100px 0;
-    background: var(--bg-secondary);
+    background: linear-gradient(180deg, rgba(17, 31, 26, 0.55) 0%, rgba(11, 15, 20, 0.95) 100%);
     position: relative;
     overflow: hidden;
 }
@@ -597,7 +607,7 @@ code, .mono {
     width: 240px;
     height: 240px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(14, 165, 165, 0.18), transparent 70%);
+    background: radial-gradient(circle, rgba(52, 211, 153, 0.18), transparent 70%);
     pointer-events: none;
 }
 
@@ -706,7 +716,7 @@ code, .mono {
 /* Awards Section */
 .awards {
     padding: 100px 0;
-    background: var(--bg-primary);
+    background: linear-gradient(180deg, rgba(42, 22, 12, 0.6) 0%, rgba(11, 15, 20, 0.95) 100%);
 }
 
 .awards h2 {
@@ -784,7 +794,7 @@ code, .mono {
 /* Timeline Section */
 .timeline {
     padding: 100px 0;
-    background: var(--bg-secondary);
+    background: linear-gradient(180deg, rgba(17, 31, 26, 0.55) 0%, rgba(11, 15, 20, 0.95) 100%);
     position: relative;
 }
 
@@ -865,7 +875,7 @@ code, .mono {
 }
 
 .timeline-item.current .timeline-content {
-    background: linear-gradient(135deg, var(--card-group-2-accent), var(--accent-color));
+    background: linear-gradient(135deg, var(--card-group-2-accent), var(--card-group-2-border));
     color: white;
     border-left-color: var(--card-group-2-accent);
     border-color: rgba(255, 255, 255, 0.2);
@@ -916,7 +926,7 @@ code, .mono {
     width: 12px;
     height: 12px;
     background: var(--card-group-2-accent);
-    box-shadow: 0 0 0 3px rgba(194, 65, 12, 0.18);
+    box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.25);
     border-radius: 50%;
     transform: translateY(-50%);
     z-index: 1;
@@ -1003,8 +1013,8 @@ code, .mono {
 .localization {
     padding: 100px 0;
     background:
-        radial-gradient(circle at 12% 18%, rgba(30, 41, 59, 0.35), transparent 45%),
-        linear-gradient(135deg, #0b121a 0%, #0f172a 55%, #111827 100%);
+        radial-gradient(circle at 12% 18%, rgba(249, 115, 22, 0.12), transparent 45%),
+        linear-gradient(180deg, rgba(42, 22, 12, 0.6) 0%, rgba(11, 15, 20, 0.95) 100%);
     color: white;
 }
 
@@ -1060,7 +1070,7 @@ code, .mono {
     left: 0;
     width: 56px;
     height: 4px;
-    background: linear-gradient(90deg, var(--card-group-3-accent), var(--accent-color));
+    background: linear-gradient(90deg, var(--card-group-3-accent), var(--card-group-3-border));
 }
 
 .game-card:hover {
@@ -1181,7 +1191,7 @@ code, .mono {
 /* Projects Section */
 .projects {
     padding: 100px 0;
-    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    background: linear-gradient(180deg, rgba(18, 24, 33, 0.65) 0%, rgba(11, 15, 20, 0.95) 100%);
 }
 
 .projects h2 {
@@ -1198,12 +1208,12 @@ code, .mono {
 }
 
 .project-card {
-    background: var(--card-group-1-bg);
+    background: var(--card-group-4-bg);
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 4px 6px var(--shadow);
     transition: all 0.3s;
-    border: 1px solid var(--card-group-1-border);
+    border: 1px solid var(--card-group-4-border);
     position: relative;
     overflow: hidden;
 }
@@ -1215,7 +1225,7 @@ code, .mono {
     right: 0;
     width: 120px;
     height: 4px;
-    background: linear-gradient(90deg, var(--card-group-1-accent), var(--accent-color));
+    background: linear-gradient(90deg, var(--card-group-4-accent), var(--card-group-4-border));
 }
 
 .project-card:nth-child(odd) {
@@ -1225,14 +1235,14 @@ code, .mono {
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 22px 42px rgba(12, 19, 35, 0.18);
-    background: var(--card-group-1-bg);
-    border-color: var(--card-group-1-border);
+    background: var(--card-group-4-bg);
+    border-color: var(--card-group-4-border);
 }
 
 .project-card.featured {
-    border: 1px solid var(--card-group-1-border);
-    background: var(--card-group-1-bg);
-    box-shadow: 0 0 25px rgba(30, 202, 209, 0.2);
+    border: 1px solid var(--card-group-4-border);
+    background: var(--card-group-4-bg);
+    box-shadow: 0 0 25px rgba(124, 138, 163, 0.25);
 }
 
 .project-header {
@@ -1292,7 +1302,7 @@ code, .mono {
 .project-tech i {
     font-size: 1.5rem;
     color: white;
-    background: var(--btn-primary-bg);
+    background: var(--btn-group-4-bg);
     width: 40px;
     height: 40px;
     display: flex;
@@ -1307,7 +1317,7 @@ code, .mono {
 }
 
 .btn-demo {
-    background: var(--btn-group-1-bg);
+    background: var(--btn-group-4-bg);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -1318,15 +1328,15 @@ code, .mono {
 }
 
 .btn-demo:hover {
-    background: var(--btn-group-1-hover);
+    background: var(--btn-group-4-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(12, 19, 35, 0.2), 0 0 0 2px var(--card-group-1-accent);
+    box-shadow: 0 4px 12px rgba(12, 19, 35, 0.2), 0 0 0 2px var(--card-group-4-accent);
 }
 
 /* Skills Section */
 .skills {
     padding: 100px 0;
-    background: var(--bg-primary);
+    background: linear-gradient(180deg, rgba(17, 31, 26, 0.55) 0%, rgba(11, 15, 20, 0.95) 100%);
 }
 
 .skills h2 {
@@ -1360,7 +1370,7 @@ code, .mono {
     bottom: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--card-group-2-accent), var(--accent-color));
+    background: linear-gradient(90deg, var(--card-group-2-accent), var(--card-group-2-border));
 }
 
 .skill-category h3 {
@@ -1413,8 +1423,9 @@ code, .mono {
     padding: 100px 0;
     text-align: left;
     background:
-        radial-gradient(circle at top right, rgba(194, 65, 12, 0.18), transparent 45%),
-        linear-gradient(135deg, #0b1f24 0%, #103338 55%, #0f2a2f 100%);
+        radial-gradient(circle at top right, rgba(194, 65, 12, 0.35), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(14, 165, 165, 0.42), transparent 45%),
+        linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     color: white;
 }
 
@@ -1475,8 +1486,8 @@ button.contact-link {
     text-decoration: none;
     font-weight: 600;
     padding: 12px 24px;
-    background: var(--btn-group-3-bg);
-    border: 1px solid var(--card-group-3-border);
+    background: var(--btn-group-1-bg);
+    border: 1px solid var(--card-group-1-border);
     border-radius: 14px;
     box-shadow: 0 12px 22px rgba(8, 12, 16, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -1498,7 +1509,7 @@ button.contact-link i {
 button.contact-link:hover,
 .contact-link:focus-visible,
 button.contact-link:focus-visible {
-    background: var(--btn-group-3-hover);
+    background: var(--btn-group-1-hover);
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 16px 28px rgba(8, 12, 16, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -1788,21 +1799,21 @@ body:not(.dark-mode) .form-group textarea::placeholder {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--card-group-3-accent);
-    box-shadow: 0 0 0 3px rgba(242, 106, 74, 0.2);
+    border-color: var(--card-group-1-accent);
+    box-shadow: 0 0 0 3px rgba(30, 202, 209, 0.2);
 }
 
 body.dark-mode .form-group input:focus,
 body.dark-mode .form-group textarea:focus {
-    border-color: var(--card-group-3-accent);
-    box-shadow: 0 0 0 3px rgba(242, 106, 74, 0.2);
+    border-color: var(--card-group-1-accent);
+    box-shadow: 0 0 0 3px rgba(30, 202, 209, 0.2);
 }
 
 .btn-submit {
     padding: 0.75rem 1.5rem;
-    background: var(--btn-group-3-bg);
+    background: var(--btn-group-1-bg);
     color: white;
-    border: 1px solid var(--card-group-3-border);
+    border: 1px solid var(--card-group-1-border);
     border-radius: 12px;
     font-size: 1rem;
     cursor: pointer;
@@ -1814,7 +1825,7 @@ body.dark-mode .form-group textarea:focus {
 
 .btn-submit:hover:not(:disabled) {
     transform: translateY(-2px);
-    background: var(--btn-group-3-hover);
+    background: var(--btn-group-1-hover);
     box-shadow: 0 14px 26px rgba(8, 12, 16, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
@@ -1855,20 +1866,20 @@ body.dark-mode .form-group textarea:focus {
 }
 
 #contact-form-btn {
-    background: var(--btn-group-3-bg);
+    background: var(--btn-group-1-bg);
     color: white;
-    border: 1px solid transparent;
+    border: 1px solid var(--card-group-1-border);
     cursor: pointer;
     font-family: inherit;
 }
 
 #contact-form-btn:hover,
 #contact-form-btn:focus-visible {
-    background: var(--btn-group-3-hover) !important;
+    background: var(--btn-group-1-hover) !important;
     color: white !important;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
-    border: 1px solid transparent;
+    box-shadow: 0 16px 28px rgba(8, 12, 16, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-group-1-border);
 }
 
 /* Form Validation Styles */
@@ -2138,7 +2149,7 @@ body:not(.dark-mode) .char-count {
 /* Demos Section */
 .demos {
     padding: 80px 0;
-    background: var(--bg-secondary);
+    background: linear-gradient(180deg, rgba(18, 24, 33, 0.65) 0%, rgba(11, 15, 20, 0.95) 100%);
 }
 
 .demos h2 {
@@ -2166,20 +2177,20 @@ body:not(.dark-mode) .char-count {
 }
 
 .demo-card {
-    background: var(--card-group-1-bg);
+    background: var(--card-group-4-bg);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 6px var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
-    border: 1px solid var(--card-group-1-border);
+    border: 1px solid var(--card-group-4-border);
 }
 
 .demo-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 8px 12px var(--shadow);
-    border-color: var(--card-group-1-border);
+    border-color: var(--card-group-4-border);
 }
 
 .demo-video {
