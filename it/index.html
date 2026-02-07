@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marco Tofani - Polyglot translator with 40+ video game localizations and automation expertise. Building intelligent automation solutions at Prime Video.">
+    <meta name="keywords" content="translator, localization, automation, developer, python, flask, game localization, italian, prime video">
+    <meta name="author" content="Marco Tofani">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <title>Marco Tofani - Portfolio | Polyglot Translator & Developer</title>
+    <base href="../">
+    <link rel="canonical" href="https://marcotof.github.io/it/">
+    <link rel="alternate" hreflang="en" href="https://marcotof.github.io/">
+    <link rel="alternate" hreflang="it" href="https://marcotof.github.io/it/">
+    <link rel="alternate" hreflang="es" href="https://marcotof.github.io/es/">
+    <link rel="alternate" hreflang="x-default" href="https://marcotof.github.io/">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Marco Tofani - Polyglot Translator & Developer">
+    <meta property="og:description" content="Polyglot translator with 40+ game localizations and automation solutions at Prime Video. Specialized in process automation, localization workflows, and full-stack development.">
+    <meta property="og:image" content="https://marcotof.github.io/profile-picture.jpg">
+    <meta property="og:url" content="https://marcotof.github.io/it/">
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Marco Tofani Portfolio">
+    <meta property="og:locale" content="it_IT">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Marco Tofani - Polyglot Translator & Developer">
+    <meta name="twitter:description" content="Polyglot translator with 40+ game localizations and automation solutions at Prime Video.">
+    <meta name="twitter:image" content="https://marcotof.github.io/profile-picture.jpg">
+    
+    <!-- Structured Data (Schema.org JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Marco Tofani",
+    "url": "https://marcotof.github.io/it/",
+      "image": "https://marcotof.github.io/profile-picture.jpg",
+      "description": "Polyglot Translator & Developer specializing in automation and game localization",
+      "email": "tofanimarco16@gmail.com",
+      "jobTitle": "Italian Language Content Specialist",
+      "workLocation": {
+        "@type": "Place",
+        "name": "Madrid, Spain"
+      },
+      "knowsLanguage": [
+        {
+          "@type": "Language",
+          "name": "Italian",
+          "alternateName": "it-IT"
+        },
+        {
+          "@type": "Language",
+          "name": "English",
+          "alternateName": "en-US"
+        },
+        {
+          "@type": "Language",
+          "name": "Spanish",
+          "alternateName": "es-ES"
+        }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/marco-tofani/",
+        "https://github.com/marcotof"
+      ],
+      "knowsAbout": [
+        "Game Localization",
+        "Translation",
+        "Python Automation",
+        "Web Development",
+        "Selenium",
+        "Flask",
+        "JavaScript",
+        "Process Automation"
+      ]
+    }
+    </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "url": "https://marcotof.github.io/it/",
+            "name": "Marco Tofani Portfolio",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://marcotof.github.io/it/?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="locales.js"></script>
+</head>
+<body class="dark-mode">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo" data-i18n="nav.logo">Marco Tofani</div>
+            <ul class="nav-menu">
+                <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#awards" data-i18n="nav.awards">Awards</a></li>
+                <li><a href="#demos" data-i18n="nav.demos">Demos</a></li>
+                <li><a href="#timeline" data-i18n="nav.timeline">Timeline</a></li>
+                <li><a href="#localization" data-i18n="nav.localization">Localization</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                <li class="nav-language">
+                    <div class="language-selector">
+                        <label for="lang-select" class="sr-only" data-i18n="contact.selectLanguage">Select Language:</label>
+                        <span class="language-title" data-i18n="contact.selectLanguage">Select Language:</span>
+                        <div class="lang-pills" role="group" aria-label="Language">
+                            <button type="button" class="lang-pill" data-lang="en" aria-label="English">English</button>
+                            <button type="button" class="lang-pill" data-lang="it" aria-label="Italiano">Italiano</button>
+                            <button type="button" class="lang-pill" data-lang="es" aria-label="Español">Español</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <button class="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Marco Tofani</h1>
+            <h2 data-i18n="hero.subtitle">Polyglot Translator & Developer</h2>
+            <p data-i18n="hero.lead">Polyglot translator with a passion for development, building intelligent automation solutions at Prime Video to bridge language and technology</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary" data-i18n="btn.viewProjects">View Projects</a>
+                <a href="#localization" class="btn-secondary" data-i18n="btn.viewLocalization">View Localization</a>
+                <a href="Marco Tofani_Resume.pdf" class="btn-secondary" download data-i18n="btn.downloadResume">Download Resume</a>
+                <a href="#contact" class="btn-secondary" data-i18n="btn.getInTouch">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>5+</h3>
+                <p data-i18n="stats.tools">Automation Tools</p>
+            </div>
+            <div class="stat">
+                <h3>100+</h3>
+                <p data-i18n="stats.hours">Hours Saved Weekly</p>
+            </div>
+            <div class="stat">
+                <h3>3</h3>
+                <p data-i18n="stats.languages">Programming Languages</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 data-i18n="about.title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-i18n="about.paragraph1">Polyglot translator and Language Content Specialist at Prime Video with a passion for development and automation. With 40+ video game localization projects translated to Italian (it-IT), including VIP projects like Dragon's Dogma II and Super Mario Party Jamboree, I bring deep linguistic expertise to the tech world.</p>
+                    <p data-i18n="about.paragraph2">I combine translation mastery with technical skills, creating automation solutions that bridge language and technology. From CAT tools and localization workflows to Python automation and web development, I solve complex problems at the intersection of linguistics and engineering.</p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight">
+                        <i class="fas fa-language"></i>
+                        <h4 data-i18n="about.highlight1Title">Video Game Localization</h4>
+                        <p data-i18n="about.highlight1">40+ projects, CAT tools, cultural adaptation, it-IT specialization</p>
+                    </div>
+                    <div class="highlight">
+                        <i class="fas fa-robot"></i>
+                        <h4 data-i18n="about.highlight2Title">Process Automation</h4>
+                        <p data-i18n="about.highlight2">Selenium WebDriver, Python scripting, workflow optimization</p>
+                    </div>
+                    <div class="highlight">
+                        <i class="fas fa-code"></i>
+                        <h4 data-i18n="about.highlight3Title">Full-Stack Development</h4>
+                        <p data-i18n="about.highlight3">Flask web applications, JavaScript, Chrome extensions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="awards">
+        <div class="container">
+            <h2 data-i18n="awards.title">Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3 data-i18n="awards.award1Title">Prime Video Digiflex Ace of Spades</h3>
+                    <p data-i18n="awards.award1Desc">Recognition for outstanding performance and excellence in Prime Video operations</p>
+                </div>
+                <div class="award-card">
+                    <div class="award-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 data-i18n="awards.award2Title">Seed Digiflex Ignite - Invent & Simplify</h3>
+                    <p data-i18n="awards.award2Desc">Award for innovation and process improvement through creative automation solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demos" class="demos">
+        <div class="container">
+            <h2 data-i18n="demos.title">Featured Demos</h2>
+            <p class="demos-intro" data-i18n="demos.intro">Watch live demonstrations of my production automation tools in action</p>
+            <div class="demos-grid">
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video
+                            controls
+                            playsinline
+                            preload="metadata"
+                            poster="poster-redelivery-hub.png"
+                            data-poster-svg="poster-redelivery-hub.png"
+                            data-poster-title="Redelivery Hub"
+                            data-poster-subtitle="Automation platform · Flask · Selenium"
+                            data-poster-impact="Real-time monitoring & ticketing"
+                            data-poster-accent1="#22c55e"
+                            data-poster-accent2="#38bdf8"
+                            data-poster-btn1="Demo Preview"
+                            data-poster-btn2="Track"
+                            data-poster-left="Status Tracker">
+                            <source src="demo-redelivery-hub.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3 data-i18n="demos.redelivery-hub.title">Redelivery Hub</h3>
+                        <p data-i18n="demos.redelivery-hub.desc">Comprehensive automation platform for Prime Video redelivery workflows</p>
+                        <div class="demo-tech">
+                            <span>Flask</span>
+                            <span>Selenium</span>
+                            <span>Python</span>
+                            <span>Real-time Updates</span>
+                        </div>
+                        <div class="demo-impact">
+                            <p data-i18n="demos.redelivery-hub.impact">90% reduction in manual ticket creation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video
+                            controls
+                            playsinline
+                            preload="metadata"
+                            poster="poster-lqa-extension.png"
+                            data-poster-svg="poster-lqa-extension.png"
+                            data-poster-title="LQA Tool Extension"
+                            data-poster-subtitle="Chrome Extension · Workflow enhancements · Manifest V3"
+                            data-poster-impact="UI enhancements & QA speedup"
+                            data-poster-accent1="#38bdf8"
+                            data-poster-accent2="#22c55e"
+                            data-poster-btn1="Select"
+                            data-poster-btn2="Blurb"
+                            data-poster-left="QA Speedup">
+                            <source src="demo-lqa-extension.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3 data-i18n="demos.lqa-extension.title">LQA Tool Extension</h3>
+                        <p data-i18n="demos.lqa-extension.desc">Chrome extension enhancing LQA Tool workflow efficiency</p>
+                        <div class="demo-tech">
+                            <span>Chrome Extension</span>
+                            <span>JavaScript</span>
+                            <span>Manifest V3</span>
+                            <span>UI/UX Enhancement</span>
+                        </div>
+                        <div class="demo-impact">
+                            <p data-i18n="demos.lqa-extension.impact">40% improvement in QA process efficiency</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-card">
+                    <div class="demo-video">
+                        <video
+                            controls
+                            playsinline
+                            preload="metadata"
+                            poster="poster-redelivery-agent.png"
+                            data-poster-svg="poster-redelivery-agent.png"
+                            data-poster-title="Redelivery Agent"
+                            data-poster-subtitle="Web-based Excel processing · Modular JS · File API"
+                            data-poster-impact="Data validation & error-free exports"
+                            data-poster-accent1="#22c55e"
+                            data-poster-accent2="#38bdf8"
+                            data-poster-btn1="Upload"
+                            data-poster-btn2="Export"
+                            data-poster-left="Data Validation">
+                            <source src="demo-redelivery-agent.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="demo-info">
+                        <h3 data-i18n="demos.redelivery-agent.title">Redelivery Agent</h3>
+                        <p data-i18n="demos.redelivery-agent.desc">Web-based Excel file processing with modular architecture</p>
+                        <div class="demo-tech">
+                            <span>JavaScript</span>
+                            <span>Excel Processing</span>
+                            <span>File API</span>
+                            <span>Modular Design</span>
+                        </div>
+                        <div class="demo-impact">
+                            <p data-i18n="demos.redelivery-agent.impact">Eliminates manual data entry errors</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="timeline">
+        <div class="container">
+            <h2 data-i18n="timeline.title">Professional Journey</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-date" data-i18n="timeline.date1">Jun 2022</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="timeline.degree">Bachelor's Degree in Language Mediation and Intercultural Communication</h3>
+                        <p data-i18n="timeline.degreeSchool">Università Gabriele D'Annunzio di Chieti-Pescara</p>
+                        <span class="timeline-location" data-i18n="timeline.location.pescara">🇮🇹 Pescara, Italy</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date" data-i18n="timeline.date2">Jul 2022</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="timeline.qa">Italian Localization QA Specialist</h3>
+                        <p data-i18n="timeline.qaCompany">Localsoft - Translation & Localization Company</p>
+                        <span class="timeline-location" data-i18n="timeline.location.malaga">🇪🇸 Málaga, Spain</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date" data-i18n="timeline.date3">Sep 2024</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="timeline.specialist">Digital Content Specialist</h3>
+                        <p>Prime Video</p>
+                        <span class="timeline-location" data-i18n="timeline.location.madrid">🇪🇸 Madrid, Spain</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date" data-i18n="timeline.date4">Nov 2024</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="timeline.specialistRole">Italian Language Content Specialist</h3>
+                        <p data-i18n="timeline.specialistCurrent">Prime Video - Current Role</p>
+                        <span class="timeline-location" data-i18n="timeline.location.madrid">🇪🇸 Madrid, Spain</span>
+                    </div>
+                </div>
+                <div class="timeline-item future-role" data-reveal-date="2026-01-12">
+                    <div class="timeline-date" data-i18n="timeline.date5">Jan 2026</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="timeline.feverup">Junior Marketplace QA Specialist</h3>
+                        <p data-i18n="timeline.feverupCompany">FeverUp</p>
+                        <span class="timeline-location" data-i18n="timeline.location.madrid">🇪🇸 Madrid, Spain</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="localization" class="localization">
+        <div class="container">
+            <h2 data-i18n="localization.title">Localization Expertise</h2>
+            <div class="localization-intro">
+                <p data-i18n="localization.intro">40+ video game localization projects translated to Italian (it-IT), bringing global gaming experiences to Italian audiences with cultural authenticity and linguistic precision.</p>
+            </div>
+            <div class="vip-projects">
+                <h3 data-i18n="localization.vipProjectsTitle">VIP Projects</h3>
+                <div class="games-showcase">
+                    <div class="game-card">
+                        <div class="game-image">
+                            <img src="dragons-dogma-2.jpg" alt="Dragon's Dogma II" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div class="image-placeholder" style="display:none;">
+                                <i class="fas fa-dragon"></i>
+                                <p data-i18n="localization.dragonsdogma">Dragon's Dogma II</p>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h4 data-i18n="localization.dragonsdogma">Dragon's Dogma II</h4>
+                            <p data-i18n="localization.dragonsDesc">Epic fantasy RPG localization featuring complex narrative, character dialogue, and immersive world-building elements.</p>
+                            <div class="game-tags">
+                                <span>RPG</span>
+                                <span>Fantasy</span>
+                                <span>Capcom</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-image">
+                            <img src="super-mario-party-jamboree.jpg" alt="Super Mario Party Jamboree" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                            <div class="image-placeholder" style="display:none;">
+                                <i class="fas fa-gamepad"></i>
+                                <p data-i18n="localization.mario">Super Mario Party Jamboree</p>
+                            </div>
+                        </div>
+                        <div class="game-info">
+                            <h4 data-i18n="localization.mario">Super Mario Party Jamboree</h4>
+                            <p data-i18n="localization.marioDesc">Family-friendly party game localization with focus on accessibility, humor, and maintaining Nintendo's iconic character voices.</p>
+                            <div class="game-tags">
+                                <span>Party Game</span>
+                                <span>Family</span>
+                                <span>Nintendo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="localization-stats">
+                <div class="stat">
+                    <h3>40+</h3>
+                    <p data-i18n="localization.statsGames">Games Localized</p>
+                </div>
+                <div class="stat">
+                    <h3>it-IT</h3>
+                    <p data-i18n="localization.statsLang">Target Language</p>
+                </div>
+                <div class="stat">
+                    <h3>2</h3>
+                    <p data-i18n="localization.statsVip">VIP Projects</p>
+                </div>
+            </div>
+            <div class="localization-cta">
+                <button class="btn-localization" onclick="showLocalizationProjects()" data-i18n="localization.viewAll">View All Localization Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 data-i18n="projects.title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <h3 data-i18n="projects.redelivery-hub.cardTitle">Redelivery Hub</h3>
+                        <span class="project-tag" data-i18n="projects.redelivery-hub.featured">Featured</span>
+                    </div>
+                    <p data-i18n="projects.redelivery-hub.cardDesc">Comprehensive automation platform for Prime Video redelivery workflows. Multi-tool hub with real-time status tracking and automated ticket creation.</p>
+                    <div class="project-features">
+                        <span>Flask Web App</span>
+                        <span>Selenium Automation</span>
+                        <span>File Processing</span>
+                        <span>Real-time Updates</span>
+                    </div>
+                    <div class="project-tech">
+                        <i class="fab fa-python"></i>
+                        <i class="fab fa-html5"></i>
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <div class="project-links">
+                        <button class="btn-demo" onclick="showProjectDetails('redelivery-hub')" data-i18n="projects.viewDetails">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 data-i18n="projects.lqa-extension.cardTitle">LQA Tool Extension</h3>
+                    </div>
+                    <p data-i18n="projects.lqa-extension.cardDesc">Chrome extension that enhances the LQA Tool workflow with convenient comment selection and improved user experience for quality assurance processes.</p>
+                    <div class="project-features">
+                        <span>Chrome Extension</span>
+                        <span>Workflow Enhancement</span>
+                        <span>UI/UX Improvement</span>
+                    </div>
+                    <div class="project-tech">
+                        <i class="fab fa-js"></i>
+                        <i class="fab fa-chrome"></i>
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <div class="project-links">
+                        <button class="btn-demo" onclick="showProjectDetails('lqa-extension')" data-i18n="projects.viewDetails">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 data-i18n="projects.redelivery-agent.cardTitle">Redelivery Agent</h3>
+                    </div>
+                    <p data-i18n="projects.redelivery-agent.cardDesc">Web-based tool for processing redelivery Excel files with clean separation of UI and business logic. Handles multiple file formats and exports.</p>
+                    <div class="project-features">
+                        <span>Excel Processing</span>
+                        <span>Modular Architecture</span>
+                        <span>File Export</span>
+                    </div>
+                    <div class="project-tech">
+                        <i class="fab fa-js"></i>
+                        <i class="fab fa-html5"></i>
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <div class="project-links">
+                        <button class="btn-demo" onclick="showProjectDetails('redelivery-agent')" data-i18n="projects.viewDetails">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 data-i18n="projects.filemaster.cardTitle">FileMaster</h3>
+                    </div>
+                    <p data-i18n="projects.filemaster.cardDesc">Python utility for advanced file management and processing operations. Streamlines file organization and batch processing tasks.</p>
+                    <div class="project-features">
+                        <span>File Management</span>
+                        <span>Batch Processing</span>
+                        <span>Python Scripting</span>
+                    </div>
+                    <div class="project-tech">
+                        <i class="fab fa-python"></i>
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <div class="project-links">
+                        <button class="btn-demo" onclick="showProjectDetails('filemaster')" data-i18n="projects.viewDetails">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 data-i18n="projects.timestamps-converter.cardTitle">TimeStamps Converter</h3>
+                    </div>
+                    <p data-i18n="projects.timestamps-converter.cardDesc">Specialized tool for converting and processing timestamp formats in media files. Essential for subtitle and timing synchronization workflows.</p>
+                    <div class="project-features">
+                        <span>Timestamp Processing</span>
+                        <span>Format Conversion</span>
+                        <span>Media Workflows</span>
+                    </div>
+                    <div class="project-tech">
+                        <i class="fab fa-python"></i>
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="project-links">
+                        <button class="btn-demo" onclick="showProjectDetails('timestamps-converter')" data-i18n="projects.viewDetails">View Details</button>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3 data-i18n="projects.proxy-generation.cardTitle">Proxy Generation Tools</h3>
+                    </div>
+                    <p data-i18n="projects.proxy-generation.cardDesc">Documentation and templates for proxy generation processes. Includes SOPs and Excel templates for partner support workflows.</p>
+                    <div class="project-features">
+                        <span>Process Documentation</span>
+                        <span>Excel Templates</span>
+                        <span>Partner Support</span>
+                    </div>
+                    <div class="project-tech">
+                        <i class="fas fa-file-excel"></i>
+                        <i class="fas fa-file-word"></i>
+                    </div>
+                    <div class="project-links">
+                        <button class="btn-demo" onclick="showProjectDetails('proxy-generation')" data-i18n="projects.viewDetails">View Details</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 data-i18n="skills.title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 data-i18n="skills.languages">Languages</h3>
+                    <div class="skill-items languages">
+                        <span class="native" data-i18n="skills.italian">Italian (Native)</span>
+                        <span class="c2" data-i18n="skills.english">English (C2)</span>
+                        <span class="c1" data-i18n="skills.spanish">Spanish (C1)</span>
+                        <span class="n5" data-i18n="skills.japanese">Japanese (N5)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 data-i18n="skills.translationLocalization">Translation & Localization</h3>
+                    <div class="skill-items">
+                        <span>CAT Tools</span>
+                        <span>SDL Trados</span>
+                        <span>MemoQ</span>
+                        <span>Video Game Localization</span>
+                        <span>it-IT Translation</span>
+                        <span>Quality Assurance</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 data-i18n="skills.backendDev">Backend Development</h3>
+                    <div class="skill-items">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>Selenium WebDriver</span>
+                        <span>API Integration</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 data-i18n="skills.frontendDev">Frontend Development</h3>
+                    <div class="skill-items">
+                        <span>JavaScript</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>Responsive Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 data-i18n="skills.automationTools">Automation & Tools</h3>
+                    <div class="skill-items">
+                        <span>Browser Automation</span>
+                        <span>Chrome Extensions</span>
+                        <span>Excel Processing</span>
+                        <span>File Management</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 data-i18n="skills.technologies">Technologies</h3>
+                    <div class="skill-items">
+                        <span>Git</span>
+                        <span>Windows COM</span>
+                        <span>Pandas</span>
+                        <span>PyAutoGUI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <div>
+                    <h2 data-i18n="contact.title">Get In Touch</h2>
+                    <p data-i18n="contact.lead">Interested in automation solutions or collaboration opportunities?</p>
+                </div>
+            </div>
+            <div class="contact-content">
+                <div class="profile-picture">
+                    <img src="profile-picture.jpg" alt="Marco Tofani" loading="lazy" decoding="async" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="profile-placeholder" style="display:none;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <a href="https://www.linkedin.com/in/marco-tofani/" class="contact-link" data-i18n="contact.linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <button id="contact-form-btn" class="contact-link" data-i18n="contact.email">
+                        <i class="fas fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="contact-modal" class="modal">
+        <div class="modal-content contact-modal-content">
+            <span class="close contact-modal-close">&times;</span>
+            <h2 data-i18n="contact.formTitle">Get In Touch</h2>
+            <p data-i18n="contact.formSubtitle">Send me a message and I'll get back to you as soon as possible.</p>
+            <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name" data-i18n="contact.name">Name <span class="char-count" data-i18n="contact.minChars3">(min 3 characters)</span></label>
+                    <input type="text" id="name" name="name" required minlength="3">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="email" data-i18n="contact.emailField">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                    <label for="message" data-i18n="contact.message">Message <span class="char-count" data-i18n="contact.minChars10">(min 10 characters)</span></label>
+                    <textarea id="message" name="message" rows="6" required minlength="10"></textarea>
+                    <span class="error-message" id="messageError"></span>
+                </div>
+                <button type="submit" class="btn-submit" data-i18n="contact.send">Send Message</button>
+            </form>
+            <div id="form-status"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
