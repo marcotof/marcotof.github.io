@@ -1983,6 +1983,7 @@ body:not(.dark-mode) .char-count {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 0 16px;
     }
     
     .about-left {
@@ -1992,6 +1993,16 @@ body:not(.dark-mode) .char-count {
     
     .about-text p {
         font-size: 0.95rem;
+    }
+
+    .about-highlights {
+        width: 100%;
+        max-width: none;
+    }
+
+    .highlight {
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .profile-picture {
