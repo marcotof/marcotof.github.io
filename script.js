@@ -1,6 +1,3 @@
-// Dark mode toggle
-const darkModeToggles = document.querySelectorAll('.dark-mode-toggle');
-
 function setNavbarStyles() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
@@ -12,43 +9,8 @@ function setNavbarStyles() {
         : 'none';
 }
 
-// Check for saved dark mode preference or default to light mode
-const currentMode = localStorage.getItem('darkMode');
-if (currentMode === 'enabled') {
-    document.body.classList.add('dark-mode');
-}
-
 // Initial navbar sync
 setNavbarStyles();
-
-// Add event listeners to all dark mode toggles (desktop and mobile)
-darkModeToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        const isDarkMode = document.body.classList.contains('dark-mode');
-        
-        // Update localStorage
-        if (isDarkMode) {
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            localStorage.setItem('darkMode', 'disabled');
-        }
-        
-        // Update navbar background immediately
-        setNavbarStyles();
-
-        // Close mobile menu if clicking the mobile toggle
-        if (toggle.classList.contains('mobile-only')) {
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            if (hamburger && navMenu) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            }
-        }
-    });
-});
 
 // Mobile menu toggle
 const hamburger = document.querySelector('.hamburger');
@@ -189,96 +151,101 @@ function updateFormLabels(t) {
     });
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    let lang = localStorage.getItem('lang');
-    
-    // If no language is saved, detect browser language
-    if (!lang) {
-        const browserLang = navigator.language || navigator.userLanguage;
-        // Extract the base language code (e.g., 'en' from 'en-US', 'it' from 'it-IT')
-        const langCode = browserLang.split('-')[0].toLowerCase();
-        
-        // Use browser language if supported, otherwise default to English
-        lang = supportedLangs.includes(langCode) ? langCode : 'en';
-    } else if (!supportedLangs.includes(lang)) {
-        // If saved language is not supported, default to English
-        lang = 'en';
+function setActiveLanguagePill(lang) {
+    document.querySelectorAll('.lang-pill').forEach(button => {
+        const isActive = button.dataset.lang === lang;
+        button.classList.toggle('active', isActive);
+        button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+}
+
+function getLangFromPath(pathname) {
+    const cleanPath = (pathname || '').replace(/\\/g, '/');
+    const segments = cleanPath.split('/').filter(Boolean);
+    if (segments.length === 0) return 'en';
+
+    const last = segments[segments.length - 1].toLowerCase();
+    const prev = segments.length > 1 ? segments[segments.length - 2].toLowerCase() : '';
+
+    if (last === 'it' || last === 'es') return last;
+    if (last === 'index.html' && (prev === 'it' || prev === 'es')) return prev;
+    return 'en';
+}
+
+function buildLanguagePath(lang) {
+    const isFile = window.location.protocol === 'file:';
+    const cleanPath = window.location.pathname.replace(/\\/g, '/');
+    const segments = cleanPath.split('/').filter(Boolean);
+    let baseSegments = segments.slice();
+    let fileName = 'index.html';
+
+    if (isFile) {
+        if (baseSegments.length > 0) {
+            const lastSegment = baseSegments[baseSegments.length - 1];
+            if (lastSegment.toLowerCase().endsWith('.html')) {
+                fileName = lastSegment;
+                baseSegments = baseSegments.slice(0, -1);
+            }
+        }
+    } else if (baseSegments.length > 0 && baseSegments[baseSegments.length - 1].toLowerCase() === 'index.html') {
+        baseSegments = baseSegments.slice(0, -1);
     }
+
+    if (baseSegments.length > 0) {
+        const lastFolder = baseSegments[baseSegments.length - 1].toLowerCase();
+        if (lastFolder === 'it' || lastFolder === 'es') {
+            baseSegments = baseSegments.slice(0, -1);
+        }
+    }
+
+    if (lang !== 'en') {
+        baseSegments.push(lang);
+    }
+
+    let newPath = '/' + baseSegments.join('/');
+    if (!newPath.endsWith('/')) newPath += '/';
+    if (isFile) newPath += fileName;
+    return newPath;
+}
+
+function navigateToLanguage(lang) {
+    const newPath = buildLanguagePath(lang);
+    const hash = window.location.hash || '';
+
+    if (window.location.protocol === 'file:') {
+        window.location.href = `file://${newPath}${hash}`;
+    } else {
+        window.location.href = `${newPath}${hash}`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let lang = getLangFromPath(window.location.pathname);
+    if (!supportedLangs.includes(lang)) lang = 'en';
 
     // Load locale first
     loadLocale(lang);
 
-    const select = document.getElementById('lang-select');
-    if (select) {
-        // set select to current language
-        select.value = lang;
-        
-        // Update language selector options based on screen size
-        updateLanguageSelectorText();
-        // Ensure flag appears immediately on load
-        syncLanguageSelectorFlag();
-        
-        // Update on window resize
-        window.addEventListener('resize', updateLanguageSelectorText);
-        
-        select.addEventListener('change', function() {
-            const chosen = this.value;
+    setActiveLanguagePill(lang);
+    document.querySelectorAll('.lang-pill').forEach(button => {
+        button.addEventListener('click', () => {
+            const chosen = button.dataset.lang;
             if (!supportedLangs.includes(chosen)) return;
-            localStorage.setItem('lang', chosen);
-            // Sync flag immediately
-            syncLanguageSelectorFlag();
-            loadLocale(chosen);
-            // Force blur to ensure consistent state on mobile
-            this.blur();
+            navigateToLanguage(chosen);
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            if (hamburger && navMenu) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
         });
-    }
+    });
 
     // Check and reveal future timeline items based on date
     checkFutureRoleReveal();
 });
 
-// Function to update language selector text based on screen width
-function updateLanguageSelectorText() {
-    const select = document.getElementById('lang-select');
-    if (!select) return;
-    
-    const isMobile = window.innerWidth <= 800;
-    const options = select.querySelectorAll('option');
-    
-    // Language code mapping for desktop
-    const langCodes = {
-        'en': 'EN',
-        'it': 'IT',
-        'es': 'ES'
-    };
-    
-    options.forEach(option => {
-        const langValue = option.value;
-        const langName = option.dataset.langName;
-        const flag = option.dataset.flag;
-        
-        if (isMobile) {
-            // Mobile: show only emoji flags to keep control compact
-            option.textContent = flag || langCodes[langValue] || langValue.toUpperCase();
-        } else {
-            // Desktop: show language code (e.g., "EN", "IT", "ES")
-            option.textContent = langCodes[langValue] || langValue.toUpperCase();
-        }
-    });
-
-    syncLanguageSelectorFlag();
-}
-
-// Keep the closed selector showing only the selected flag
-function syncLanguageSelectorFlag() {
-    const select = document.getElementById('lang-select');
-    if (!select) return;
-    const wrapper = select.closest('.language-selector');
-    const selected = select.options[select.selectedIndex];
-    if (wrapper && selected) {
-        wrapper.dataset.selectedFlag = selected.dataset.flag || '';
-    }
-}
 
 // Function to check and reveal future timeline items
 function checkFutureRoleReveal() {
@@ -491,8 +458,11 @@ function showLocalizationProjects() {
             <span class="spec-tag">${t['modal.localization.spec5'] || 'Quality Assurance'}</span>
         </div>
     `;
-    
-    document.getElementById('project-modal').style.display = 'block';
+
+    const projectModal = document.getElementById('project-modal');
+    projectModal.classList.add('modal-group-3');
+    projectModal.classList.remove('modal-group-1');
+    projectModal.style.display = 'block';
 }
 
 // Show project details in modal
@@ -541,17 +511,23 @@ function showProjectDetails(projectId) {
         <p class="architecture-description">${architecture}</p>
     `;
 
-    document.getElementById('project-modal').style.display = 'block';
+    const projectModal = document.getElementById('project-modal');
+    projectModal.classList.add('modal-group-1');
+    projectModal.classList.remove('modal-group-3');
+    projectModal.style.display = 'block';
 }
 
 // Close modal functionality
 document.querySelector('.close').addEventListener('click', function() {
-    document.getElementById('project-modal').style.display = 'none';
+    const projectModal = document.getElementById('project-modal');
+    projectModal.classList.remove('modal-group-1', 'modal-group-3');
+    projectModal.style.display = 'none';
 });
 
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('project-modal');
     if (event.target === modal) {
+        modal.classList.remove('modal-group-1', 'modal-group-3');
         modal.style.display = 'none';
     }
 });
@@ -561,19 +537,19 @@ const style = document.createElement('style');
 style.textContent = `
     .project-description {
         font-size: 1.1rem;
-        color: #64748b;
+        color: var(--text-light);
         margin-bottom: 2rem;
         line-height: 1.6;
     }
     
     .modal-content h2 {
-        color: #1e293b;
+        color: var(--text-secondary);
         margin-bottom: 1rem;
         font-size: 2rem;
     }
     
     .modal-content h3 {
-        color: #374151;
+        color: var(--text-secondary);
         margin: 2rem 0 1rem 0;
         font-size: 1.3rem;
     }
@@ -585,7 +561,7 @@ style.textContent = `
     
     .feature-list li, .impact-list li {
         margin-bottom: 0.5rem;
-        color: #475569;
+        color: var(--text-primary);
         line-height: 1.5;
     }
     
@@ -597,21 +573,17 @@ style.textContent = `
     }
     
     .tech-tag {
-        background: #374151 !important;
-        color: white !important;
+        background: var(--chip-bg) !important;
+        color: var(--chip-text) !important;
+        border: 1px solid var(--chip-border) !important;
         padding: 6px 12px;
         border-radius: 15px;
         font-size: 0.9rem;
         font-weight: 500;
     }
     
-    body:not(.dark-mode) .tech-tag {
-        background: #1e293b !important;
-        color: white !important;
-    }
-    
     .architecture-description {
-        color: #64748b;
+        color: var(--text-light);
         line-height: 1.6;
         font-style: italic;
     }
@@ -621,28 +593,22 @@ style.textContent = `
     }
     
     .project-item {
-        background: #f8fafc;
+        background: var(--card-bg);
         padding: 1.5rem;
         border-radius: 10px;
         margin-bottom: 1rem;
-        border-left: 4px solid #374151;
-    }
-    
-    body:not(.dark-mode) .project-item {
-        background: #cbd5e1 !important;
-        border-left: 4px solid #1e293b !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        border-left: 4px solid var(--accent-color);
     }
     
     .project-item h4 {
-        color: #1e293b;
+        color: var(--text-secondary);
         margin-bottom: 0.75rem;
         font-size: 1.2rem;
     }
     
     .project-item p {
         margin-bottom: 0.5rem;
-        color: #475569;
+        color: var(--text-primary);
     }
     
     .genre-list {
@@ -652,7 +618,7 @@ style.textContent = `
     
     .genre-list li {
         margin-bottom: 0.5rem;
-        color: #475569;
+        color: var(--text-primary);
     }
     
     .specializations {
@@ -662,17 +628,13 @@ style.textContent = `
     }
     
     .spec-tag {
-        background: #374151 !important;
-        color: white !important;
+        background: var(--chip-bg) !important;
+        color: var(--chip-text) !important;
+        border: 1px solid var(--chip-border) !important;
         padding: 6px 12px;
         border-radius: 15px;
         font-size: 0.9rem;
         font-weight: 500;
-    }
-    
-    body:not(.dark-mode) .spec-tag {
-        background: #1e293b !important;
-        color: white !important;
     }
 `;
 document.head.appendChild(style);

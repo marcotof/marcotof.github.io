@@ -7,16 +7,16 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 ## Features
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
-- **Apple-style Dark Mode Toggle**: Professional iOS-inspired toggle switch with smooth animations and persistent preference
-- **Multi-language Support**: English, Italian, and Spanish with automatic browser language detection
-  - **Desktop**: Language codes (EN, IT, ES)
-  - **Mobile**: Flag + language name (🇺🇸 English (US), 🇮🇹 Italiano (Italia), 🇪🇸 Español (España))
-- **Browser Language Auto-detection**: Automatically displays portfolio in user's browser language on first visit
+- **Permanent Dark Mode**: Always-on dark theme for consistent visuals
+- **Hamburger-only Navigation**: iOS-inspired open/close animation across devices
+- **Multi-language Support**: English, Italian, and Spanish controlled by URL paths
+  - **Desktop & Mobile**: Full language names (English, Italiano, Espanol)
+- **URL-based Language Routing**: `/` for English, `/it/` for Italian, `/es/` for Spanish
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
 - **Professional Timeline**: Career journey with upcoming position reveal feature (FeverUp role unlocks Jan 12, 2026)
 - **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with comprehensive client-side validation (email format, character requirements) and localized error messages in all supported languages
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
-- **Modern UI/UX**: Clean design with smooth animations and transitions
+- **Modern UI/UX**: Tech-inspired layout with grouped card colors and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
 - **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.json structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
 
@@ -56,11 +56,11 @@ Documentation and templates for partner support workflows
 
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
 - **Styling**: CSS Variables for theming, Modern CSS Grid/Flexbox, Custom animations
-- **Dark Mode**: CSS variables with localStorage persistence
-- **Internationalization**: Embedded JSON translations in JavaScript
+- **Dark Mode**: Always-on theme using CSS variables
+- **Internationalization**: Embedded translations in JavaScript
 - **Icons**: Font Awesome 6
-- **Fonts**: Inter (Google Fonts)
-- **Responsive**: Mobile-first design with hamburger navigation
+- **Fonts**: Space Grotesk + IBM Plex Mono (Google Fonts)
+- **Responsive**: Mobile-first design with centered hero layout
 
 ## File Structure
 
@@ -68,8 +68,12 @@ Documentation and templates for partner support workflows
 portfolio-website/
 ├── index.html                       # Main HTML structure
 ├── styles.css                       # CSS styling with dark mode variables
-├── script.js                        # JavaScript functionality (dark mode, mobile menu, i18n)
+├── script.js                        # JavaScript functionality (dark mode, mobile menu, URL-based i18n)
 ├── locales.js                       # Embedded translations (en, it, es)
+├── it/                              # Italian page (URL: /it/)
+│   └── index.html
+├── es/                              # Spanish page (URL: /es/)
+│   └── index.html
 ├── Marco Tofani_Resume.pdf          # Downloadable resume
 ├── profile-picture.jpg              # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
@@ -122,6 +126,10 @@ This portfolio includes comprehensive SEO optimizations to improve visibility in
 - Guides search engine crawlers on what to index
 - Links search engines to your sitemap
 - Allows all bots to crawl your portfolio
+
+### Hreflang
+- Declares language alternates for EN/IT/ES
+- Helps search engines show the correct language version
 
 ### Impact on Discovery
 These optimizations improve:
@@ -180,74 +188,22 @@ These optimizations improve:
 
 ## Recent Updates
 
-### v1.1 - Enhanced UX & Auto-detection (December 27, 2025)
+### v2.0 - URL-based i18n + Visual System Refresh (February 7, 2026)
 
 #### 🎨 UI Improvements
-- **Apple-style Dark Mode Toggle**: Replaced icon button with professional iOS-inspired toggle switch
-  - Smooth animations with sliding thumb and rotating icons (moon ↔ sun)
-  - Enhanced hover states and visual feedback
-- **Smart Language Selector**: Adaptive display based on screen size
-  - Desktop: Clean language codes (EN, IT, ES)
-  - Mobile: Flag emojis + full language names for clarity
-  - Increased selector width to prevent flag truncation
-- **Spanish Navbar Optimization**: Changed "Acerca de mí" to "Acerca" to prevent text overlap
+- **Permanent Dark Mode**: Removed the toggle and enforced a consistent dark theme
+- **Hamburger-only Header**: Single navigation pattern across desktop and mobile
+- **Hero Layout**: Centered hero content with a 4-button desktop row and 2x2 mobile grid
+- **Card System**: Three color groups applied across sections for consistent hierarchy
+- **Contact UX**: Stronger button styling and cleaner contact modal presentation
 
-#### 🌍 Localization Enhancements
-- **Browser Language Auto-detection**: Portfolio automatically displays in user's browser language on first visit
-  - Supports English, Italian, and Spanish
-  - Falls back to English for unsupported languages
-  - User selection persists via localStorage
+#### 🌍 Localization Updates
+- **URL-based Language Routing Only**: No browser auto-detect or stored preference
+- **Menu Language Selector**: Full language names in pill buttons
 
-#### 🗓️ Timeline Features
-- **Future Role Reveal System**: Added upcoming FeverUp position (Jan 12, 2026)
-  - Position and company blurred with lock icon (🔒) until reveal date
-  - Automatic reveal on January 12, 2026 with celebration animation (🎉)
-  - Dynamic "current role" status transfer from Prime Video to FeverUp
-  - Fully localized in all three languages
-
-#### 🧹 Code Quality
-- Removed unused `contactInfo` object from locales.js
-- Optimized CSS selectors for better performance
-- Enhanced blur effects with proper specificity
-
----
-
-### v1.2 - SEO & Discoverability (January 5, 2026)
-
-#### 🔍 SEO Enhancements
-- **Open Graph Meta Tags**: Social media sharing now displays professional previews with thumbnail and description
-- **Schema.json Structured Data**: Added machine-readable profile information for search engines and recruiter automation systems
-  - Person schema with job title, languages, skills, and social profiles
-  - Improves visibility in recruiter searches and ATS matching
-- **Sitemap.xml**: XML sitemap for improved search engine crawling and indexing
-- **Robots.txt**: Added robots.txt file to guide search engine behavior and link to sitemap
-- **Enhanced Meta Tags**: Added description, keywords, and author meta tags for better search results
-
-#### 📈 Discoverability Impact
-- Improved ranking for recruiter searches: "localization automation developer", "game localization specialist", "polyglot developer"
-- Professional LinkedIn/Twitter sharing with thumbnails
-- Better matching in automated recruiter systems
-- Faster indexing by Google and other search engines
-
----
-
-### v1.1 - Enhanced UX & Auto-detection (December 27, 2025)
-
-- ✅ **Navbar Language Selector**: Flag-only selector moved into the navbar (🇺🇸/🇮🇹/🇪🇸) with spacing fixes for long labels
-- ✅ **Enhanced Form Validation**: Real-time validation with field-level error messages (name min 3 chars, valid email format, message min 10 chars)
-- ✅ **Localized Validation Messages**: All error messages translated to English, Italian, and Spanish
-- ✅ **Form UX Improvements**: Live feedback on blur and typing, error highlighting with smooth animations
-- ✅ **Dark Mode Toggle**: Persistent theme switching with CSS variables
-- ✅ **Mobile Optimization**: Hamburger menu and responsive layouts with fixed timeline
-- ✅ **Downloadable Resume**: Direct PDF download functionality
-- ✅ **Embedded Translations**: Migrated from JSON files to JavaScript for CORS-free deployment (organized with clear section comments)
-- ✅ **Complete Localization**: All sections fully translated (English, Italian, Spanish)
-- ✅ **Project Modal Translations**: Features, technologies, and impact metrics translated
-- ✅ **Technical Skills Translation**: Category headers and language proficiencies localized
-- ✅ **Contact Form Modal**: Interactive contact form with Formspree integration for email submissions
-- ✅ **Featured Demos Section**: Video demonstrations for 3 production automation tools (Redelivery Hub, LQA Tool Extension, Redelivery Agent)
-- ✅ **Demos Navigation**: Added "Demos" to main navigation menu for easy access across all languages
-- ✅ **Dual-Theme UI Polish**: Emerald/charcoal accent tokens applied across cards, modals, timelines, tags, and contact buttons with consistent hover/focus states in light/dark modes
+#### 🔍 SEO
+- **Hreflang Tags**: Explicit alternates for EN/IT/ES
+- **Sitemap + Robots**: Confirmed and up to date
 
 ## Contact Form
 
@@ -303,13 +259,9 @@ This site includes a client-side localization system with translations embedded 
 - All translations are embedded in `locales.js` to avoid CORS issues on GitHub Pages
 - `locales.js` is organized with clear section comments for each language (English, Italian, Spanish)
 - Elements to translate are marked with `data-i18n="key"` attributes in `index.html`
-- **Browser Language Auto-detection**: On first visit, portfolio automatically displays in user's browser language
-  - Supported: English, Italian, Spanish
-  - Unsupported languages default to English
-- The language selector adapts to screen size:
-  - **Desktop**: Language codes (EN, IT, ES)
-  - **Mobile**: Flag + language name (🇺🇸 English (US), 🇮🇹 Italiano (Italia), 🇪🇸 Español (España))
-- Current language is saved to `localStorage` for persistence across visits
+- **URL-based Routing Only**: Language is determined by `/`, `/it/`, `/es/`
+- The language selector lives in the hamburger menu and uses full language names
+- No browser auto-detection or `localStorage` persistence
 
 **Adding/updating translations:**
 1. Open `locales.js` to see the `locales` object structure
@@ -337,10 +289,10 @@ This site includes a client-side localization system with translations embedded 
 
 **Testing:**
 - Simply open `index.html` in any browser - no server required!
-- Use the language selector in the contact section to test translations
+- Use the language selector in the hamburger menu to test translations
 - Check browser console for any missing translation keys
 
 **Notes:**
 - Embedded approach eliminates CORS issues with GitHub Pages
 - For complex pluralization or interpolation, consider libraries like `i18next`
-- For SEO optimization, consider pre-rendering separate language pages with `hreflang` tags
+- Language alternates are declared via `hreflang` tags
