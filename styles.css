@@ -1983,26 +1983,36 @@ body:not(.dark-mode) .char-count {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 0 16px;
+        padding: 0 12px;
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .about-left {
         align-items: center;
         text-align: center;
+        width: 100%;
     }
     
     .about-text p {
         font-size: 0.95rem;
+        text-align: left;
     }
 
     .about-highlights {
         width: 100%;
         max-width: none;
+        align-items: stretch;
     }
 
     .highlight {
         width: 100%;
         box-sizing: border-box;
+    }
+
+    .highlight h4,
+    .highlight p {
+        word-break: break-word;
     }
     
     .profile-picture {
