@@ -10,7 +10,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Permanent Dark Mode**: Always-on dark theme for consistent visuals
 - **Hamburger-only Navigation**: iOS-inspired open/close animation across devices
 - **Multi-language Support**: English, Italian, and Spanish controlled by URL paths
-  - **Desktop & Mobile**: Full language names (English, Italiano, Espanol)
+  - **Desktop & Mobile**: Full language names (English, Italiano, Español)
 - **URL-based Language Routing**: `/` for English, `/it/` for Italian, `/es/` for Spanish
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
 - **Professional Timeline**: Career journey with current role highlighted
@@ -253,7 +253,6 @@ For questions about this portfolio or collaboration opportunities:
 
 ---
 
-*Built with ❤️ for showcasing automation engineering excellence at Prime Video*
 
 ## Localization (i18n)
 
