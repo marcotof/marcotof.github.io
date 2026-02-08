@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
 const projectDetails = {
     'redelivery-hub': {
         title: 'Redelivery Hub',
-        description: 'A comprehensive automation platform that revolutionizes Prime Video redelivery workflows through intelligent automation and real-time monitoring.',
+        description: 'A comprehensive automation platform that streamlines redelivery workflows through intelligent automation and real-time monitoring.',
         features: [
             'Multi-tool automation platform with unified interface',
             'Automated ticket creation with Selenium WebDriver',
