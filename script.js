@@ -74,6 +74,9 @@ function loadLocale(lang) {
 
 function applyTranslations(t) {
     if (!t) return;
+    if (t['meta.title']) {
+        document.title = t['meta.title'];
+    }
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         const val = t[key];
