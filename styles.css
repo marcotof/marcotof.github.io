@@ -1658,6 +1658,12 @@ body:not(.dark-mode) .tech-tags .tech-tag {
     border: 1px solid var(--border-color);
 }
 
+#project-modal.modal-group-3 .modal-content .project-item {
+    background: linear-gradient(135deg, rgba(20, 12, 8, 0.92), rgba(12, 18, 26, 0.72));
+    border-color: rgba(249, 115, 22, 0.35);
+    box-shadow: 0 10px 26px rgba(10, 6, 3, 0.4), inset 0 0 0 1px rgba(249, 115, 22, 0.1);
+}
+
 body:not(.dark-mode) .modal-content .project-item,
 body:not(.dark-mode) .modal-content .localization-projects .project-item {
     background: #ffffff !important;
@@ -1673,6 +1679,27 @@ body:not(.dark-mode) .modal-content .localization-projects .project-item {
 .modal-content .project-item p {
     color: var(--text-primary);
     margin-bottom: 0.5rem;
+}
+
+.modal-content .project-item.vip-project {
+    border-color: var(--card-group-3-accent);
+    box-shadow: 0 14px 28px rgba(12, 19, 35, 0.25);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(11, 15, 20, 0.2));
+}
+
+#project-modal.modal-group-3 .modal-content .project-item.vip-project {
+    border-width: 2px;
+    border-color: rgba(249, 115, 22, 0.75);
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.32), rgba(12, 18, 26, 0.7));
+    box-shadow: 0 16px 34px rgba(249, 115, 22, 0.2), inset 0 0 0 1px rgba(249, 115, 22, 0.2);
+}
+
+.modal-content .project-item.vip-project h4 {
+    color: var(--card-group-3-accent);
+}
+
+body:not(.dark-mode) .modal-content .project-item.vip-project {
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(255, 255, 255, 0.9)) !important;
 }
 
 .modal-content .genre-list,
@@ -1697,8 +1724,9 @@ body:not(.dark-mode) .modal-content .localization-projects .project-item {
 }
 
 #project-modal.modal-group-3 .project-item {
-    background: var(--card-group-3-bg);
-    border: 1px solid var(--card-group-3-border);
+    background: linear-gradient(135deg, rgba(20, 12, 8, 0.92), rgba(12, 18, 26, 0.72));
+    border: 1px solid rgba(249, 115, 22, 0.35);
+    box-shadow: 0 10px 26px rgba(10, 6, 3, 0.4), inset 0 0 0 1px rgba(249, 115, 22, 0.1);
 }
 
 #project-modal.modal-group-1 .architecture-info {

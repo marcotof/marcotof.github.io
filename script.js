@@ -412,13 +412,13 @@ function showLocalizationProjects() {
         
         <h3>${t['modal.localization.vipProjectsTitle'] || 'VIP Projects'}</h3>
         <div class="localization-projects">
-            <div class="project-item">
+            <div class="project-item vip-project">
                 <h4>Dragon's Dogma II</h4>
                 <p><strong>${t['modal.localization.client'] || 'Client'}:</strong> Capcom</p>
                 <p><strong>${t['modal.localization.genre'] || 'Genre'}:</strong> ${t['modal.localization.dragons.genre'] || 'Fantasy RPG'}</p>
                 <p><strong>${t['modal.localization.scope'] || 'Scope'}:</strong> ${t['modal.localization.dragons.scope'] || 'Full game localization including dialogue, UI, and narrative elements'}</p>
             </div>
-            <div class="project-item">
+            <div class="project-item vip-project">
                 <h4>Super Mario Party Jamboree</h4>
                 <p><strong>${t['modal.localization.client'] || 'Client'}:</strong> Nintendo</p>
                 <p><strong>${t['modal.localization.genre'] || 'Genre'}:</strong> ${t['modal.localization.mario.genre'] || 'Party Game'}</p>
