@@ -77,6 +77,22 @@ function applyTranslations(t) {
     if (t['meta.title']) {
         document.title = t['meta.title'];
     }
+    if (t['meta.ogTitle']) {
+        const ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', t['meta.ogTitle']);
+    }
+    if (t['meta.ogDescription']) {
+        const ogDescription = document.querySelector('meta[property="og:description"]');
+        if (ogDescription) ogDescription.setAttribute('content', t['meta.ogDescription']);
+    }
+    if (t['meta.twitterTitle']) {
+        const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twitterTitle) twitterTitle.setAttribute('content', t['meta.twitterTitle']);
+    }
+    if (t['meta.twitterDescription']) {
+        const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDescription) twitterDescription.setAttribute('content', t['meta.twitterDescription']);
+    }
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         const val = t[key];
