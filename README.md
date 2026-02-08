@@ -14,7 +14,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **URL-based Language Routing**: `/` for English, `/it/` for Italian, `/es/` for Spanish
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
 - **Professional Timeline**: Career journey with current role highlighted
-- **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with comprehensive client-side validation (email format, character requirements) and localized error messages in all supported languages
+- **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with client-side validation and localized success/error notifications
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
@@ -89,17 +89,6 @@ portfolio-website/
 └── README.md                        # This file
 ```
 
-## Setup Instructions
-
-1. **Local Development**:
-   - Open `index.html` in any modern web browser
-   - No build process required - pure HTML/CSS/JS
-
-2. **Deployment Options**:
-   - **GitHub Pages**: Push to GitHub and enable Pages
-   - **Netlify**: Drag and drop the folder to Netlify
-   - **Personal Domain**: Upload files to web hosting service
-
 ## SEO & Discoverability
 
 This portfolio includes comprehensive SEO optimizations to improve visibility in recruiter searches and social media sharing:
@@ -138,22 +127,6 @@ These optimizations improve:
 - **Recruiter Automation**: Better matching in automated recruiter systems and ATS platforms
 - **Search Engine Indexing**: Faster and more complete indexing of your portfolio
 
-## Customization
-
-### Adding New Projects
-1. Add project card HTML in the `projects-grid` section
-2. Add project details to the `projectDetails` object in `script.js`
-3. Update skills section if new technologies are used
-
-### Updating Contact Information
-- Modify the contact links in the contact section
-- Update email and profile URLs as needed
-
-### Styling Changes
-- Colors: Update CSS custom properties in `styles.css`
-- Fonts: Change Google Fonts import and font-family declarations
-- Layout: Modify grid and flexbox properties
-
 ## Performance Features
 
 - **Optimized Loading**: Minimal external dependencies
@@ -168,25 +141,13 @@ These optimizations improve:
 - Safari: Full support
 - Mobile browsers: Responsive design optimized
 
-## Deployment
-
-### GitHub Pages (Recommended)
-1. Create new repository: `your-username.github.io`
-2. Upload all files to the repository
-3. Enable GitHub Pages in repository settings
-4. Access at: `https://your-username.github.io`
-
-### Netlify
-1. Visit [netlify.com](https://netlify.com)
-2. Drag and drop the portfolio-website folder
-3. Get instant deployment with custom domain options
-
-### Custom Domain
-1. Purchase domain from registrar
-2. Upload files to web hosting service
-3. Configure DNS settings
-
 ## Recent Updates
+
+### v1.4 - Filters + Contact Toasts (February 8, 2026)
+
+#### ✅ UX Improvements
+- **Project Filters**: Added Python and JavaScript filter chips for faster browsing
+- **Contact Feedback**: Toast notifications for form success/error in all languages
 
 ### v1.3 - URL-based i18n + Visual System Refresh (February 7, 2026)
 
@@ -209,6 +170,16 @@ These optimizations improve:
 - **Hreflang Tags**: Explicit alternates for EN/IT/ES
 - **Sitemap + Robots**: Confirmed and up to date
 
+## Completed Improvements (February 8, 2026)
+
+- [x] Added Python and JavaScript project filter chips
+- [x] Added toast notifications for Formspree contact submissions
+- [x] Localized contact success/error toasts in EN/IT/ES
+- [x] Removed Excel tag from FileMaster project card
+- [x] Removed Excel tag and "Excel Processing" from TimeStamps Converter card
+- [x] Removed Excel tag and "Excel Processing" from Redelivery Agent card
+- [x] Updated Proxy Generation Tool architecture copy across locales
+
 ## Contact Form
 
 ### Features
@@ -216,7 +187,7 @@ These optimizations improve:
 - **Formspree Integration**: Direct email delivery to tofanimarco16@gmail.com using Formspree
 - **Full Localization**: Form labels, placeholders, and feedback messages in English, Italian, and Spanish
 - **Client-side Validation**: Required field validation before submission
-- **User Feedback**: Loading states, success/error messages all localized
+- **User Feedback**: Loading states plus toast success/error notifications (localized)
 - **Responsive Design**: Works seamlessly on all devices
 
 ### Validation Rules
@@ -232,18 +203,11 @@ These optimizations improve:
 5. Click "Send Message" to submit (only enabled when all fields are valid)
 6. Receive localized validation feedback and confirmation message in the selected language
 
-### Customization
-To use a different Formspree endpoint:
-1. Create a new form at [formspree.io](https://formspree.io)
-2. Update the endpoint URL in `script.js` (line with `fetch('https://formspree.io/f/...')`)
-
 ## Future Enhancements
 
 - [ ] Include project screenshots/demos
 - [ ] Add blog section for technical articles
-- [ ] Add project filtering by technology
 - [ ] Additional language support
-- [ ] Form submission notifications/confirmations
 
 ## Contact
 

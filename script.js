@@ -244,6 +244,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
+function initProjectFilters() {
+    const filterBar = document.querySelector('.project-filters');
+    if (!filterBar) return;
+
+    const buttons = Array.from(filterBar.querySelectorAll('.filter-chip'));
+    const cards = Array.from(document.querySelectorAll('.projects-grid .project-card'));
+    if (!buttons.length || !cards.length) return;
+
+    const normalizeTags = (value) => (value || '')
+        .toLowerCase()
+        .split(/[\s,]+/)
+        .filter(Boolean);
+
+    const setActive = (filter) => {
+        buttons.forEach((btn) => {
+            btn.classList.toggle('active', btn.dataset.filter === filter);
+        });
+    };
+
+    const applyFilter = (filter) => {
+        cards.forEach((card) => {
+            const tags = normalizeTags(card.dataset.tech);
+            const shouldShow = filter === 'all' || tags.includes(filter);
+            card.classList.toggle('is-hidden', !shouldShow);
+        });
+        setActive(filter);
+    };
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter || 'all';
+            applyFilter(filter);
+        });
+    });
+
+    applyFilter('all');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initProjectFilters();
+});
+
 // Project details data
 const projectDetails = {
     'redelivery-hub': {
@@ -342,22 +384,21 @@ const projectDetails = {
         architecture: 'Python utility with regex-based parsing and conversion algorithms for various timestamp formats.'
     },
     'proxy-generation': {
-        title: 'Proxy Generation Tools',
-        description: 'Documentation and templates for proxy generation processes, including SOPs and Excel templates.',
+        title: 'Proxy Generation Tool',
+        description: 'Template for proxy generation processes, including SOPs and Excel template.',
         features: [
-            'Comprehensive process documentation',
-            'Excel templates for partner support',
+            'Excel template for partner support',
             'Standard Operating Procedures (SOPs)',
-            'Partner support workflow templates',
-            'Process standardization tools'
+            'Partner support workflow template',
+            'Process standardization tool'
         ],
-        technologies: ['Microsoft Excel', 'Microsoft Word', 'Process Documentation'],
+        technologies: ['Microsoft Excel', 'Microsoft Word'],
         impact: [
             'Standardized proxy generation processes',
             'Improved partner support efficiency',
             'Reduced process variation and errors'
         ],
-        architecture: 'Document-based system with standardized templates and comprehensive process documentation.'
+        architecture: 'System based on standardized template and comprehensive process documentation.'
     }
 };
 
@@ -636,6 +677,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
 
+    function getToastContainer() {
+        let container = document.querySelector('.toast-container');
+        if (!container) {
+            container = document.createElement('div');
+            container.className = 'toast-container';
+            container.setAttribute('aria-live', 'polite');
+            container.setAttribute('aria-atomic', 'true');
+            document.body.appendChild(container);
+        }
+        return container;
+    }
+
+    function showToast(message, type) {
+        const container = getToastContainer();
+        const toast = document.createElement('div');
+        const toastType = type === 'error' ? 'error' : 'success';
+        const iconText = toastType === 'error' ? '!' : 'OK';
+
+        toast.className = `toast toast-${toastType}`;
+        toast.setAttribute('role', toastType === 'error' ? 'alert' : 'status');
+        toast.innerHTML = `
+            <span class="toast-icon" aria-hidden="true">${iconText}</span>
+            <span class="toast-message">${message}</span>
+            <button class="toast-close" type="button" aria-label="Dismiss notification">x</button>
+        `;
+
+        container.appendChild(toast);
+        requestAnimationFrame(() => toast.classList.add('is-visible'));
+
+        const closeBtn = toast.querySelector('.toast-close');
+        const removeToast = () => {
+            toast.classList.remove('is-visible');
+            toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+        };
+
+        const timer = setTimeout(removeToast, 4500);
+        closeBtn.addEventListener('click', () => {
+            clearTimeout(timer);
+            removeToast();
+        });
+    }
+
     // Open contact modal
     if (contactFormBtn) {
         contactFormBtn.addEventListener('click', function() {
@@ -788,10 +871,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Formspree processes it server-side regardless of visible response
                 // Success message (localized)
                 const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
-                formStatus.innerHTML = `<p class="success-message">${successMsg}</p>`;
-                
-                // Scroll to success message on mobile
-                formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                showToast(successMsg, 'success');
                 
                 contactForm.reset();
                 // Clear any error states
@@ -802,14 +882,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     error.textContent = '';
                 });
                 
-                // Keep success message visible and close modal after 3 seconds
+                // Close modal after a short delay
                 setTimeout(() => {
                     contactModal.style.display = 'none';
                 }, 3000);
             } catch (error) {
                 console.error('Error:', error);
-                const errorMsg = t['contact.generalError'] || 'An error occurred. Please try again.';
-                formStatus.innerHTML = `<p class="error-message">${errorMsg}</p>`;
+                const errorMsg = t['contact.errorMessage'] || t['contact.generalError'] || 'An error occurred. Please try again.';
+                showToast(errorMsg, 'error');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;

@@ -448,9 +448,19 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 data-i18n="projects.title">Featured Projects</h2>
+            <div class="project-filters" role="group" aria-label="Project filters">
+                <button class="filter-chip active" type="button" data-filter="all" data-i18n="projects.filterAll">All</button>
+                <button class="filter-chip" type="button" data-filter="automation" data-i18n="projects.filterAutomation">Automation</button>
+                <button class="filter-chip" type="button" data-filter="web" data-i18n="projects.filterWeb">Web Apps</button>
+                <button class="filter-chip" type="button" data-filter="extension" data-i18n="projects.filterExtension">Extensions</button>
+                <button class="filter-chip" type="button" data-filter="utils" data-i18n="projects.filterUtils">Utilities</button>
+                <button class="filter-chip" type="button" data-filter="python" data-i18n="projects.filterPython">Python</button>
+                <button class="filter-chip" type="button" data-filter="javascript" data-i18n="projects.filterJavaScript">JavaScript</button>
+                <button class="filter-chip" type="button" data-filter="excel" data-i18n="projects.filterDocs">Excel</button>
+            </div>
             <div class="projects-grid">
                 
-                <div class="project-card featured">
+                <div class="project-card featured" data-tech="automation web python">
                     <div class="project-header">
                         <h3 data-i18n="projects.redelivery-hub.cardTitle">Redelivery Hub</h3>
                         <span class="project-tag" data-i18n="projects.redelivery-hub.featured">Featured</span>
@@ -472,7 +482,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-tech="extension web javascript">
                     <div class="project-header">
                         <h3 data-i18n="projects.lqa-extension.cardTitle">LQA Tool Extension</h3>
                     </div>
@@ -492,13 +502,12 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-tech="web javascript">
                     <div class="project-header">
                         <h3 data-i18n="projects.redelivery-agent.cardTitle">Redelivery Agent</h3>
                     </div>
                     <p data-i18n="projects.redelivery-agent.cardDesc">Web-based tool for processing redelivery Excel files with clean separation of UI and business logic. Handles multiple file formats and exports.</p>
                     <div class="project-features">
-                        <span>Excel Processing</span>
                         <span>Modular Architecture</span>
                         <span>File Export</span>
                     </div>
@@ -512,7 +521,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-tech="utils python">
                     <div class="project-header">
                         <h3 data-i18n="projects.filemaster.cardTitle">FileMaster</h3>
                     </div>
@@ -531,7 +540,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-tech="utils python">
                     <div class="project-header">
                         <h3 data-i18n="projects.timestamps-converter.cardTitle">TimeStamps Converter</h3>
                     </div>
@@ -550,14 +559,13 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <div class="project-card" data-tech="docs excel">
                     <div class="project-header">
-                        <h3 data-i18n="projects.proxy-generation.cardTitle">Proxy Generation Tools</h3>
+                        <h3 data-i18n="projects.proxy-generation.cardTitle">Proxy Generation Tool</h3>
                     </div>
-                    <p data-i18n="projects.proxy-generation.cardDesc">Documentation and templates for proxy generation processes. Includes SOPs and Excel templates for partner support workflows.</p>
+                    <p data-i18n="projects.proxy-generation.cardDesc">Template for proxy generation processes. Includes SOPs and Excel template for partner support workflows.</p>
                     <div class="project-features">
-                        <span>Process Documentation</span>
-                        <span>Excel Templates</span>
+                        <span>Excel Template</span>
                         <span>Partner Support</span>
                     </div>
                     <div class="project-tech">
