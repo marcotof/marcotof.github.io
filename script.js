@@ -238,7 +238,7 @@ function navigateToLanguage(lang) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let lang = getLangFromPath(window.location.pathname);
     if (!supportedLangs.includes(lang)) lang = 'en';
 
@@ -301,7 +301,7 @@ function initProjectFilters() {
     applyFilter('all');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     initProjectFilters();
 });
 
@@ -487,7 +487,7 @@ function showProjectDetails(projectId) {
     const technologies = t(`projects.${projectId}.technologies`, project.technologies) || [];
     const impact = t(`projects.${projectId}.impact`, project.impact) || [];
     const architecture = t(`projects.${projectId}.architecture`, project.architecture) || '';
-    
+
     const keyFeaturesHeading = t(`projects.${projectId}.keyFeaturesHeading`, 'Key Features');
     const technologiesHeading = t(`projects.${projectId}.technologiesHeading`, 'Technologies Used');
     const impactHeading = t(`projects.${projectId}.impactHeading`, 'Impact & Results');
@@ -521,20 +521,26 @@ function showProjectDetails(projectId) {
     projectModal.classList.add('modal-group-1');
     projectModal.classList.remove('modal-group-3');
     projectModal.style.display = 'block';
+    document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
 }
 
 // Close modal functionality
-document.querySelector('.close').addEventListener('click', function() {
+document.querySelector('.close').addEventListener('click', function () {
     const projectModal = document.getElementById('project-modal');
     projectModal.classList.remove('modal-group-1', 'modal-group-3');
     projectModal.style.display = 'none';
+    document.body.classList.remove('modal-open');
+    document.documentElement.classList.remove('modal-open');
 });
 
-window.addEventListener('click', function(event) {
+window.addEventListener('click', function (event) {
     const modal = document.getElementById('project-modal');
     if (event.target === modal) {
         modal.classList.remove('modal-group-1', 'modal-group-3');
         modal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+        document.documentElement.classList.remove('modal-open');
     }
 });
 
@@ -646,16 +652,16 @@ style.textContent = `
 document.head.appendChild(style);
 
 // Add scroll effect to navbar
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     setNavbarStyles();
 });
 
 // Profile picture toggle functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const profileImg = document.querySelector('.profile-picture img');
     if (profileImg) {
         let isColored = false;
-        profileImg.addEventListener('click', function() {
+        profileImg.addEventListener('click', function () {
             isColored = !isColored;
             this.style.filter = isColored ? 'grayscale(0%)' : 'grayscale(100%)';
         });
@@ -668,7 +674,7 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
@@ -678,7 +684,7 @@ const observer = new IntersectionObserver(function(entries) {
 }, observerOptions);
 
 // Observe project cards when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const projectCards = document.querySelectorAll('.project-card');
     projectCards.forEach(card => {
         card.style.opacity = '0';
@@ -689,7 +695,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Contact form modal functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const contactFormBtn = document.getElementById('contact-form-btn');
     const contactModal = document.getElementById('contact-modal');
     const contactModalClose = document.querySelector('.contact-modal-close');
@@ -740,8 +746,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Open contact modal
     if (contactFormBtn) {
-        contactFormBtn.addEventListener('click', function() {
+        contactFormBtn.addEventListener('click', function () {
             contactModal.style.display = 'block';
+            document.body.classList.add('modal-open');
+            document.documentElement.classList.add('modal-open');
         });
     }
 
@@ -760,14 +768,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close contact modal
     if (contactModalClose) {
-        contactModalClose.addEventListener('click', function() {
+        contactModalClose.addEventListener('click', function () {
             resetContactForm();
             contactModal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+            document.documentElement.classList.remove('modal-open');
         });
     }
 
     // Close contact modal when clicking outside
-    window.addEventListener('click', function(event) {
+    window.addEventListener('click', function (event) {
         if (event.target === contactModal) {
             resetContactForm();
             contactModal.style.display = 'none';
@@ -849,9 +859,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Privacy modal logic
+    const privacyLink = document.getElementById('privacy-link');
+    const privacyModal = document.getElementById('privacy-modal');
+    const privacyModalCloses = document.querySelectorAll('.privacy-modal-close');
+
+    if (privacyLink && privacyModal) {
+        privacyLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            privacyModal.style.display = 'block';
+            document.body.classList.add('modal-open');
+            document.documentElement.classList.add('modal-open');
+        });
+    }
+
+    if (privacyModalCloses) {
+        privacyModalCloses.forEach(close => {
+            close.addEventListener('click', function () {
+                privacyModal.style.display = 'none';
+                document.body.classList.remove('modal-open');
+                document.documentElement.classList.remove('modal-open');
+            });
+        });
+    }
+
+    // Close privacy modal when clicking outside
+    window.addEventListener('click', function (event) {
+        if (event.target === privacyModal) {
+            privacyModal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+            document.documentElement.classList.remove('modal-open');
+        }
+    });
+
     // Handle form submission
     if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
 
             // Validate all fields before submission
@@ -867,12 +910,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Get form data
             const formData = new FormData(contactForm);
             const t = window.currentLocaleData || locales.en;
-            
+
             // Show loading state
             const submitBtn = contactForm.querySelector('.btn-submit');
             const originalText = submitBtn.textContent;
             submitBtn.disabled = true;
-            
+
             // Get localized loading text
             const loadingText = t['contact.sending'] || 'Sending...';
             submitBtn.textContent = loadingText;
@@ -891,7 +934,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Success message (localized)
                 const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
                 showToast(successMsg, 'success');
-                
+
                 contactForm.reset();
                 // Clear any error states
                 document.querySelectorAll('.form-group').forEach(group => {
@@ -900,7 +943,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.querySelectorAll('.error-message').forEach(error => {
                     error.textContent = '';
                 });
-                
+
                 // Close modal after a short delay
                 setTimeout(() => {
                     contactModal.style.display = 'none';

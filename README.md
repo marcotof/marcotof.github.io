@@ -18,7 +18,8 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
-- **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
+- **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability. Image cache busting implemented for Google Search recrawling.
+- **Legal Compliance**: Localized footer with copyright notice and integrated Privacy Policy modal across all versions.
 
 ## Featured Demos
 
@@ -75,7 +76,7 @@ portfolio-website/
 ├── es/                              # Spanish page (URL: /es/)
 │   └── index.html
 ├── Marco Tofani_Resume.pdf          # Downloadable resume
-├── profile-picture.jpg              # Profile image
+├── profile-picture-v2.jpg           # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
 ├── super-mario-party-jamboree.jpg   # VIP project image
 ├── poster-redelivery-hub.png        # Poster image for Redelivery Hub demo
@@ -143,7 +144,21 @@ These optimizations improve:
 
 ## Recent Updates
 
-### v1.4 - Filters + Contact Toasts (February 8, 2026)
+### v1.5 - Privacy, UX & SEO Polish (February 21, 2026)
+
+#### ⚖️ Legal & Privacy
+- **Localized Footer**: Added a consistent footer with copyright and privacy links across all language versions (/it/, /es/, and root).
+- **Privacy Policy**: Integrated a dedicated Privacy Policy modal to comply with GDPR-style standards for contact form data.
+
+#### 🛠️ UX & Compatibility
+- **Double Scrollbar Fix**: Refactored modal CSS to centralize scrolling on the overlay, eliminating the nested scrollbox issue.
+- **iOS/Safari Scroll Locking**: Updated JS to lock both `html` and `body` overflow, ensuring a stable background experience on mobile devices.
+
+#### 🔍 SEO
+- **Image Cache Busting**: Renamed profile image to `profile-picture-v2.jpg` and updated all meta/schema tags to force a refresh on Google Search results.
+- **Sitemap Update**: Refreshed `lastmod` dates to trigger re-indexing.
+
+### v1.4.0 - Filters + Contact Toasts (February 8, 2026)
 
 #### ✅ UX Improvements
 - **Project Filters**: Added Python and JavaScript filter chips for faster browsing

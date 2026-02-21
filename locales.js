@@ -219,7 +219,19 @@ const locales = {
     "modal.localization.spec2": "Cultural Adaptation",
     "modal.localization.spec3": "UI/UX Translation",
     "modal.localization.spec4": "Character Dialogue",
-    "modal.localization.spec5": "Quality Assurance"
+    "modal.localization.spec5": "Quality Assurance",
+    "footer.copyright": "© 2026 Marco Tofani. All rights reserved.",
+    "footer.privacyPolicy": "Privacy Policy",
+    "privacy.title": "Privacy Policy",
+    "privacy.intro": "This Privacy Policy explains how I handle your personal information when you use the contact form on this website.",
+    "privacy.collection.title": "Data Collection",
+    "privacy.collection.text": "When you submit the contact form, I collect your name and email address. This data is used solely to respond to your inquiry.",
+    "privacy.thirdParty.title": "Third-Party Services",
+    "privacy.thirdParty.text": "I use Formspree to process and deliver your contact form submissions. Your data is managed according to their privacy standards.",
+    "privacy.retention.title": "Data Retention",
+    "privacy.retention.text": "I only keep your information for as long as necessary to fulfill the purpose for which it was collected.",
+    "privacy.rights.title": "Your Rights",
+    "privacy.rights.text": "You have the right to request access to or deletion of your personal data at any time by contacting me directly."
   },
 
   // =====================================
@@ -450,7 +462,19 @@ const locales = {
     "modal.localization.spec2": "Adattamento culturale",
     "modal.localization.spec3": "Traduzione UI/UX",
     "modal.localization.spec4": "Dialoghi dei personaggi",
-    "modal.localization.spec5": "Quality Assurance"
+    "modal.localization.spec5": "Quality Assurance",
+    "footer.copyright": "© 2026 Marco Tofani. Tutti i diritti riservati.",
+    "footer.privacyPolicy": "Informativa sulla Privacy",
+    "privacy.title": "Informativa sulla Privacy",
+    "privacy.intro": "Questa informativa spiega come gestisco le tue informazioni personali quando utilizzi il modulo di contatto su questo sito.",
+    "privacy.collection.title": "Raccolta dei dati",
+    "privacy.collection.text": "Quando invii il modulo di contatto, raccolgo il tuo nome e indirizzo email. Questi dati vengono utilizzati esclusivamente per rispondere alla tua richiesta.",
+    "privacy.thirdParty.title": "Servizi di terze parti",
+    "privacy.thirdParty.text": "Utilizzo Formspree per elaborare e recapitare i messaggi inviati tramite il modulo di contatto. I tuoi dati sono gestiti in conformità ai loro standard di privacy.",
+    "privacy.retention.title": "Conservazione dei dati",
+    "privacy.retention.text": "Conservo le tue informazioni solo per il tempo necessario a soddisfare lo scopo per cui sono state raccolte.",
+    "privacy.rights.title": "I tuoi diritti",
+    "privacy.rights.text": "Hai il diritto di richiedere l'accesso o la cancellazione dei tuoi dati personali in qualsiasi momento contattandomi direttamente."
   },
 
   // =====================================
@@ -567,7 +591,7 @@ const locales = {
     "projects.proxy-generation.cardTitle": "Proxy Generation Tool",
     "projects.proxy-generation.cardDesc": "Plantilla para procesos de generación de proxy. Incluye SOP y plantilla Excel para flujos de soporte a partners.",
     "projects.viewDetails": "Ver detalles",
-      "projects.proxy-generation.cardDesc": "Plantilla para los procesos de generación de proxies, incluye SOP y plantilla Excel.",
+    "projects.proxy-generation.cardDesc": "Plantilla para los procesos de generación de proxies, incluye SOP y plantilla Excel.",
     "projects.filterAutomation": "Automatización",
     "projects.filterWeb": "Apps web",
     "projects.filterExtension": "Extensiones",
@@ -681,6 +705,18 @@ const locales = {
     "modal.localization.spec2": "Adaptación cultural",
     "modal.localization.spec3": "Traducción UI/UX",
     "modal.localization.spec4": "Diálogos de personajes",
-    "modal.localization.spec5": "Control de calidad"
+    "modal.localization.spec5": "Control de calidad",
+    "footer.copyright": "© 2026 Marco Tofani. Todos los derechos reservados.",
+    "footer.privacyPolicy": "Política de Privacidad",
+    "privacy.title": "Política de Privacidad",
+    "privacy.intro": "Esta Política de Privacidad explica cómo manejo su información personal cuando utiliza el formulario de contacto en este sitio web.",
+    "privacy.collection.title": "Recopilación de Datos",
+    "privacy.collection.text": "Cuando envía el formulario de contacto, recopilo su nombre y dirección de correo electrónico. Estos datos se utilizan únicamente para responder a su consulta.",
+    "privacy.thirdParty.title": "Servicios de Terceros",
+    "privacy.thirdParty.text": "Utilizo Formspree para procesar y entregar los envíos de su formulario de contacto. Sus datos se gestionan de acuerdo con sus estándares de privacidad.",
+    "privacy.retention.title": "Retención de Datos",
+    "privacy.retention.text": "Solo conservo su información durante el tiempo que sea necesario para cumplir con el propósito para el cual fue recopilada.",
+    "privacy.rights.title": "Sus Derechos",
+    "privacy.rights.text": "Tiene derecho a solicitar el acceso o la eliminación de sus datos personales en cualquier momento poniéndose en contacto conmigo directamente."
   }
 };
