@@ -152,7 +152,7 @@ These optimizations improve:
 
 #### 🛠️ UX & Compatibility
 - **Double Scrollbar Fix**: Refactored modal CSS to centralize scrolling on the overlay, eliminating the nested scrollbox issue.
-- **iOS/Safari Scroll Locking**: Updated JS to lock both `html` and `body` overflow, ensuring a stable background experience on mobile devices.
+- **Cross-Browser Scroll Locking**: Updated JS to lock both `html` and `body` overflow, ensuring a stable background experience across all mobile and desktop browsers (iOS Safari, Android Chrome, etc.).
 
 #### 🔍 SEO
 - **Image Cache Busting**: Renamed profile image to `profile-picture-v2.jpg` and updated all meta/schema tags to force a refresh on Google Search results.
