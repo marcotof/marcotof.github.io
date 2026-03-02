@@ -142,6 +142,15 @@ These optimizations improve:
 - Safari: Full support
 - Mobile browsers: Responsive design optimized
 
+## Current Professional Info
+
+- **Services & Pricing CTA**: Added a dedicated "Services & Pricing" button in the Home card (between "Download Resume" and "Get In Touch") linking directly to the Notion pricing page: [Marco Tofani Services & Pricing 2026](https://rhinestone-polish-3b3.notion.site/Marco-Tofani-Services-Pricing-2026-311b2b75bb6480869935d187032889e5).
+- **Dual Current Roles in Timeline**: Timeline now highlights both current positions:
+  - **Junior Marketplace QA Specialist** at **Fever**
+  - **Polyglot Translator & Developer** as independent professional
+- **Localization Consistency**: Role labels and timeline strings are updated across all languages (EN/IT/ES).
+- **UI Micro-Polish**: Improved button label centering and timeline date-to-dot spacing for clearer readability.
+
 ## Recent Updates
 
 ### v1.5 - Privacy, UX & SEO Polish (February 21, 2026)
