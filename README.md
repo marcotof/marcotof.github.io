@@ -23,7 +23,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
 - **SEO Optimization**: Open Graph/Twitter image metadata, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
-- **Brand Assets**: Favicon package + branded web manifest configured across EN/IT/ES pages
+- **Brand Assets**: Favicon package + branded social preview image configured across EN/IT/ES pages
 - **Legal Compliance**: Localized footer with copyright notice and integrated Privacy Policy modal across all versions.
 
 ## Featured Demos
@@ -182,8 +182,8 @@ These optimizations improve:
 - **Small-screen Readability**: Updated mobile CTA wrapping/padding for long localized labels (Italian/Spanish).
 
 #### Branding & Metadata
-- **Favicon Suite Integrated**: Added favicon, SVG icon, Apple touch icon, and manifest links across all language pages.
-- **Manifest Branding**: Updated `site.webmanifest` name fields to `Marco Tofani Portfolio` / `Marco Tofani`.
+- **Favicon Suite Integrated**: Added favicon, SVG icon, and social preview metadata across all language pages.
+- **Install Hooks Removed**: Removed `apple-touch-icon` and `manifest` links from HTML heads to avoid app-install behavior on Android/iOS.
 - **Social Preview Update**: `og:image` and `twitter:image` now point to `https://marcotof.github.io/favicon/og-image.png`.
 
 ### v1.5 - Privacy, UX & SEO Polish (February 21, 2026)
