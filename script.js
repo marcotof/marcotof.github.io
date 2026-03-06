@@ -56,6 +56,261 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+function initDesktopScrollspyDots() {
+    if (document.querySelector('.scrollspy-dots')) return;
+
+    const sectionEntries = getMainSectionEntries();
+
+    if (!sectionEntries.length) return;
+
+    const dotsNav = document.createElement('nav');
+    dotsNav.className = 'scrollspy-dots';
+    dotsNav.setAttribute('aria-label', 'Section navigation');
+
+    const dotsList = document.createElement('ul');
+
+    sectionEntries.forEach(({ targetId, label }) => {
+        const item = document.createElement('li');
+        const dot = document.createElement('a');
+
+        dot.className = 'scrollspy-dot';
+        dot.href = targetId;
+        dot.dataset.target = targetId;
+        dot.setAttribute('aria-label', label);
+        dot.setAttribute('title', label);
+
+        item.appendChild(dot);
+        dotsList.appendChild(item);
+    });
+
+    dotsNav.appendChild(dotsList);
+    document.body.appendChild(dotsNav);
+
+    const dotLinks = Array.from(dotsNav.querySelectorAll('.scrollspy-dot'));
+    const desktopMq = window.matchMedia('(min-width: 1024px)');
+
+    const setActiveDot = (activeTargetId) => {
+        dotLinks.forEach((dot) => {
+            const isActive = dot.dataset.target === activeTargetId;
+            dot.classList.toggle('is-active', isActive);
+
+            if (isActive) {
+                dot.setAttribute('aria-current', 'location');
+            } else {
+                dot.removeAttribute('aria-current');
+            }
+        });
+    };
+
+    const resolveActiveTarget = () => {
+        const sectionOffset = window.scrollY + Math.round(window.innerHeight * 0.35);
+        let activeTargetId = sectionEntries[0].targetId;
+
+        sectionEntries.forEach(({ targetId, sectionEl }) => {
+            if (sectionEl.offsetTop <= sectionOffset) {
+                activeTargetId = targetId;
+            }
+        });
+
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+            activeTargetId = sectionEntries[sectionEntries.length - 1].targetId;
+        }
+
+        return activeTargetId;
+    };
+
+    const updateActiveDot = () => {
+        if (!desktopMq.matches) {
+            setActiveDot('');
+            return;
+        }
+
+        setActiveDot(resolveActiveTarget());
+    };
+
+    let scrollTicking = false;
+    const onScroll = () => {
+        if (scrollTicking) return;
+
+        scrollTicking = true;
+        window.requestAnimationFrame(() => {
+            updateActiveDot();
+            scrollTicking = false;
+        });
+    };
+
+    dotLinks.forEach((dot) => {
+        dot.addEventListener('click', (event) => {
+            const targetSelector = dot.dataset.target;
+            const targetElement = targetSelector ? document.querySelector(targetSelector) : null;
+            if (!targetElement) return;
+
+            event.preventDefault();
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            targetElement.scrollIntoView({
+                behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    if (typeof desktopMq.addEventListener === 'function') {
+        desktopMq.addEventListener('change', updateActiveDot);
+    } else if (typeof desktopMq.addListener === 'function') {
+        desktopMq.addListener(updateActiveDot);
+    }
+
+    updateActiveDot();
+}
+
+function getMainSectionEntries() {
+    const navAnchors = Array.from(document.querySelectorAll('.nav-menu > li > a[href^="#"]'));
+
+    return navAnchors
+        .map((anchor) => {
+            const targetId = anchor.getAttribute('href');
+            if (!targetId || targetId === '#') return null;
+
+            const sectionEl = document.querySelector(targetId);
+            if (!sectionEl) return null;
+
+            const label = (anchor.textContent || '').trim() || targetId.replace('#', '');
+            return { targetId, sectionEl, label };
+        })
+        .filter(Boolean);
+}
+
+function initMobileSectionArrows() {
+    if (document.querySelector('.mobile-section-arrows')) return;
+
+    const sectionEntries = getMainSectionEntries();
+    if (sectionEntries.length < 2) return;
+
+    const mobileNav = document.createElement('nav');
+    mobileNav.className = 'mobile-section-arrows';
+    mobileNav.setAttribute('aria-label', 'Section navigation controls');
+
+    const upButton = document.createElement('button');
+    upButton.type = 'button';
+    upButton.className = 'mobile-section-arrow mobile-section-arrow-up';
+    upButton.innerHTML = '<span aria-hidden="true">&#8593;</span>';
+
+    const downButton = document.createElement('button');
+    downButton.type = 'button';
+    downButton.className = 'mobile-section-arrow mobile-section-arrow-down';
+    downButton.innerHTML = '<span aria-hidden="true">&#8595;</span>';
+
+    mobileNav.appendChild(upButton);
+    mobileNav.appendChild(downButton);
+    document.body.appendChild(mobileNav);
+
+    const mobileMq = window.matchMedia('(max-width: 1023px)');
+
+    const resolveActiveIndex = () => {
+        const sectionOffset = window.scrollY + Math.round(window.innerHeight * 0.35);
+        let activeIndex = 0;
+
+        sectionEntries.forEach(({ sectionEl }, index) => {
+            if (sectionEl.offsetTop <= sectionOffset) {
+                activeIndex = index;
+            }
+        });
+
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+            activeIndex = sectionEntries.length - 1;
+        }
+
+        return activeIndex;
+    };
+
+    const scrollToIndex = (index) => {
+        const clampedIndex = Math.max(0, Math.min(index, sectionEntries.length - 1));
+        const targetSection = sectionEntries[clampedIndex]?.sectionEl;
+        if (!targetSection) return;
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        targetSection.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth',
+            block: 'start'
+        });
+    };
+
+    const updateArrowState = () => {
+        if (!mobileMq.matches) {
+            mobileNav.classList.remove('is-visible');
+            upButton.classList.add('is-hidden');
+            downButton.classList.add('is-hidden');
+            return;
+        }
+
+        const activeIndex = resolveActiveIndex();
+        const nearTop = window.scrollY <= Math.max(8, Math.round(window.innerHeight * 0.05));
+        const nearBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 6;
+
+        const canGoUp = activeIndex > 0 && !nearTop;
+        const canGoDown = activeIndex < sectionEntries.length - 1 && !nearBottom;
+
+        mobileNav.classList.toggle('is-visible', canGoUp || canGoDown);
+
+        upButton.classList.toggle('is-hidden', !canGoUp);
+        upButton.disabled = !canGoUp;
+        if (canGoUp) {
+            const prevSectionLabel = sectionEntries[activeIndex - 1].label;
+            upButton.setAttribute('aria-label', `Scroll to ${prevSectionLabel}`);
+            upButton.setAttribute('title', prevSectionLabel);
+        } else {
+            upButton.setAttribute('aria-label', 'Already at top section');
+            upButton.removeAttribute('title');
+        }
+
+        downButton.classList.toggle('is-hidden', !canGoDown);
+        downButton.disabled = !canGoDown;
+        if (canGoDown) {
+            const nextSectionLabel = sectionEntries[activeIndex + 1].label;
+            downButton.setAttribute('aria-label', `Scroll to ${nextSectionLabel}`);
+            downButton.setAttribute('title', nextSectionLabel);
+        } else {
+            downButton.setAttribute('aria-label', 'Already at bottom section');
+            downButton.removeAttribute('title');
+        }
+    };
+
+    upButton.addEventListener('click', () => {
+        const activeIndex = resolveActiveIndex();
+        scrollToIndex(activeIndex - 1);
+    });
+
+    downButton.addEventListener('click', () => {
+        const activeIndex = resolveActiveIndex();
+        scrollToIndex(activeIndex + 1);
+    });
+
+    let scrollTicking = false;
+    const onScroll = () => {
+        if (scrollTicking) return;
+
+        scrollTicking = true;
+        window.requestAnimationFrame(() => {
+            updateArrowState();
+            scrollTicking = false;
+        });
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    if (typeof mobileMq.addEventListener === 'function') {
+        mobileMq.addEventListener('change', updateArrowState);
+    } else if (typeof mobileMq.addListener === 'function') {
+        mobileMq.addListener(updateArrowState);
+    }
+
+    updateArrowState();
+}
+
 // Simple client-side i18n loader (supports en, it, es)
 // Uses embedded locales from locales.js to avoid CORS issues on GitHub Pages
 const supportedLangs = ['en', 'it', 'es'];
@@ -244,6 +499,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Load locale first
     loadLocale(lang);
+    initDesktopScrollspyDots();
+    initMobileSectionArrows();
 
     setActiveLanguagePill(lang);
     document.querySelectorAll('.lang-pill').forEach(button => {

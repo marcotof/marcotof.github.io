@@ -515,6 +515,158 @@ code,
     }
 }
 
+/* Desktop scrollspy dots */
+.scrollspy-dots {
+    display: none;
+}
+
+.mobile-section-arrows {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .mobile-section-arrows {
+        position: fixed;
+        right: max(12px, env(safe-area-inset-right));
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        z-index: 940;
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        pointer-events: none;
+    }
+
+    .mobile-section-arrows.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .mobile-section-arrow {
+        width: 46px;
+        height: 46px;
+        border-radius: 999px;
+        border: 1px solid rgba(207, 236, 255, 0.45);
+        background: rgba(8, 18, 30, 0.58);
+        color: #ecfeff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        line-height: 1;
+        cursor: pointer;
+        pointer-events: auto;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.28);
+        transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+    }
+
+    .mobile-section-arrow span {
+        transform: translateY(-1px);
+    }
+
+    .mobile-section-arrow.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(3px) scale(0.94);
+        pointer-events: none;
+    }
+
+    body:not(.dark-mode) .mobile-section-arrow {
+        border-color: rgba(15, 23, 42, 0.28);
+        background: rgba(255, 255, 255, 0.84);
+        color: #0f172a;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.16);
+    }
+
+    .mobile-section-arrow:focus-visible {
+        outline: 2px solid var(--accent-light);
+        outline-offset: 2px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mobile-section-arrows,
+    .mobile-section-arrow {
+        transition: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .scrollspy-dots {
+        position: fixed;
+        right: clamp(12px, 1.8vw, 26px);
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 950;
+        display: flex;
+        pointer-events: none;
+    }
+
+    .scrollspy-dots ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.72rem;
+        pointer-events: auto;
+    }
+
+    .scrollspy-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        border: 2px solid rgba(207, 236, 255, 0.65);
+        background: rgba(8, 18, 30, 0.38);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .scrollspy-dot::after {
+        content: '';
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: rgba(236, 254, 255, 0.85);
+        transition: background 0.2s ease;
+    }
+
+    body:not(.dark-mode) .scrollspy-dot {
+        border-color: rgba(17, 24, 39, 0.44);
+        background: rgba(255, 255, 255, 0.68);
+    }
+
+    body:not(.dark-mode) .scrollspy-dot::after {
+        background: rgba(17, 24, 39, 0.5);
+    }
+
+    .scrollspy-dot:hover {
+        transform: scale(1.08);
+        border-color: var(--accent-light);
+    }
+
+    .scrollspy-dot.is-active {
+        border-color: var(--accent-light);
+        background: rgba(30, 202, 209, 0.28);
+        box-shadow: 0 0 0 4px rgba(30, 202, 209, 0.14);
+    }
+
+    .scrollspy-dot.is-active::after {
+        background: var(--accent-light);
+    }
+
+    .scrollspy-dot:focus-visible {
+        outline: 2px solid var(--accent-light);
+        outline-offset: 3px;
+    }
+}
+
 /* Hero Section */
 .hero {
     min-height: 100vh;
@@ -581,7 +733,7 @@ code,
 
 .hero-buttons {
     display: grid;
-    grid-template-columns: repeat(4, max-content);
+    grid-template-columns: repeat(3, max-content);
     gap: 1rem;
     align-items: center;
     margin-bottom: 3rem;

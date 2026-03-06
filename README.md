@@ -9,16 +9,21 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
 - **Permanent Dark Mode**: Always-on dark theme for consistent visuals
 - **Hamburger-only Navigation**: iOS-inspired open/close animation across devices
+- **Desktop Scrollspy Dots**: Section-aware side navigation on larger screens for fast page traversal
+- **Mobile Section Arrows**: Minimal up/down floating controls for quick section jumps on phones
 - **Multi-language Support**: English, Italian, and Spanish controlled by URL paths
   - **Desktop & Mobile**: Full language names (English, Italiano, Español)
 - **URL-based Language Routing**: `/` for English, `/it/` for Italian, `/es/` for Spanish
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
 - **Professional Timeline**: Career journey with current role highlighted
 - **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with client-side validation and localized success/error notifications
+- **Streamlined Hero CTAs**: Three action buttons in Home card (`Services & Pricing`, `Download Resume`, `Get In Touch`)
+- **Touch-friendly Button States**: Hover effects scoped to hover-capable pointers to prevent sticky touch highlights
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
-- **SEO Optimization**: Open Graph meta tags for social media sharing, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability. Image cache busting implemented for Google Search recrawling.
+- **SEO Optimization**: Open Graph/Twitter image metadata, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
+- **Brand Assets**: Favicon package + branded web manifest configured across EN/IT/ES pages
 - **Legal Compliance**: Localized footer with copyright notice and integrated Privacy Policy modal across all versions.
 
 ## Featured Demos
@@ -75,6 +80,15 @@ portfolio-website/
 │   └── index.html
 ├── es/                              # Spanish page (URL: /es/)
 │   └── index.html
+├── favicon/                         # Brand icons + social preview assets
+│   ├── apple-touch-icon.png
+│   ├── favicon-96x96.png
+│   ├── favicon.ico
+│   ├── favicon.svg
+│   ├── og-image.png
+│   ├── site.webmanifest
+│   ├── web-app-manifest-192x192.png
+│   └── web-app-manifest-512x512.png
 ├── Marco Tofani_Resume.pdf          # Downloadable resume
 ├── profile-picture-v2.jpg           # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
@@ -96,7 +110,7 @@ This portfolio includes comprehensive SEO optimizations to improve visibility in
 
 ### Open Graph Meta Tags
 - Professional previews when shared on LinkedIn, Twitter, and other social platforms
-- Displays your name, description, and profile picture thumbnail
+- Uses branded preview image (`favicon/og-image.png`) across EN/IT/ES pages
 - Enhances click-through rates from social sharing
 
 ### Schema.org Structured Data (JSON-LD)
@@ -144,14 +158,33 @@ These optimizations improve:
 
 ## Current Professional Info
 
-- **Services & Pricing CTA**: Added a dedicated "Services & Pricing" button in the Home card (between "Download Resume" and "Get In Touch") linking directly to the Notion pricing page: [Marco Tofani Services & Pricing](https://rhinestone-polish-3b3.notion.site/Marco-Tofani-Services-Pricing-311b2b75bb6480869935d187032889e5).
+- **Home CTA Structure**: Home card now uses three secondary buttons in this order: `Services & Pricing`, `Download Resume`, `Get In Touch`.
+- **Services & Pricing CTA**: Dedicated button links directly to the Notion pricing page: [Marco Tofani Services & Pricing](https://rhinestone-polish-3b3.notion.site/Marco-Tofani-Services-Pricing-311b2b75bb6480869935d187032889e5).
 - **Dual Current Roles in Timeline**: Timeline now highlights both current positions:
   - **Junior Marketplace QA Specialist** at **Fever**
   - **Polyglot Translator & Developer** as independent professional
 - **Localization Consistency**: Role labels and timeline strings are updated across all languages (EN/IT/ES).
-- **UI Micro-Polish**: Improved button label centering and timeline date-to-dot spacing for clearer readability.
+- **UI Micro-Polish**: Improved CTA readability on small screens and touch interaction behavior.
 
 ## Recent Updates
+
+### v1.6 - Navigation, CTA Simplification & Brand Assets (March 6, 2026)
+
+#### Navigation & Interaction
+- **Desktop Scrollspy Navigation**: Added section-aware dot nav on desktop (`min-width: 1024px`).
+- **Mobile Arrow Navigation**: Added contextual up/down controls on mobile (`max-width: 1023px`) with touch-friendly targets and accessible labels.
+- **Touch Hover Fix**: Scoped hero hover effects to hover-capable pointers to prevent sticky white states on touch devices.
+
+#### Home Card UX
+- **CTA Simplification**: Reduced Home card buttons to three actions.
+- **Button Order Update**: `Services & Pricing` -> `Download Resume` -> `Get In Touch`.
+- **Equal Visual Weight**: All Home card CTA buttons now use secondary styling.
+- **Small-screen Readability**: Updated mobile CTA wrapping/padding for long localized labels (Italian/Spanish).
+
+#### Branding & Metadata
+- **Favicon Suite Integrated**: Added favicon, SVG icon, Apple touch icon, and manifest links across all language pages.
+- **Manifest Branding**: Updated `site.webmanifest` name fields to `Marco Tofani Portfolio` / `Marco Tofani`.
+- **Social Preview Update**: `og:image` and `twitter:image` now point to `https://marcotof.github.io/favicon/og-image.png`.
 
 ### v1.5 - Privacy, UX & SEO Polish (February 21, 2026)
 
