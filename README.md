@@ -81,14 +81,10 @@ portfolio-website/
 ├── es/                              # Spanish page (URL: /es/)
 │   └── index.html
 ├── favicon/                         # Brand icons + social preview assets
-│   ├── apple-touch-icon.png
 │   ├── favicon-96x96.png
 │   ├── favicon.ico
 │   ├── favicon.svg
-│   ├── og-image.png
-│   ├── site.webmanifest
-│   ├── web-app-manifest-192x192.png
-│   └── web-app-manifest-512x512.png
+│   └── og-image.png
 ├── Marco Tofani_Resume.pdf          # Downloadable resume
 ├── profile-picture-v2.jpg           # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
