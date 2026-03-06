@@ -609,24 +609,32 @@ code,
     border: 1px solid transparent;
 }
 
-.btn-primary:hover {
-    background: var(--btn-group-1-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 14px 30px rgba(30, 202, 209, 0.25);
-}
-
 .btn-secondary {
     background: var(--btn-secondary-bg);
     color: var(--btn-secondary-text);
     border: 1px solid var(--btn-secondary-border);
 }
 
-.btn-secondary:hover {
-    background: white;
-    border-color: white;
-    color: var(--accent-color);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 26px rgba(255, 255, 255, 0.28);
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+        background: var(--btn-group-1-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(30, 202, 209, 0.25);
+    }
+
+    .btn-secondary:hover {
+        background: white;
+        border-color: white;
+        color: var(--accent-color);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 26px rgba(255, 255, 255, 0.28);
+    }
 }
 
 .hero-stats {
