@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website showcasing automation tools and full-stack development projects created for Prime Video workflows.
 
-🌐 **Live Site**: [https://marcotof.github.io/](https://marcotof.github.io/)
+**Live Site**: [https://marcotof.github.io/](https://marcotof.github.io/)
 
 ## Features
 
@@ -30,7 +30,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 
 Three production automation tools with live video demonstrations:
 
-### 🎬 Video Demonstrations
+### Video Demonstrations
 - **Redelivery Hub**: Comprehensive automation platform (90% reduction in manual work)
 - **LQA Tool Extension**: Chrome extension for workflow enhancement (40% QA efficiency improvement)
 - **Redelivery Agent**: Web-based Excel processing tool (eliminates manual data entry errors)
@@ -39,23 +39,23 @@ All demo videos are embedded in the "Demos" section of the portfolio with full r
 
 ## Projects Highlighted
 
-### 🏆 Redelivery Hub (Featured)
+### Redelivery Hub (Featured)
 Comprehensive automation platform for Prime Video redelivery workflows with:
 - Multi-tool automation platform
 - Selenium WebDriver automation
 - Real-time status tracking
 - File processing and validation
 
-### 🔧 LQA Tool Extension
+### LQA Tool Extension
 Chrome extension enhancing LQA Tool workflow efficiency
 
-### 📊 Redelivery Agent
+### Redelivery Agent
 Web-based Excel file processing tool with modular architecture
 
-### 🛠️ FileMaster & TimeStamps Converter
+### FileMaster & TimeStamps Converter
 Python utilities for file management and timestamp processing
 
-### 📋 Proxy Generation Tools
+### Proxy Generation Tools
 Documentation and templates for partner support workflows
 
 ## Technologies Used
@@ -184,27 +184,27 @@ These optimizations improve:
 
 ### v1.5 - Privacy, UX & SEO Polish (February 21, 2026)
 
-#### ⚖️ Legal & Privacy
+#### Legal & Privacy
 - **Localized Footer**: Added a consistent footer with copyright and privacy links across all language versions (/it/, /es/, and root).
 - **Privacy Policy**: Integrated a dedicated Privacy Policy modal to comply with GDPR-style standards for contact form data.
 
-#### 🛠️ UX & Compatibility
+#### UX & Compatibility
 - **Double Scrollbar Fix**: Refactored modal CSS to centralize scrolling on the overlay, eliminating the nested scrollbox issue.
 - **Cross-Browser Scroll Locking**: Updated JS to lock both `html` and `body` overflow, ensuring a stable background experience across all mobile and desktop browsers (iOS Safari, Android Chrome, etc.).
 
-#### 🔍 SEO
+#### SEO
 - **Image Cache Busting**: Renamed profile image to `profile-picture-v2.jpg` and updated all meta/schema tags to force a refresh on Google Search results.
 - **Sitemap Update**: Refreshed `lastmod` dates to trigger re-indexing.
 
 ### v1.4.0 - Filters + Contact Toasts (February 8, 2026)
 
-#### ✅ UX Improvements
+#### UX Improvements
 - **Project Filters**: Added Python and JavaScript filter chips for faster browsing
 - **Contact Feedback**: Toast notifications for form success/error in all languages
 
 ### v1.3 - URL-based i18n + Visual System Refresh (February 7, 2026)
 
-#### 🎨 UI Improvements
+#### UI Improvements
 - **Permanent Dark Mode**: Removed the toggle and enforced a consistent dark theme
 - **Hamburger-only Header**: Single navigation pattern across desktop and mobile
 - **Hero Layout**: Centered hero content with a 4-button desktop row and 2x2 mobile grid
@@ -215,11 +215,11 @@ These optimizations improve:
   - Group 4: Projects + Demos
 - **Contact UX**: Stronger button styling and cleaner contact modal presentation
 
-#### 🌍 Localization Updates
+#### Localization Updates
 - **URL-based Language Routing Only**: No browser auto-detect or stored preference
 - **Menu Language Selector**: Full language names in pill buttons
 
-#### 🔍 SEO
+#### SEO
 - **Hreflang Tags**: Explicit alternates for EN/IT/ES
 - **Sitemap + Robots**: Confirmed and up to date
 
