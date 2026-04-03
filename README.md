@@ -17,7 +17,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
 - **Professional Timeline**: Career journey with current role highlighted
 - **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with client-side validation and localized success/error notifications
-- **Streamlined Hero CTAs**: Three action buttons in Home card (`Services & Pricing`, `Download Resume`, `Get In Touch`)
+- **Streamlined Hero CTAs**: Two action buttons in Home card (`Download Resume`, `Get In Touch`)
 - **Touch-friendly Button States**: Hover effects scoped to hover-capable pointers to prevent sticky touch highlights
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
