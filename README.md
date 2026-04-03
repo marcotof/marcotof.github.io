@@ -154,8 +154,7 @@ These optimizations improve:
 
 ## Current Professional Info
 
-- **Home CTA Structure**: Home card now uses three secondary buttons in this order: `Services & Pricing`, `Download Resume`, `Get In Touch`.
-- **Services & Pricing CTA**: Dedicated button links directly to the Notion pricing page: [Marco Tofani Services & Pricing](https://rhinestone-polish-3b3.notion.site/Marco-Tofani-Services-Pricing-311b2b75bb6480869935d187032889e5).
+- **Home CTA Structure**: Home card uses two secondary buttons: `Download Resume`, `Get In Touch`.
 - **Dual Current Roles in Timeline**: Timeline now highlights both current positions:
   - **Junior Marketplace QA Specialist** at **Fever**
   - **Polyglot Translator & Developer** as independent professional
@@ -172,8 +171,8 @@ These optimizations improve:
 - **Touch Hover Fix**: Scoped hero hover effects to hover-capable pointers to prevent sticky white states on touch devices.
 
 #### Home Card UX
-- **CTA Simplification**: Reduced Home card buttons to three actions.
-- **Button Order Update**: `Services & Pricing` -> `Download Resume` -> `Get In Touch`.
+- **CTA Simplification**: Reduced Home card buttons to two actions.
+- **Button Order**: `Download Resume` -> `Get In Touch`.
 - **Equal Visual Weight**: All Home card CTA buttons now use secondary styling.
 - **Small-screen Readability**: Updated mobile CTA wrapping/padding for long localized labels (Italian/Spanish).
 
