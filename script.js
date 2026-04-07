@@ -560,7 +560,508 @@ function initProjectFilters() {
 
 document.addEventListener('DOMContentLoaded', function () {
     initProjectFilters();
+    initArchitectureMap();
 });
+
+function initArchitectureMap() {
+    const section = document.getElementById('architecture');
+    if (!section) return;
+
+    const svg = section.querySelector('.architecture-svg');
+    const linksLayer = section.querySelector('.architecture-links');
+    const nodesLayer = section.querySelector('.architecture-nodes');
+    const panelTitle = document.getElementById('architecture-title');
+    const panelSummary = document.getElementById('architecture-summary');
+    const tagsList = document.getElementById('architecture-tags');
+
+    if (!svg || !linksLayer || !nodesLayer || !panelTitle || !panelSummary || !tagsList) return;
+
+    const t = window.currentLocaleData || locales.en;
+    const text = (key, fallback) => t[key] || fallback;
+
+    const nodes = [
+        {
+            id: 'redelivery-hub',
+            type: 'project',
+            x: 280,
+            y: 220,
+            r: 28,
+            labelKey: 'architecture.nodes.redelivery-hub',
+            summaryKey: 'architecture.summary.redelivery-hub',
+            tags: ['architecture.tags.projects', 'architecture.tags.operations', 'architecture.tags.impact']
+        },
+        {
+            id: 'lqa-extension',
+            type: 'project',
+            x: 190,
+            y: 380,
+            r: 22,
+            labelKey: 'architecture.nodes.lqa-extension',
+            summaryKey: 'architecture.summary.lqa-extension',
+            tags: ['architecture.tags.frontend', 'architecture.tags.localization', 'architecture.tags.automation']
+        },
+        {
+            id: 'redelivery-agent',
+            type: 'project',
+            x: 430,
+            y: 370,
+            r: 23,
+            labelKey: 'architecture.nodes.redelivery-agent',
+            summaryKey: 'architecture.summary.redelivery-agent',
+            tags: ['architecture.tags.frontend', 'architecture.tags.operations', 'architecture.tags.reliability']
+        },
+        {
+            id: 'filemaster',
+            type: 'project',
+            x: 520,
+            y: 210,
+            r: 20,
+            labelKey: 'architecture.nodes.filemaster',
+            summaryKey: 'architecture.summary.filemaster',
+            tags: ['architecture.tags.automation', 'architecture.tags.reliability']
+        },
+        {
+            id: 'proxy-generation',
+            type: 'project',
+            x: 610,
+            y: 390,
+            r: 19,
+            labelKey: 'architecture.nodes.proxy-generation',
+            summaryKey: 'architecture.summary.proxy-generation',
+            tags: ['architecture.tags.operations', 'architecture.tags.localization']
+        },
+        {
+            id: 'python',
+            type: 'skill',
+            x: 760,
+            y: 165,
+            r: 18,
+            labelKey: 'architecture.nodes.python',
+            summaryKey: 'architecture.summary.python',
+            tags: ['architecture.tags.backend', 'architecture.tags.automation']
+        },
+        {
+            id: 'flask',
+            type: 'skill',
+            x: 860,
+            y: 270,
+            r: 17,
+            labelKey: 'architecture.nodes.flask',
+            summaryKey: 'architecture.summary.flask',
+            tags: ['architecture.tags.backend', 'architecture.tags.operations']
+        },
+        {
+            id: 'selenium',
+            type: 'skill',
+            x: 742,
+            y: 306,
+            r: 18,
+            labelKey: 'architecture.nodes.selenium',
+            summaryKey: 'architecture.summary.selenium',
+            tags: ['architecture.tags.automation', 'architecture.tags.performance']
+        },
+        {
+            id: 'javascript',
+            type: 'skill',
+            x: 826,
+            y: 424,
+            r: 17,
+            labelKey: 'architecture.nodes.javascript',
+            summaryKey: 'architecture.summary.javascript',
+            tags: ['architecture.tags.frontend', 'architecture.tags.reliability']
+        },
+        {
+            id: 'localization',
+            type: 'skill',
+            x: 704,
+            y: 516,
+            r: 18,
+            labelKey: 'architecture.nodes.localization',
+            summaryKey: 'architecture.summary.localization',
+            tags: ['architecture.tags.localization', 'architecture.tags.quality']
+        },
+        {
+            id: 'speed',
+            type: 'impact',
+            x: 500,
+            y: 92,
+            r: 16,
+            labelKey: 'architecture.nodes.speed',
+            summaryKey: 'architecture.summary.speed',
+            tags: ['architecture.tags.impact', 'architecture.tags.performance']
+        },
+        {
+            id: 'quality',
+            type: 'impact',
+            x: 520,
+            y: 536,
+            r: 16,
+            labelKey: 'architecture.nodes.quality',
+            summaryKey: 'architecture.summary.quality',
+            tags: ['architecture.tags.impact', 'architecture.tags.reliability']
+        },
+        {
+            id: 'scale',
+            type: 'impact',
+            x: 326,
+            y: 520,
+            r: 16,
+            labelKey: 'architecture.nodes.scale',
+            summaryKey: 'architecture.summary.scale',
+            tags: ['architecture.tags.impact', 'architecture.tags.operations']
+        }
+    ];
+
+    const edges = [
+        ['redelivery-hub', 'python'],
+        ['redelivery-hub', 'flask'],
+        ['redelivery-hub', 'selenium'],
+        ['redelivery-hub', 'speed'],
+        ['redelivery-hub', 'quality'],
+        ['lqa-extension', 'javascript'],
+        ['lqa-extension', 'localization'],
+        ['lqa-extension', 'quality'],
+        ['redelivery-agent', 'javascript'],
+        ['redelivery-agent', 'scale'],
+        ['redelivery-agent', 'quality'],
+        ['filemaster', 'python'],
+        ['filemaster', 'speed'],
+        ['proxy-generation', 'localization'],
+        ['proxy-generation', 'scale'],
+        ['selenium', 'speed'],
+        ['flask', 'scale']
+    ];
+
+    // Small feature switches so these extras can be disabled quickly if needed.
+    const featureFlags = {
+        pulseTrails: true,
+        legendFilters: true
+    };
+
+    const idToNode = new Map(nodes.map(node => [node.id, node]));
+    const linkEls = [];
+    const pulseEls = [];
+    const nodeEls = new Map();
+    const labelEls = new Map();
+    const hiddenTypes = new Set();
+    const activeTagFilters = new Set();
+    let activeId = 'redelivery-hub';
+    let raf = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const panel = section.querySelector('.architecture-panel');
+
+    let legendButtons = [];
+    if (featureFlags.legendFilters && panel) {
+        const controls = document.createElement('div');
+        controls.className = 'architecture-controls';
+
+        const title = document.createElement('h4');
+        title.className = 'architecture-controls-title';
+        title.textContent = text('architecture.legendTitle', 'Node Layers');
+
+        const legend = document.createElement('div');
+        legend.className = 'architecture-legend';
+
+        const legendItems = [
+            { type: 'project', key: 'architecture.legend.projects', fallback: 'Projects' },
+            { type: 'skill', key: 'architecture.legend.skills', fallback: 'Skills' },
+            { type: 'impact', key: 'architecture.legend.impacts', fallback: 'Outcomes' }
+        ];
+
+        legendItems.forEach((item) => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'architecture-legend-btn is-active';
+            button.dataset.type = item.type;
+            button.textContent = text(item.key, item.fallback);
+            button.setAttribute('aria-pressed', 'true');
+            legend.appendChild(button);
+        });
+
+        controls.appendChild(title);
+        controls.appendChild(legend);
+        panel.insertBefore(controls, panel.querySelector('.architecture-meta'));
+        legendButtons = Array.from(legend.querySelectorAll('.architecture-legend-btn'));
+    }
+
+    const pulsesLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    pulsesLayer.classList.add('architecture-pulses');
+    if (featureFlags.pulseTrails) {
+        svg.appendChild(pulsesLayer);
+    }
+
+    const shortLabel = (label) => {
+        if (label.length <= 14) return label;
+        const split = label.split(' ');
+        return split.length > 1 ? split[0] : `${label.slice(0, 12)}...`;
+    };
+
+    const positionFor = (node, time) => {
+        if (reducedMotion) {
+            return { x: node.x, y: node.y };
+        }
+
+        const driftA = node.type === 'project' ? 8 : node.type === 'skill' ? 6 : 5;
+        const driftB = node.type === 'project' ? 5 : node.type === 'skill' ? 4 : 3;
+        const seed = node.id.length * 0.47;
+        const x = node.x + Math.sin(time * 0.001 + seed) * driftA;
+        const y = node.y + Math.cos(time * 0.0014 + seed) * driftB;
+        return { x, y };
+    };
+
+    const renderTagChips = (node) => {
+        if (!node) {
+            tagsList.innerHTML = '';
+            return;
+        }
+
+        tagsList.innerHTML = node.tags
+            .map((tagKey) => {
+                const label = text(tagKey, tagKey);
+                const active = activeTagFilters.has(tagKey);
+                return `<li><button type="button" class="architecture-tag-btn${active ? ' is-active' : ''}" data-tag="${tagKey}" aria-pressed="${active ? 'true' : 'false'}">${label}</button></li>`;
+            })
+            .join('');
+    };
+
+    const setFocus = (nodeId) => {
+        const node = idToNode.get(nodeId);
+        if (!node) return;
+
+        if (hiddenTypes.has(node.type)) return;
+
+        activeId = nodeId;
+        panelTitle.textContent = text(node.labelKey, node.id);
+        panelSummary.textContent = text(node.summaryKey, '');
+        renderTagChips(node);
+
+        nodeEls.forEach((el, id) => {
+            el.classList.toggle('is-active', id === nodeId);
+            el.setAttribute('aria-pressed', id === nodeId ? 'true' : 'false');
+        });
+
+        linkEls.forEach(({ el, source, target }) => {
+            const active = source === nodeId || target === nodeId;
+            el.classList.toggle('is-active', active);
+        });
+    };
+
+    const isNodeVisible = (nodeId) => {
+        const node = idToNode.get(nodeId);
+        if (!node) return false;
+        if (hiddenTypes.has(node.type)) return false;
+        if (!activeTagFilters.size) return true;
+        return node.tags.some(tag => activeTagFilters.has(tag));
+    };
+
+    const resolveVisibleFocus = () => {
+        if (isNodeVisible(activeId)) return activeId;
+        return nodes.find((node) => isNodeVisible(node.id))?.id || activeId;
+    };
+
+    const applyTypeFilters = () => {
+        nodeEls.forEach((el, nodeId) => {
+            const node = idToNode.get(nodeId);
+            const hidden = node ? hiddenTypes.has(node.type) : false;
+            el.classList.toggle('is-hidden', hidden);
+        });
+
+        linkEls.forEach(({ el, source, target }) => {
+            const hidden = !isNodeVisible(source) || !isNodeVisible(target);
+            el.classList.toggle('is-hidden', hidden);
+        });
+
+        const nextFocus = resolveVisibleFocus();
+        if (nextFocus !== activeId) {
+            setFocus(nextFocus);
+        }
+    };
+
+    edges.forEach(([sourceId, targetId]) => {
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.classList.add('architecture-link');
+        linksLayer.appendChild(line);
+        const sourceNode = idToNode.get(sourceId);
+        const targetNode = idToNode.get(targetId);
+
+        let pulse = null;
+        if (featureFlags.pulseTrails) {
+            pulse = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            pulse.classList.add('architecture-pulse');
+            pulse.setAttribute('r', '3.6');
+            pulsesLayer.appendChild(pulse);
+            pulseEls.push(pulse);
+        }
+
+        linkEls.push({
+            el: line,
+            pulse,
+            source: sourceId,
+            target: targetId,
+            sourceType: sourceNode ? sourceNode.type : '',
+            targetType: targetNode ? targetNode.type : ''
+        });
+    });
+
+    nodes.forEach((node) => {
+        const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        group.classList.add('architecture-node', `is-${node.type}`);
+        group.setAttribute('tabindex', '0');
+        group.setAttribute('role', 'button');
+        group.setAttribute('aria-label', text(node.labelKey, node.id));
+        group.dataset.id = node.id;
+
+        const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        ring.setAttribute('r', String(node.r + 8));
+        ring.classList.add('architecture-ring');
+
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('r', String(node.r));
+
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.textContent = shortLabel(text(node.labelKey, node.id));
+
+        group.appendChild(ring);
+        group.appendChild(circle);
+        group.appendChild(label);
+        nodesLayer.appendChild(group);
+        nodeEls.set(node.id, group);
+        labelEls.set(node.id, label);
+
+        group.addEventListener('click', () => {
+            setFocus(node.id);
+        });
+        group.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                setFocus(node.id);
+            }
+        });
+    });
+
+    legendButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const type = button.dataset.type;
+            if (!type) return;
+
+            const currentlyActive = !hiddenTypes.has(type);
+            const activeCount = ['project', 'skill', 'impact'].filter((nodeType) => !hiddenTypes.has(nodeType)).length;
+            if (currentlyActive && activeCount === 1) {
+                return;
+            }
+
+            if (currentlyActive) {
+                hiddenTypes.add(type);
+                button.classList.remove('is-active');
+                button.setAttribute('aria-pressed', 'false');
+            } else {
+                hiddenTypes.delete(type);
+                button.classList.add('is-active');
+                button.setAttribute('aria-pressed', 'true');
+            }
+
+            applyTypeFilters();
+        });
+    });
+
+    tagsList.addEventListener('click', (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+
+        const button = target.closest('.architecture-tag-btn');
+        if (!(button instanceof HTMLButtonElement)) return;
+
+        const tag = button.dataset.tag;
+        if (!tag) return;
+
+        if (activeTagFilters.has(tag)) {
+            activeTagFilters.delete(tag);
+        } else {
+            activeTagFilters.add(tag);
+        }
+        applyTypeFilters();
+        if (isNodeVisible(activeId)) {
+            setFocus(activeId);
+        }
+    });
+
+    const tick = (time) => {
+        const positions = new Map();
+        nodes.forEach((node) => {
+            positions.set(node.id, positionFor(node, time));
+        });
+
+        linkEls.forEach(({ el, pulse, source, target }) => {
+            const a = positions.get(source);
+            const b = positions.get(target);
+            if (!a || !b) return;
+
+            const hidden = !isNodeVisible(source) || !isNodeVisible(target);
+            if (hidden) {
+                el.classList.add('is-hidden');
+                if (pulse) pulse.classList.add('is-hidden');
+                return;
+            }
+
+            el.classList.remove('is-hidden');
+            el.setAttribute('x1', String(a.x));
+            el.setAttribute('y1', String(a.y));
+            el.setAttribute('x2', String(b.x));
+            el.setAttribute('y2', String(b.y));
+
+            if (pulse) {
+                const edgeIsActive = source === activeId || target === activeId;
+                if (!edgeIsActive) {
+                    pulse.classList.add('is-hidden');
+                } else {
+                    const phase = (time * 0.00022 + (source.length + target.length) * 0.061) % 1;
+                    pulse.classList.remove('is-hidden');
+                    pulse.setAttribute('cx', String(a.x + (b.x - a.x) * phase));
+                    pulse.setAttribute('cy', String(a.y + (b.y - a.y) * phase));
+                }
+            }
+        });
+
+        nodes.forEach((node) => {
+            const group = nodeEls.get(node.id);
+            const pos = positions.get(node.id);
+            if (!group || !pos) return;
+
+            if (!isNodeVisible(node.id)) {
+                group.classList.add('is-hidden');
+                return;
+            }
+
+            group.classList.remove('is-hidden');
+            group.setAttribute('transform', `translate(${pos.x} ${pos.y})`);
+
+            const label = labelEls.get(node.id);
+            if (label) {
+                const dy = node.type === 'project' ? node.r + 16 : node.r + 13;
+                label.setAttribute('y', String(dy));
+            }
+        });
+
+        raf = window.requestAnimationFrame(tick);
+    };
+
+    setFocus(activeId);
+    applyTypeFilters();
+    raf = window.requestAnimationFrame(tick);
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden && raf) {
+            window.cancelAnimationFrame(raf);
+            raf = null;
+            return;
+        }
+
+        if (!document.hidden && !raf) {
+            raf = window.requestAnimationFrame(tick);
+        }
+    });
+}
 
 // Project details data
 const projectDetails = {

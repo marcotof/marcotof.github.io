@@ -125,6 +125,7 @@
                 <li><a href="#timeline" data-i18n="nav.timeline">Timeline</a></li>
                 <li><a href="#localization" data-i18n="nav.localization">Localization</a></li>
                 <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+                <li><a href="#architecture" data-i18n="nav.architecture">Architecture</a></li>
                 <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                 <li class="nav-language">
@@ -611,6 +612,31 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="architecture">
+        <div class="container">
+            <h2 data-i18n="architecture.title">Project Architecture Map</h2>
+            <p class="architecture-intro" data-i18n="architecture.intro">Explore how projects, tools, and outcomes connect in my automation ecosystem.</p>
+            <div class="architecture-layout">
+                <div class="architecture-canvas-wrap">
+                    <svg class="architecture-svg" viewBox="0 0 1000 620" aria-label="Interactive project architecture graph" role="img">
+                        <g class="architecture-links"></g>
+                        <g class="architecture-nodes"></g>
+                    </svg>
+                    <p class="architecture-hint" data-i18n="architecture.hint">Click nodes to change focus.</p>
+                </div>
+                <aside class="architecture-panel" aria-live="polite">
+                    <p class="architecture-panel-kicker" data-i18n="architecture.panelKicker">Focus Node</p>
+                    <h3 id="architecture-title">Redelivery Hub</h3>
+                    <p id="architecture-summary">Comprehensive automation platform for redelivery workflows.</p>
+                    <div class="architecture-meta">
+                        <h4 data-i18n="architecture.metaTitle">Connected Outcomes</h4>
+                        <ul id="architecture-tags"></ul>
+                    </div>
+                </aside>
             </div>
         </div>
     </section>

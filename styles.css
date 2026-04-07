@@ -1539,10 +1539,282 @@ code,
     box-shadow: 0 4px 12px rgba(12, 19, 35, 0.2), 0 0 0 2px var(--card-group-4-accent);
 }
 
+/* Architecture Section */
+.architecture {
+    padding: 96px 0;
+    background: linear-gradient(180deg, rgba(17, 31, 26, 0.55) 0%, rgba(11, 15, 20, 0.95) 100%);
+}
+
+.architecture h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.architecture-intro {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 2.2rem;
+    color: var(--text-light);
+}
+
+.architecture-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(280px, 0.9fr);
+    gap: 1.2rem;
+    align-items: stretch;
+}
+
+.architecture-canvas-wrap {
+    position: relative;
+    border: 1px solid var(--card-group-1-border);
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(155deg, rgba(14, 22, 32, 0.95), rgba(9, 14, 22, 0.92));
+    box-shadow: 0 22px 40px rgba(3, 9, 18, 0.35), inset 0 0 0 1px rgba(124, 243, 255, 0.08);
+}
+
+.architecture-canvas-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 36px 36px;
+    opacity: 0.4;
+}
+
+.architecture-svg {
+    width: 100%;
+    height: auto;
+    min-height: 440px;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.architecture-hint {
+    position: absolute;
+    left: 14px;
+    bottom: 12px;
+    z-index: 2;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    background: rgba(12, 20, 30, 0.84);
+    border: 1px solid var(--card-group-1-border);
+    color: var(--text-light);
+}
+
+.architecture-link {
+    stroke: rgba(124, 243, 255, 0.22);
+    stroke-width: 1.8;
+    transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.architecture-link.is-active {
+    stroke: rgba(124, 243, 255, 0.85);
+    stroke-width: 2.8;
+}
+
+.architecture-link.is-hidden {
+    display: none;
+}
+
+.architecture-pulse {
+    fill: #7cf3ff;
+    filter: drop-shadow(0 0 7px rgba(124, 243, 255, 0.85));
+    opacity: 0.95;
+}
+
+.architecture-pulse.is-hidden {
+    display: none;
+}
+
+.architecture-node {
+    outline: none;
+}
+
+.architecture-ring {
+    fill: none;
+    stroke: transparent;
+    stroke-width: 2.5;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, stroke 0.3s ease;
+}
+
+.architecture-node.is-active .architecture-ring {
+    stroke: #7cf3ff;
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(124, 243, 255, 0.8));
+}
+
+.architecture-node:focus-visible .architecture-ring {
+    stroke: #ffffff;
+    opacity: 1;
+}
+
+.architecture-node circle {
+    stroke-width: 2;
+    transition: transform 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
+}
+
+.architecture-node text {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    fill: #eef8ff;
+    pointer-events: none;
+    letter-spacing: 0.02em;
+}
+
+.architecture-node.is-project circle {
+    fill: rgba(30, 202, 209, 0.28);
+    stroke: #7cf3ff;
+}
+
+.architecture-node.is-skill circle {
+    fill: rgba(52, 211, 153, 0.25);
+    stroke: #7ef9c2;
+}
+
+.architecture-node.is-impact circle {
+    fill: rgba(249, 115, 22, 0.28);
+    stroke: #fdba74;
+}
+
+.architecture-node.is-active circle {
+    filter: drop-shadow(0 0 6px rgba(124, 243, 255, 0.35));
+}
+
+.architecture-node.is-hidden {
+    display: none;
+}
+
+.architecture-panel {
+    background: linear-gradient(160deg, rgba(18, 28, 40, 0.94), rgba(13, 20, 30, 0.94));
+    border: 1px solid var(--card-group-2-border);
+    border-radius: 16px;
+    padding: 1.1rem 1rem;
+    box-shadow: 0 18px 36px rgba(3, 8, 16, 0.25);
+}
+
+.architecture-panel-kicker {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 0.5rem;
+}
+
+.architecture-panel h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.6rem;
+    color: var(--text-secondary);
+}
+
+#architecture-summary {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.architecture-controls {
+    margin-bottom: 0.95rem;
+}
+
+.architecture-controls-title {
+    font-size: 0.84rem;
+    letter-spacing: 0.06em;
+    color: var(--text-secondary);
+    margin-bottom: 0.4rem;
+}
+
+.architecture-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.architecture-legend-btn {
+    border: 1px solid rgba(52, 211, 153, 0.42);
+    background: rgba(17, 31, 26, 0.42);
+    color: #baf7df;
+    border-radius: 999px;
+    padding: 0.28rem 0.62rem;
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.architecture-legend-btn:hover,
+.architecture-legend-btn:focus-visible {
+    border-color: rgba(52, 211, 153, 0.75);
+    color: #ecfff7;
+    outline: none;
+}
+
+.architecture-legend-btn.is-active {
+    background: rgba(52, 211, 153, 0.34);
+    border-color: rgba(110, 231, 183, 0.96);
+    color: #f1fff8;
+    box-shadow: 0 0 0 1px rgba(110, 231, 183, 0.35) inset;
+}
+
+.architecture-meta h4 {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.55rem;
+}
+
+#architecture-tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#architecture-tags li {
+    padding: 0;
+}
+
+.architecture-tag-btn {
+    border: 1px solid rgba(52, 211, 153, 0.42);
+    background: rgba(17, 31, 26, 0.42);
+    color: #baf7df;
+    border-radius: 999px;
+    padding: 0.3rem 0.65rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.architecture-tag-btn:hover,
+.architecture-tag-btn:focus-visible {
+    border-color: rgba(52, 211, 153, 0.75);
+    color: #ecfff7;
+    outline: none;
+}
+
+.architecture-tag-btn.is-active {
+    background: rgba(52, 211, 153, 0.34);
+    border-color: rgba(110, 231, 183, 0.96);
+    color: #f1fff8;
+    box-shadow: 0 0 0 1px rgba(110, 231, 183, 0.35) inset;
+}
+
 /* Skills Section */
 .skills {
     padding: 100px 0;
-    background: linear-gradient(180deg, rgba(17, 31, 26, 0.55) 0%, rgba(11, 15, 20, 0.95) 100%);
+    background: linear-gradient(180deg, rgba(42, 22, 12, 0.6) 0%, rgba(11, 15, 20, 0.95) 100%);
 }
 
 .skills h2 {
@@ -2498,6 +2770,22 @@ body:not(.dark-mode) .char-count {
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .architecture {
+        padding: 66px 0;
+    }
+
+    .architecture h2 {
+        font-size: 1.9rem;
+    }
+
+    .architecture-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .architecture-svg {
+        min-height: 360px;
     }
 
     .contact {

@@ -15,6 +15,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
   - **Desktop & Mobile**: Full language names (English, Italiano, Español)
 - **URL-based Language Routing**: `/` for English, `/it/` for Italian, `/es/` for Spanish
 - **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
+- **Interactive Architecture Map**: Animated node graph with focus panel, layer filters, and outcome-based filtering
 - **Professional Timeline**: Career journey with current role highlighted
 - **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with client-side validation and localized success/error notifications
 - **Streamlined Hero CTAs**: Two action buttons in Home card (`Download Resume`, `Get In Touch`)
@@ -160,6 +161,23 @@ These optimizations improve:
 - **UI Micro-Polish**: Improved CTA readability on small screens and touch interaction behavior.
 
 ## Recent Updates
+
+### v1.7.0 - Interactive Architecture Map (April 7, 2026)
+
+#### New Architecture Card
+- **Architecture Map Section**: Added a new "Project Architecture Map" card across EN/IT/ES pages with SVG-based interactive nodes and links.
+- **Focus Details Panel**: Selecting a node updates localized title, summary, and connected outcomes.
+- **Node Highlight UX**: Replaced broad rectangular focus feel with a dedicated circular ring around the selected node.
+
+#### Filtering & Interaction
+- **Node Layers Filters**: Projects, Skills, and Outcomes chips can be toggled to filter visible layers.
+- **Connected Outcomes Filters**: Outcome chips are clickable and now support multi-selection.
+- **Combined Filtering Logic**: Outcome filters work together with Node Layers filters for intersection-based results.
+- **Manual Focus Control**: Removed auto-focus cycling so navigation is fully user-driven.
+
+#### Visual Group Alignment
+- **Group Assignment Update**: Architecture card now follows Group 2 styling (About + Timeline), while Technical Skills now follows Group 3 styling (Awards + Localization).
+- **Filter Chip Theming**: Architecture filter chips were updated to a group-consistent green palette with clear selected states.
 
 ### v1.6 - Navigation, CTA Simplification & Brand Assets (March 6, 2026)
 
