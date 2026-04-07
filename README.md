@@ -162,7 +162,7 @@ These optimizations improve:
 
 ## Recent Updates
 
-### v1.7.0 - Interactive Architecture Map (April 7, 2026)
+### v1.7 - Interactive Architecture Map (April 7, 2026)
 
 #### New Architecture Card
 - **Architecture Map Section**: Added a new "Project Architecture Map" card across EN/IT/ES pages with SVG-based interactive nodes and links.
