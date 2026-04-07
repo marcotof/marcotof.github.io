@@ -211,7 +211,7 @@ These optimizations improve:
 - **Image Cache Busting**: Renamed profile image to `profile-picture-v2.jpg` and updated all meta/schema tags to force a refresh on Google Search results.
 - **Sitemap Update**: Refreshed `lastmod` dates to trigger re-indexing.
 
-### v1.4.0 - Filters + Contact Toasts (February 8, 2026)
+### v1.4 - Filters + Contact Toasts (February 8, 2026)
 
 #### UX Improvements
 - **Project Filters**: Added Python and JavaScript filter chips for faster browsing
