@@ -20,7 +20,9 @@ if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-        document.body.classList.toggle('menu-open', navMenu.classList.contains('active'));
+        const isOpen = navMenu.classList.contains('active');
+        document.body.classList.toggle('menu-open', isOpen);
+        document.documentElement.classList.toggle('menu-open', isOpen);
     });
 
     // Close menu when clicking on a nav link
@@ -29,6 +31,7 @@ if (hamburger && navMenu) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.classList.remove('menu-open');
+            document.documentElement.classList.remove('menu-open');
         });
     });
 
@@ -38,6 +41,7 @@ if (hamburger && navMenu) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.classList.remove('menu-open');
+            document.documentElement.classList.remove('menu-open');
         }
     });
 }
