@@ -87,7 +87,7 @@ portfolio-website/
 │   ├── favicon.svg
 │   └── og-image.png
 ├── Marco Tofani_Resume.pdf          # Downloadable resume
-├── profile-picture-v2.jpg           # Profile image
+├── profile-picture.jpg              # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
 ├── super-mario-party-jamboree.jpg   # VIP project image
 ├── poster-redelivery-hub.png        # Poster image for Redelivery Hub demo
@@ -208,7 +208,7 @@ These optimizations improve:
 - **Cross-Browser Scroll Locking**: Updated JS to lock both `html` and `body` overflow, ensuring a stable background experience across all mobile and desktop browsers (iOS Safari, Android Chrome, etc.).
 
 #### SEO
-- **Image Cache Busting**: Renamed profile image to `profile-picture-v2.jpg` and updated all meta/schema tags to force a refresh on Google Search results.
+- **Image Cache Busting**: Renamed profile image to `profile-picture.jpg` and updated all meta/schema tags to force a refresh on Google Search results.
 - **Sitemap Update**: Refreshed `lastmod` dates to trigger re-indexing.
 
 ### v1.4 - Filters + Contact Toasts (February 8, 2026)
