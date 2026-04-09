@@ -156,7 +156,7 @@ These optimizations improve:
 ## Current Professional Info
 
 - **Home CTA Structure**: Home card uses two secondary buttons: `Download Resume`, `Get In Touch`.
-- **Current Role in Timeline**: Timeline highlights the current position: **Junior Marketplace QA Specialist** at **Fever**.
+- **Current Role in Timeline**: Timeline highlights the current position: **Marketplace Operations Junior Specialist** at **Fever**.
 - **Localization Consistency**: Role labels and timeline strings are updated across all languages (EN/IT/ES).
 - **UI Micro-Polish**: Improved CTA readability on small screens and touch interaction behavior.
 
