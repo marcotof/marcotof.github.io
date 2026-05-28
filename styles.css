@@ -1052,9 +1052,9 @@ body.menu-open {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
-    background-size: 72px 72px;
-    opacity: 0.6;
+    background: linear-gradient(90deg, rgba(148, 163, 184, 0.025) 1px, transparent 1px);
+    background-size: 88px 88px;
+    opacity: 0.32;
     pointer-events: none;
 }
 
@@ -1114,7 +1114,7 @@ body.menu-open {
 
 .timeline-content {
     flex: 1;
-    background: linear-gradient(180deg, rgba(17, 31, 26, 0.9), rgba(11, 15, 20, 0.84));
+    background: linear-gradient(180deg, rgba(17, 31, 26, 0.96), rgba(11, 15, 20, 0.92));
     padding: 1.5rem;
     border-radius: 24px;
     margin: 0 2rem;
@@ -1127,7 +1127,7 @@ body.menu-open {
 }
 
 .timeline-item.current .timeline-content {
-    background: linear-gradient(180deg, rgba(30, 202, 209, 0.12), rgba(11, 15, 20, 0.88));
+    background: linear-gradient(180deg, rgba(30, 202, 209, 0.08), rgba(11, 15, 20, 0.94));
     color: white;
     border-left-color: var(--card-group-2-accent);
     border-color: rgba(30, 202, 209, 0.22);
