@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">LQA Tool Extension Demo Thumbnail</title>
+  <desc id="desc">Modern extension interface poster for the LQA Tool Extension demo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10183a" />
+      <stop offset="52%" stop-color="#142b55" />
+      <stop offset="100%" stop-color="#15202b" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="30" />
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)" />
+  <ellipse cx="182" cy="90" rx="230" ry="150" fill="#38bdf8" opacity="0.18" filter="url(#soft)" />
+  <ellipse cx="1180" cy="610" rx="260" ry="170" fill="#22c55e" opacity="0.14" filter="url(#soft)" />
+
+  <rect x="66" y="60" width="1148" height="600" rx="30" fill="#0f1a30" fill-opacity="0.78" stroke="#39537c" stroke-opacity="0.55" />
+
+  <text x="110" y="188" fill="#ecf4ff" font-size="68" font-weight="700" font-family="Space Grotesk, Segoe UI, sans-serif">LQA Tool Extension</text>
+  <text x="110" y="238" fill="#b8cae8" font-size="30" font-family="IBM Plex Mono, Consolas, monospace">Chrome extension for faster QA triage and cleaner review loops</text>
+
+  <rect x="110" y="286" width="1060" height="310" rx="24" fill="#101f3a" stroke="#2f4a70" />
+
+  <rect x="138" y="318" width="236" height="246" rx="18" fill="#132746" stroke="#365680" />
+  <text x="168" y="354" fill="#cde0ff" font-size="22" font-family="IBM Plex Mono, Consolas, monospace">Widgets</text>
+
+  <rect x="168" y="382" width="176" height="34" rx="10" fill="#1b365d" />
+  <text x="180" y="404" fill="#d7e7ff" font-size="14" font-family="IBM Plex Mono, Consolas, monospace">Auto Select</text>
+  <rect x="300" y="390" width="34" height="18" rx="9" fill="#22c55e" />
+  <circle cx="323" cy="399" r="7" fill="#f0fff7" />
+
+  <rect x="168" y="428" width="176" height="34" rx="10" fill="#1b365d" />
+  <text x="180" y="450" fill="#d7e7ff" font-size="14" font-family="IBM Plex Mono, Consolas, monospace">Blurb Guard</text>
+  <rect x="300" y="436" width="34" height="18" rx="9" fill="#60a5fa" />
+  <circle cx="323" cy="445" r="7" fill="#f0f7ff" />
+
+  <rect x="168" y="474" width="176" height="34" rx="10" fill="#1b365d" />
+  <text x="180" y="496" fill="#d7e7ff" font-size="14" font-family="IBM Plex Mono, Consolas, monospace">Glossary Lock</text>
+  <rect x="300" y="482" width="34" height="18" rx="9" fill="#304a75" />
+  <circle cx="311" cy="491" r="7" fill="#d1ddf3" />
+
+  <rect x="398" y="318" width="472" height="246" rx="18" fill="#11243f" stroke="#365680" />
+  <text x="426" y="354" fill="#cde0ff" font-size="22" font-family="IBM Plex Mono, Consolas, monospace">Issue Prioritization</text>
+  <rect x="426" y="384" width="412" height="24" rx="12" fill="#1a3557" />
+  <rect x="426" y="384" width="332" height="24" rx="12" fill="#38bdf8" />
+  <rect x="426" y="426" width="412" height="24" rx="12" fill="#1a3557" />
+  <rect x="426" y="426" width="286" height="24" rx="12" fill="#22c55e" />
+  <rect x="426" y="468" width="412" height="24" rx="12" fill="#1a3557" />
+  <rect x="426" y="468" width="360" height="24" rx="12" fill="#60a5fa" />
+
+  <rect x="894" y="318" width="246" height="246" rx="18" fill="#132746" stroke="#365680" />
+  <text x="924" y="354" fill="#cde0ff" font-size="22" font-family="IBM Plex Mono, Consolas, monospace">Speedup</text>
+  <text x="924" y="446" fill="#ecfff6" font-size="56" font-weight="700" font-family="Space Grotesk, Segoe UI, sans-serif">40%</text>
+  <text x="924" y="486" fill="#96d6c2" font-size="24" font-family="Space Grotesk, Segoe UI, sans-serif">faster QA cycle</text>
+
+  <rect x="110" y="620" width="220" height="48" rx="24" fill="url(#accent)" />
+  <text x="168" y="651" fill="#0a2037" font-size="22" font-weight="700" font-family="Space Grotesk, Segoe UI, sans-serif">Preview Flow</text>
+</svg>

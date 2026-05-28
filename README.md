@@ -90,9 +90,9 @@ portfolio-website/
 ├── profile-picture.jpg              # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
 ├── super-mario-party-jamboree.jpg   # VIP project image
-├── poster-redelivery-hub.png        # Poster image for Redelivery Hub demo
-├── poster-lqa-extension.png         # Poster image for LQA Tool Extension demo
-├── poster-redelivery-agent.png      # Poster image for Redelivery Agent demo
+├── poster-redelivery-hub.svg        # Poster image for Redelivery Hub demo
+├── poster-lqa-extension.svg         # Poster image for LQA Tool Extension demo
+├── poster-redelivery-agent.svg      # Poster image for Redelivery Agent demo
 ├── demo-redelivery-hub.mp4          # Redelivery Hub video demo
 ├── demo-lqa-extension.mp4           # LQA Tool Extension video demo
 ├── demo-redelivery-agent.mp4        # Redelivery Agent video demo

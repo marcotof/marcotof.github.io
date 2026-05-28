@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">Redelivery Agent Demo Thumbnail</title>
+  <desc id="desc">Modern data-pipeline style poster for the Redelivery Agent demo.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10291d" />
+      <stop offset="54%" stop-color="#0e3c3d" />
+      <stop offset="100%" stop-color="#0f172a" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="28" />
+    </filter>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)" />
+  <circle cx="170" cy="110" r="180" fill="#22c55e" opacity="0.2" filter="url(#glow)" />
+  <circle cx="1110" cy="620" r="220" fill="#38bdf8" opacity="0.2" filter="url(#glow)" />
+
+  <rect x="70" y="62" width="1140" height="596" rx="30" fill="#0d201d" fill-opacity="0.8" stroke="#3f7a74" stroke-opacity="0.45" />
+
+  <text x="112" y="198" fill="#edfff8" font-size="68" font-weight="700" font-family="Space Grotesk, Segoe UI, sans-serif">Redelivery Agent</text>
+  <text x="112" y="242" fill="#b6dfd6" font-size="24" font-family="IBM Plex Mono, Consolas, monospace">
+    <tspan x="112" dy="0">Excel pipeline automation with zero-copy validation</tspan>
+    <tspan x="112" dy="34">and safe exports</tspan>
+  </text>
+
+  <rect x="112" y="288" width="1058" height="268" rx="24" fill="#102a2a" stroke="#2d5f62" />
+
+  <rect x="150" y="338" width="204" height="168" rx="18" fill="#123537" stroke="#2f6666" />
+  <text x="178" y="382" fill="#d4f2ef" font-size="22" font-family="IBM Plex Mono, Consolas, monospace">Upload</text>
+  <rect x="178" y="406" width="148" height="70" rx="12" fill="#1f4f4f" />
+  <text x="198" y="450" fill="#bde6e2" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">.xlsx</text>
+
+  <rect x="420" y="338" width="332" height="168" rx="18" fill="#123537" stroke="#2f6666" />
+  <text x="448" y="382" fill="#d4f2ef" font-size="22" font-family="IBM Plex Mono, Consolas, monospace">Validate + Transform</text>
+  <polyline points="450,468 496,432 548,442 602,402 660,414 720,368" fill="none" stroke="url(#accent)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+
+  <rect x="818" y="338" width="314" height="168" rx="18" fill="#123537" stroke="#2f6666" />
+  <text x="846" y="382" fill="#d4f2ef" font-size="22" font-family="IBM Plex Mono, Consolas, monospace">Export</text>
+  <rect x="846" y="408" width="258" height="26" rx="13" fill="#1a4747" />
+  <rect x="846" y="408" width="236" height="26" rx="13" fill="#22c55e" />
+  <text x="846" y="474" fill="#9ad9c9" font-size="22" font-family="Space Grotesk, Segoe UI, sans-serif">error-free output package</text>
+
+</svg>
