@@ -162,6 +162,13 @@ These optimizations improve:
 
 ## Recent Updates
 
+### v1.7.5 - Premium Visual Polish (May 29, 2026)
+
+#### Visual Refinement
+- **Apple-Style Surface Cleanup**: Refined the global visual system with softer glassy cards, calmer gradients, and more consistent rounded surfaces across the portfolio.
+- **Background Texture Softening**: Reduced the visibility of the background grid so it reads as a subtle premium texture instead of a strong pattern.
+- **Control Polish**: Updated buttons, chips, forms, and modal surfaces to match the new premium treatment and feel more cohesive across sections.
+
 ### v1.7 - Interactive Architecture Map (April 7, 2026)
 
 #### New Architecture Card
