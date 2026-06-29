@@ -635,6 +635,26 @@ function initArchitectureMap() {
             tags: ['architecture.tags.operations', 'architecture.tags.localization']
         },
         {
+            id: 'capacity-timeslot-validator',
+            type: 'project',
+            x: 360,
+            y: 110,
+            r: 20,
+            labelKey: 'architecture.nodes.capacity-validator',
+            summaryKey: 'architecture.summary.capacity-validator',
+            tags: ['architecture.tags.projects', 'architecture.tags.quality', 'architecture.tags.operations']
+        },
+        {
+            id: 'qa-visual-dashboard',
+            type: 'project',
+            x: 220,
+            y: 500,
+            r: 21,
+            labelKey: 'architecture.nodes.qa-visual-dashboard',
+            summaryKey: 'architecture.summary.qa-visual-dashboard',
+            tags: ['architecture.tags.projects', 'architecture.tags.quality', 'architecture.tags.frontend']
+        },
+        {
             id: 'python',
             type: 'skill',
             x: 760,
@@ -732,6 +752,12 @@ function initArchitectureMap() {
         ['filemaster', 'speed'],
         ['proxy-generation', 'localization'],
         ['proxy-generation', 'scale'],
+        ['capacity-timeslot-validator', 'javascript'],
+        ['capacity-timeslot-validator', 'quality'],
+        ['capacity-timeslot-validator', 'scale'],
+        ['qa-visual-dashboard', 'javascript'],
+        ['qa-visual-dashboard', 'quality'],
+        ['qa-visual-dashboard', 'speed'],
         ['selenium', 'speed'],
         ['flask', 'scale']
     ];
@@ -798,6 +824,7 @@ function initArchitectureMap() {
     const shortLabel = (label) => {
         if (label.length <= 14) return label;
         const split = label.split(' ');
+        if (split.length === 2 && label.length <= 20) return label;
         return split.length > 1 ? split[0] : `${label.slice(0, 12)}...`;
     };
 
@@ -1180,6 +1207,42 @@ const projectDetails = {
             'Reduced process variation and errors'
         ],
         architecture: 'System based on standardized template and comprehensive process documentation.'
+    },
+    'capacity-timeslot-validator': {
+        title: 'Capacity Pools & Timeslot Validator',
+        description: 'Client-side web tool to audit session capacities against baseline calendars and date-specific overrides from Excel/CSV reports.',
+        features: [
+            'Drag-and-drop XLSX/CSV ingestion with browser-side parsing',
+            'Baseline weekly calendars with date ranges and visual preview',
+            'Special-date and session-type override logic for flexible rules',
+            'Discrepancy dashboard with smart filters and CSV export',
+            'No backend required: all data processed locally in-browser'
+        ],
+        technologies: ['JavaScript', 'HTML/CSS', 'XLSX.js', 'File API'],
+        impact: [
+            'Reduced manual QA time for capacity schedule audits',
+            'Improved consistency between planning grids and live report outputs',
+            'Made discrepancy triage faster through structured filtering'
+        ],
+        architecture: 'Single-page client-side app with modular parsing and validation layers, combining baseline schedules, date overrides, and report normalization into a unified audit flow.'
+    },
+    'qa-visual-dashboard': {
+        title: 'QA Tool Visual Dashboard',
+        description: 'Static analytics dashboard for reviewing JSON mismatch reports with visual summaries, advanced filtering, and local note persistence.',
+        features: [
+            'Local JSON loading with zero-backend processing',
+            'Multi-select filters for category, area, ticket type, and issue type',
+            'Date range plus weekday filtering for timeslot analysis',
+            'Recurring pattern detection and chart-based summaries',
+            'Inline notes with localStorage persistence and CSV export'
+        ],
+        technologies: ['JavaScript', 'HTML/CSS', 'Chart.js', 'Web Worker'],
+        impact: [
+            'Accelerated mismatch review cycles for operational QA',
+            'Improved signal detection through recurring-pattern analytics',
+            'Provided a portable, shareable tool without deployment overhead'
+        ],
+        architecture: 'Static front-end dashboard with a worker-assisted data pipeline, virtualized table rendering, and chart-driven insight panels for high-volume report inspection.'
     }
 };
 
