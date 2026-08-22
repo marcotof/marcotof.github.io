@@ -699,6 +699,8 @@ body.menu-open {
 
 .hero-content {
     max-width: 720px;
+    width: min(720px, 100%);
+    min-height: 29.25rem;
     position: relative;
     padding-left: 0;
     align-self: center;
@@ -740,14 +742,37 @@ body.menu-open {
 .hero-content p {
     font-size: 1.1rem;
     max-width: 640px;
-    margin: 0 0 2rem;
+    margin: 0 0 1.5rem;
     opacity: 0.8;
     color: white;
 }
 
+.hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 0 0 2rem;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-family: var(--font-mono);
+}
+
 .hero-buttons {
-    display: grid;
-    grid-template-columns: repeat(3, max-content);
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
     margin-bottom: 3rem;
@@ -2690,6 +2715,10 @@ body:not(.dark-mode) .char-count {
         padding: 80px 20px 40px;
         align-items: center;
         text-align: center;
+    }
+
+    .hero-content {
+        min-height: auto;
     }
 
     .hero-content h1 {
