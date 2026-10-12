@@ -4,10 +4,12 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 
 **Live Site**: [https://marcotof.github.io/](https://marcotof.github.io/)
 
+**Current Version**: 1.7.6
+
 ## Features
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
-- **Permanent Dark Mode**: Always-on dark theme for consistent visuals
+- **Permanent Dark Mode**: Always-on warm charcoal theme with soft white text and a unified teal accent palette
 - **Hamburger-only Navigation**: iOS-inspired open/close animation across devices
 - **Desktop Scrollspy Dots**: Section-aware side navigation on larger screens for fast page traversal
 - **Mobile Section Arrows**: Minimal up/down floating controls for quick section jumps on phones
@@ -24,7 +26,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
 - **Professional Presentation**: Optimized for recruiters and technical managers
 - **SEO Optimization**: Open Graph/Twitter image metadata, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
-- **Brand Assets**: Favicon package + branded social preview image configured across EN/IT/ES pages
+- **Brand Assets**: Geometric MT monogram favicon in SVG, 96px PNG, and multi-size ICO formats, plus a branded social preview image configured across EN/IT/ES pages
 - **Legal Compliance**: Localized footer with copyright notice and integrated Privacy Policy modal across all versions.
 
 ## Featured Demos
@@ -161,6 +163,14 @@ These optimizations improve:
 - **UI Micro-Polish**: Improved CTA readability on small screens and touch interaction behavior.
 
 ## Recent Updates
+
+### v1.7.6 - Color Palette & Favicon Refresh (October 12, 2026)
+
+- **Unified Color Palette**: Updated backgrounds to warm charcoal, text to soft white, and accents to teal across cards, buttons, controls, modals, and the architecture map.
+- **Demo Thumbnail Alignment**: Updated SVG demo posters to match the refreshed palette.
+- **New MT Favicon**: Introduced a geometric monogram in SVG and 96px PNG, with 16px, 32px, 48px, and 64px sizes in the ICO file.
+- **Favicon Link Fix**: Corrected ICO references to `/favicon/favicon.ico` and refreshed favicon cache versions across EN/IT/ES pages.
+- **CSS Cleanup**: Corrected a malformed contact text style block found during validation.
 
 ### v1.7.5 - Premium Visual Polish (May 29, 2026)
 
