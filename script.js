@@ -1,12 +1,9 @@
 function setNavbarStyles() {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
-    const isDarkMode = document.body.classList.contains('dark-mode');
     const navbarBg = getComputedStyle(document.body).getPropertyValue('--navbar-bg').trim();
     navbar.style.background = navbarBg;
-    navbar.style.boxShadow = window.scrollY > 100
-        ? (isDarkMode ? '0 2px 20px rgba(0,0,0,0.3)' : '0 2px 20px rgba(0,0,0,0.1)')
-        : 'none';
+    navbar.style.boxShadow = window.scrollY > 100 ? '0 2px 20px rgba(0,0,0,0.3)' : 'none';
 }
 
 // Initial navbar sync
@@ -53,7 +50,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
             target.scrollIntoView({
-                behavior: 'smooth',
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                 block: 'start'
             });
         }
@@ -503,8 +500,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Load locale first
     loadLocale(lang);
-    initDesktopScrollspyDots();
-    initMobileSectionArrows();
+    // Section links are available in the header menu.
+
 
     setActiveLanguagePill(lang);
     document.querySelectorAll('.lang-pill').forEach(button => {
@@ -1294,6 +1291,8 @@ function showLocalizationProjects() {
     projectModal.classList.add('modal-group-3');
     projectModal.classList.remove('modal-group-1');
     projectModal.style.display = 'block';
+    document.body.classList.add('modal-open');
+    document.documentElement.classList.add('modal-open');
 }
 
 // Show project details in modal
@@ -1493,31 +1492,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Add animation on scroll for project cards
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Observe project cards when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-});
+// Project content remains visible without entrance animations.
 
 // Contact form modal functionality
 document.addEventListener('DOMContentLoaded', function () {
@@ -1526,7 +1501,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const contactModalClose = document.querySelector('.contact-modal-close');
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
-
+    let autoCloseTimer;
     function getToastContainer() {
         let container = document.querySelector('.toast-container');
         if (!container) {
@@ -1572,6 +1547,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Open contact modal
     if (contactFormBtn) {
         contactFormBtn.addEventListener('click', function () {
+            clearTimeout(autoCloseTimer);
             contactModal.style.display = 'block';
             document.body.classList.add('modal-open');
             document.documentElement.classList.add('modal-open');
@@ -1592,20 +1568,22 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Close contact modal
+    function closeContactModal() {
+        clearTimeout(autoCloseTimer);
+        resetContactForm();
+        contactModal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+        document.documentElement.classList.remove('modal-open');
+    }
+
     if (contactModalClose) {
-        contactModalClose.addEventListener('click', function () {
-            resetContactForm();
-            contactModal.style.display = 'none';
-            document.body.classList.remove('modal-open');
-            document.documentElement.classList.remove('modal-open');
-        });
+        contactModalClose.addEventListener('click', closeContactModal);
     }
 
     // Close contact modal when clicking outside
     window.addEventListener('click', function (event) {
         if (event.target === contactModal) {
-            resetContactForm();
-            contactModal.style.display = 'none';
+            closeContactModal();
         }
     });
 
@@ -1770,9 +1748,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 // Close modal after a short delay
-                setTimeout(() => {
-                    contactModal.style.display = 'none';
-                }, 3000);
+                autoCloseTimer = setTimeout(closeContactModal, 3000);
             } catch (error) {
                 console.error('Error:', error);
                 const errorMsg = t['contact.errorMessage'] || t['contact.generalError'] || 'An error occurred. Please try again.';

@@ -4,12 +4,13 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 
 **Live Site**: [https://marcotof.github.io/](https://marcotof.github.io/)
 
-**Current Version**: 1.7.6
+**Current Version**: 1.8.0
 
 ## Features
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
-- **Permanent Dark Mode**: Always-on warm charcoal theme with soft white text and a unified teal accent palette
+- **Permanent Dark Mode**: Always-on warm charcoal theme with soft white text and a single teal accent
+- **Editorial Layout**: Left-aligned sections with hairline dividers, flat cards and consistent hover states (4px lift, teal accent line and title) on demo and project cards
 - **Hamburger-only Navigation**: iOS-inspired open/close animation across devices
 - **Desktop Scrollspy Dots**: Section-aware side navigation on larger screens for fast page traversal
 - **Mobile Section Arrows**: Minimal up/down floating controls for quick section jumps on phones
@@ -23,7 +24,7 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 - **Streamlined Hero CTAs**: Two action buttons in Home card (`Download Resume`, `Get In Touch`)
 - **Touch-friendly Button States**: Hover effects scoped to hover-capable pointers to prevent sticky touch highlights
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
-- **Modern UI/UX**: Tech-inspired layout with a four-group card system and smooth animations
+- **Modern UI/UX**: Restrained editorial layout with flat cards and minimal motion
 - **Professional Presentation**: Optimized for recruiters and technical managers
 - **SEO Optimization**: Open Graph/Twitter image metadata, Schema.org JSON-LD structured data for search engines, sitemap.xml, and robots.txt for improved discoverability
 - **Brand Assets**: Geometric MT monogram favicon in SVG, 96px PNG, and multi-size ICO formats, plus a branded social preview image configured across EN/IT/ES pages
@@ -64,20 +65,22 @@ Documentation and templates for partner support workflows
 ## Technologies Used
 
 - **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Styling**: CSS Variables for theming, Modern CSS Grid/Flexbox, Custom animations
+- **Styling**: CSS Variables for theming, Modern CSS Grid/Flexbox, with a `refinement.css` layer on top of `styles.css` for the current visual design
 - **Dark Mode**: Always-on theme using CSS variables
 - **Internationalization**: Embedded translations in JavaScript
 - **Icons**: Font Awesome 6
 - **Fonts**: Space Grotesk + IBM Plex Mono (Google Fonts)
-- **Responsive**: Mobile-first design with centered hero layout
+- **Responsive**: Mobile-first, left-aligned layout
 
 ## File Structure
 
 ```
 portfolio-website/
 ├── index.html                       # Main HTML structure
-├── styles.css                       # CSS styling with dark mode variables
-├── script.js                        # JavaScript functionality (dark mode, mobile menu, URL-based i18n)
+├── styles.css                       # Base CSS styling and variables
+├── refinement.css                   # Current visual design layer (loaded after styles.css)
+├── script.js                        # JavaScript functionality (mobile menu, modals, contact form, URL-based i18n)
+├── refinement.js                    # Accessibility behavior (menu, dialogs focus handling, filter state)
 ├── locales.js                       # Embedded translations (en, it, es)
 ├── it/                              # Italian page (URL: /it/)
 │   └── index.html
@@ -92,14 +95,15 @@ portfolio-website/
 ├── profile-picture.jpg              # Profile image
 ├── dragons-dogma-2.jpg              # VIP project image
 ├── super-mario-party-jamboree.jpg   # VIP project image
-├── poster-redelivery-hub.svg        # Poster image for Redelivery Hub demo
-├── poster-lqa-extension.svg         # Poster image for LQA Tool Extension demo
-├── poster-redelivery-agent.svg      # Poster image for Redelivery Agent demo
+├── poster-redelivery-hub.jpg        # Poster image for Redelivery Hub demo
+├── poster-lqa-extension.jpg         # Poster image for LQA Tool Extension demo
+├── poster-redelivery-agent.jpg      # Poster image for Redelivery Agent demo
 ├── demo-redelivery-hub.mp4          # Redelivery Hub video demo
 ├── demo-lqa-extension.mp4           # LQA Tool Extension video demo
 ├── demo-redelivery-agent.mp4        # Redelivery Agent video demo
 ├── sitemap.xml                      # XML sitemap for search engine crawling
 ├── robots.txt                       # Search engine crawler instructions
+├── google84fb555f5bbbe89b.html      # Google Search Console verification file
 └── README.md                        # This file
 ```
 
@@ -164,10 +168,23 @@ These optimizations improve:
 
 ## Recent Updates
 
+### v1.8.0 - Editorial Redesign, Modal Fixes & Cleanup (October 16, 2026)
+
+- **Editorial Layout Refinement**: Added `refinement.css` and `refinement.js` on top of the base styles for a flat, left-aligned design with hairline dividers across all three languages.
+- **Alignment Fixes**: Awards, localization game cards and stats now align with section headings; award and game hover tints extend slightly past the text instead of sitting on its edge; the awards grid is no longer centered at 800px.
+- **Contact Links Consistency**: The email button that opens the contact modal now has the same plain underlined style as the LinkedIn link.
+- **Consistent Hover States**: Right-column project cards now behave like the left ones (the old odd/even offset was removed); demo cards gained a matching hover (lift, teal border and title).
+- **Modal Scroll Lock Fixes**: The Localization modal now locks page scroll; the contact modal releases the scroll lock after auto-close on success and when closed by clicking the backdrop. Closing now goes through a single shared function, and the auto-close timer is cancelled when the modal is closed or reopened.
+- **Accessibility**: Dialog focus trap, focus restore and Escape handling, plus menu and filter ARIA state sync, in `refinement.js`.
+- **Asset Cleanup**: Removed the unused SVG demo posters; the `.jpg` posters are the ones used by the demo videos.
+- **Code Cleanup**: Removed the leftover dark-mode check in the navbar shadow logic of `script.js`.
+- **Sitemap**: Refreshed `lastmod` dates.
+- **Verification**: Every modal (8 project modals, Localization, Privacy, Contact), form validation and the success/error flows were tested in EN/IT/ES on desktop and mobile viewports.
+
 ### v1.7.6 - Color Palette & Favicon Refresh (October 12, 2026)
 
 - **Unified Color Palette**: Updated backgrounds to warm charcoal, text to soft white, and accents to teal across cards, buttons, controls, modals, and the architecture map.
-- **Demo Thumbnail Alignment**: Updated SVG demo posters to match the refreshed palette.
+- **Demo Thumbnail Alignment**: Updated demo posters to match the refreshed palette (since replaced by `.jpg` posters in v1.8.0).
 - **New MT Favicon**: Introduced a geometric monogram in SVG and 96px PNG, with 16px, 32px, 48px, and 64px sizes in the ICO file.
 - **Favicon Link Fix**: Corrected ICO references to `/favicon/favicon.ico` and refreshed favicon cache versions across EN/IT/ES pages.
 - **CSS Cleanup**: Corrected a malformed contact text style block found during validation.
