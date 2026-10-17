@@ -93,7 +93,7 @@ main > section > .container > h2, .contact h2 { text-align: left; font-size: cla
 .about-text p { text-align: left; max-width: 65ch; font-size: 1.05rem; }
 .highlight { background: none; box-shadow: none; border: 0; border-radius: 0; padding: 0 0 24px; text-align: left; align-items: flex-start; }
 .highlight i { display: none; }
-.highlight h4, .highlight p { text-align: left; }
+.highlight h3, .highlight p { text-align: left; }
 .awards-grid { gap: 40px; max-width: none; margin: 0; }
 .award-card { padding: 24px 20px; margin: 0 -20px; background: none; border: 0; border-radius: 0; text-align: left; }
 .award-card::before { content: ''; position: absolute; top: 0; left: 20px; right: 20px; border-top: 1px solid var(--border-color); }

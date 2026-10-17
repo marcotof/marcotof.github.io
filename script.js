@@ -46,6 +46,8 @@ if (hamburger && navMenu) {
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        if (this.classList.contains('nav-logo')) return;
+
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
@@ -1729,12 +1731,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 const response = await fetch('https://formspree.io/f/xovgkbvw', {
                     method: 'POST',
                     body: formData,
-                    mode: 'no-cors'
+                    headers: {
+                        Accept: 'application/json'
+                    }
                 });
 
-                // With no-cors mode, if fetch completes without error, the form was submitted
-                // Formspree processes it server-side regardless of visible response
-                // Success message (localized)
+                if (!response.ok) {
+                    const errorMsg = t['contact.errorMessage'] || t['contact.generalError'] || 'An error occurred. Please try again.';
+                    showToast(errorMsg, 'error');
+                    return;
+                }
+
                 const successMsg = t['contact.successMessage'] || 'Message sent successfully! I\'ll get back to you soon.';
                 showToast(successMsg, 'success');
 

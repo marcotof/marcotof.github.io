@@ -11,7 +11,6 @@
     <meta name="author" content="Marco Tofani">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <title>Marco Tofani - Portfolio | Traduttore poliglotta e sviluppatore</title>
-    <base href="../">
     <link rel="canonical" href="https://marcotof.github.io/it/">
     <link rel="alternate" hreflang="en" href="https://marcotof.github.io/">
     <link rel="alternate" hreflang="it" href="https://marcotof.github.io/it/">
@@ -105,21 +104,21 @@
         }
         </script>
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="refinement.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../refinement.css">
     <link rel="sitemap" type="application/xml" href="/sitemap.xml">
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="locales.js"></script>
+    <script src="../locales.js"></script>
 </head>
 
 <body class="dark-mode">
     <a class="skip-link" href="#home">Vai al contenuto</a>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo" data-i18n="nav.logo">Marco Tofani</div>
+            <a class="nav-logo" href="#home" data-i18n="nav.logo">Marco Tofani</a>
             <ul class="nav-menu" id="site-menu" inert>
                 <li><a href="#home" data-i18n="nav.home">Home</a></li>
                 <li><a href="#about" data-i18n="nav.about">About</a></li>
@@ -169,10 +168,10 @@
             </div>
             <div class="hero-buttons">
                 <a href="#demos" class="btn-primary">Guarda i progetti</a>
-                <a href="Marco Tofani_Resume.pdf" class="btn-secondary" download target="_blank" rel="noopener noreferrer" data-i18n="btn.downloadResume">Scarica CV</a>
+                <a href="../Marco Tofani_Resume.pdf" class="btn-secondary" download target="_blank" rel="noopener noreferrer" data-i18n="btn.downloadResume">Scarica CV</a>
             </div>
         </div>
-        <figure class="hero-portrait"><img src="profile-picture.jpg" alt="Marco Tofani" width="3168" height="3211" fetchpriority="high"></figure>
+        <figure class="hero-portrait"><img src="../profile-picture.jpg" alt="Marco Tofani" width="3168" height="3211" fetchpriority="high"></figure>
         <div class="hero-stats">
             <div class="stat">
                 <h3>5+</h3>
@@ -196,8 +195,8 @@
             <div class="demos-grid">
                 <div class="demo-card">
                     <div class="demo-video">
-                        <video controls playsinline preload="none" poster="poster-redelivery-hub.jpg" aria-label="redelivery hub demo">
-                            <source src="demo-redelivery-hub.mp4" type="video/mp4">
+                        <video controls playsinline preload="none" poster="../poster-redelivery-hub.jpg" aria-label="redelivery hub demo">
+                            <source src="../demo-redelivery-hub.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -218,8 +217,8 @@
 
                 <div class="demo-card">
                     <div class="demo-video">
-                        <video controls playsinline preload="none" poster="poster-lqa-extension.jpg" aria-label="lqa extension demo">
-                            <source src="demo-lqa-extension.mp4" type="video/mp4">
+                        <video controls playsinline preload="none" poster="../poster-lqa-extension.jpg" aria-label="lqa extension demo">
+                            <source src="../demo-lqa-extension.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -240,8 +239,8 @@
 
                 <div class="demo-card">
                     <div class="demo-video">
-                        <video controls playsinline preload="none" poster="poster-redelivery-agent.jpg" aria-label="redelivery agent demo">
-                            <source src="demo-redelivery-agent.mp4" type="video/mp4">
+                        <video controls playsinline preload="none" poster="../poster-redelivery-agent.jpg" aria-label="redelivery agent demo">
+                            <source src="../demo-redelivery-agent.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
@@ -276,7 +275,7 @@
                 <div class="games-showcase">
                     <div class="game-card">
                         <div class="game-image">
-                            <img src="dragons-dogma-2.jpg" alt="Dragon's Dogma II" loading="lazy" decoding="async"
+                            <img src="../dragons-dogma-2.jpg" alt="Dragon's Dogma II" loading="lazy" decoding="async"
                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <div class="image-placeholder" style="display:none;">
                                 <i class="fas fa-dragon"></i>
@@ -296,7 +295,7 @@
                     </div>
                     <div class="game-card">
                         <div class="game-image">
-                            <img src="super-mario-party-jamboree.jpg" alt="Super Mario Party Jamboree" loading="lazy"
+                            <img src="../super-mario-party-jamboree.jpg" alt="Super Mario Party Jamboree" loading="lazy"
                                 decoding="async"
                                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                             <div class="image-placeholder" style="display:none;">
@@ -550,18 +549,18 @@
                 <div class="about-highlights">
                     <div class="highlight">
                         <i class="fas fa-language"></i>
-                        <h4 data-i18n="about.highlight1Title">Video Game Localization</h4>
+                        <h3 data-i18n="about.highlight1Title">Video Game Localization</h3>
                         <p data-i18n="about.highlight1">40+ projects, CAT tools, cultural adaptation, it-IT
                             specialization</p>
                     </div>
                     <div class="highlight">
                         <i class="fas fa-robot"></i>
-                        <h4 data-i18n="about.highlight2Title">Process Automation</h4>
+                        <h3 data-i18n="about.highlight2Title">Process Automation</h3>
                         <p data-i18n="about.highlight2">Selenium WebDriver, Python scripting, workflow optimization</p>
                     </div>
                     <div class="highlight">
                         <i class="fas fa-code"></i>
-                        <h4 data-i18n="about.highlight3Title">Full-Stack Development</h4>
+                        <h3 data-i18n="about.highlight3Title">Full-Stack Development</h3>
                         <p data-i18n="about.highlight3">Flask web applications, JavaScript, Chrome extensions</p>
                     </div>
                 </div>
@@ -849,8 +848,8 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="refinement.js"></script>
+    <script src="../script.js"></script>
+    <script src="../refinement.js"></script>
 </body>
 
 </html>
