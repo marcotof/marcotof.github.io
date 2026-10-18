@@ -183,7 +183,11 @@ function getMainSectionEntries() {
             const label = (anchor.textContent || '').trim() || targetId.replace('#', '');
             return { targetId, sectionEl, label };
         })
-        .filter(Boolean);
+        .filter(Boolean)
+        .sort((left, right) => {
+            if (left.sectionEl === right.sectionEl) return 0;
+            return left.sectionEl.compareDocumentPosition(right.sectionEl) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+        });
 }
 
 function initMobileSectionArrows() {
@@ -531,21 +535,14 @@ function initProjectFilters() {
     const cards = Array.from(document.querySelectorAll('.projects-grid .project-card'));
     if (!buttons.length || !cards.length) return;
 
-    const normalizeTags = (value) => (value || '')
-        .toLowerCase()
-        .split(/[\s,]+/)
-        .filter(Boolean);
-
     const setActive = (filter) => {
         buttons.forEach((btn) => {
             btn.classList.toggle('active', btn.dataset.filter === filter);
         });
     };
-
     const applyFilter = (filter) => {
         cards.forEach((card) => {
-            const tags = normalizeTags(card.dataset.tech);
-            const shouldShow = filter === 'all' || tags.includes(filter);
+            const shouldShow = filter === 'all' || card.dataset.category === filter;
             card.classList.toggle('is-hidden', !shouldShow);
         });
         setActive(filter);
@@ -563,689 +560,156 @@ function initProjectFilters() {
 
 document.addEventListener('DOMContentLoaded', function () {
     initProjectFilters();
-    initArchitectureMap();
 });
 
-function initArchitectureMap() {
-    const section = document.getElementById('architecture');
-    if (!section) return;
-
-    const svg = section.querySelector('.architecture-svg');
-    const linksLayer = section.querySelector('.architecture-links');
-    const nodesLayer = section.querySelector('.architecture-nodes');
-    const panelTitle = document.getElementById('architecture-title');
-    const panelSummary = document.getElementById('architecture-summary');
-    const tagsList = document.getElementById('architecture-tags');
-
-    if (!svg || !linksLayer || !nodesLayer || !panelTitle || !panelSummary || !tagsList) return;
-
-    const t = window.currentLocaleData || locales.en;
-    const text = (key, fallback) => t[key] || fallback;
-
-    const nodes = [
-        {
-            id: 'redelivery-hub',
-            type: 'project',
-            x: 280,
-            y: 220,
-            r: 28,
-            labelKey: 'architecture.nodes.redelivery-hub',
-            summaryKey: 'architecture.summary.redelivery-hub',
-            tags: ['architecture.tags.projects', 'architecture.tags.operations', 'architecture.tags.impact']
-        },
-        {
-            id: 'lqa-extension',
-            type: 'project',
-            x: 190,
-            y: 380,
-            r: 22,
-            labelKey: 'architecture.nodes.lqa-extension',
-            summaryKey: 'architecture.summary.lqa-extension',
-            tags: ['architecture.tags.frontend', 'architecture.tags.localization', 'architecture.tags.automation']
-        },
-        {
-            id: 'redelivery-agent',
-            type: 'project',
-            x: 430,
-            y: 370,
-            r: 23,
-            labelKey: 'architecture.nodes.redelivery-agent',
-            summaryKey: 'architecture.summary.redelivery-agent',
-            tags: ['architecture.tags.frontend', 'architecture.tags.operations', 'architecture.tags.reliability']
-        },
-        {
-            id: 'filemaster',
-            type: 'project',
-            x: 520,
-            y: 210,
-            r: 20,
-            labelKey: 'architecture.nodes.filemaster',
-            summaryKey: 'architecture.summary.filemaster',
-            tags: ['architecture.tags.automation', 'architecture.tags.reliability']
-        },
-        {
-            id: 'proxy-generation',
-            type: 'project',
-            x: 610,
-            y: 390,
-            r: 19,
-            labelKey: 'architecture.nodes.proxy-generation',
-            summaryKey: 'architecture.summary.proxy-generation',
-            tags: ['architecture.tags.operations', 'architecture.tags.localization']
-        },
-        {
-            id: 'capacity-timeslot-validator',
-            type: 'project',
-            x: 360,
-            y: 110,
-            r: 20,
-            labelKey: 'architecture.nodes.capacity-validator',
-            summaryKey: 'architecture.summary.capacity-validator',
-            tags: ['architecture.tags.projects', 'architecture.tags.quality', 'architecture.tags.operations']
-        },
-        {
-            id: 'qa-visual-dashboard',
-            type: 'project',
-            x: 220,
-            y: 500,
-            r: 21,
-            labelKey: 'architecture.nodes.qa-visual-dashboard',
-            summaryKey: 'architecture.summary.qa-visual-dashboard',
-            tags: ['architecture.tags.projects', 'architecture.tags.quality', 'architecture.tags.frontend']
-        },
-        {
-            id: 'python',
-            type: 'skill',
-            x: 760,
-            y: 165,
-            r: 18,
-            labelKey: 'architecture.nodes.python',
-            summaryKey: 'architecture.summary.python',
-            tags: ['architecture.tags.backend', 'architecture.tags.automation']
-        },
-        {
-            id: 'flask',
-            type: 'skill',
-            x: 860,
-            y: 270,
-            r: 17,
-            labelKey: 'architecture.nodes.flask',
-            summaryKey: 'architecture.summary.flask',
-            tags: ['architecture.tags.backend', 'architecture.tags.operations']
-        },
-        {
-            id: 'selenium',
-            type: 'skill',
-            x: 742,
-            y: 306,
-            r: 18,
-            labelKey: 'architecture.nodes.selenium',
-            summaryKey: 'architecture.summary.selenium',
-            tags: ['architecture.tags.automation', 'architecture.tags.performance']
-        },
-        {
-            id: 'javascript',
-            type: 'skill',
-            x: 826,
-            y: 424,
-            r: 17,
-            labelKey: 'architecture.nodes.javascript',
-            summaryKey: 'architecture.summary.javascript',
-            tags: ['architecture.tags.frontend', 'architecture.tags.reliability']
-        },
-        {
-            id: 'localization',
-            type: 'skill',
-            x: 704,
-            y: 516,
-            r: 18,
-            labelKey: 'architecture.nodes.localization',
-            summaryKey: 'architecture.summary.localization',
-            tags: ['architecture.tags.localization', 'architecture.tags.quality']
-        },
-        {
-            id: 'speed',
-            type: 'impact',
-            x: 500,
-            y: 92,
-            r: 16,
-            labelKey: 'architecture.nodes.speed',
-            summaryKey: 'architecture.summary.speed',
-            tags: ['architecture.tags.impact', 'architecture.tags.performance']
-        },
-        {
-            id: 'quality',
-            type: 'impact',
-            x: 520,
-            y: 536,
-            r: 16,
-            labelKey: 'architecture.nodes.quality',
-            summaryKey: 'architecture.summary.quality',
-            tags: ['architecture.tags.impact', 'architecture.tags.reliability']
-        },
-        {
-            id: 'scale',
-            type: 'impact',
-            x: 326,
-            y: 520,
-            r: 16,
-            labelKey: 'architecture.nodes.scale',
-            summaryKey: 'architecture.summary.scale',
-            tags: ['architecture.tags.impact', 'architecture.tags.operations']
-        }
-    ];
-
-    const edges = [
-        ['redelivery-hub', 'python'],
-        ['redelivery-hub', 'flask'],
-        ['redelivery-hub', 'selenium'],
-        ['redelivery-hub', 'speed'],
-        ['redelivery-hub', 'quality'],
-        ['lqa-extension', 'javascript'],
-        ['lqa-extension', 'localization'],
-        ['lqa-extension', 'quality'],
-        ['redelivery-agent', 'javascript'],
-        ['redelivery-agent', 'scale'],
-        ['redelivery-agent', 'quality'],
-        ['filemaster', 'python'],
-        ['filemaster', 'speed'],
-        ['proxy-generation', 'localization'],
-        ['proxy-generation', 'scale'],
-        ['capacity-timeslot-validator', 'javascript'],
-        ['capacity-timeslot-validator', 'quality'],
-        ['capacity-timeslot-validator', 'scale'],
-        ['qa-visual-dashboard', 'javascript'],
-        ['qa-visual-dashboard', 'quality'],
-        ['qa-visual-dashboard', 'speed'],
-        ['selenium', 'speed'],
-        ['flask', 'scale']
-    ];
-
-    // Small feature switches so these extras can be disabled quickly if needed.
-    const featureFlags = {
-        pulseTrails: true,
-        legendFilters: true
-    };
-
-    const idToNode = new Map(nodes.map(node => [node.id, node]));
-    const linkEls = [];
-    const pulseEls = [];
-    const nodeEls = new Map();
-    const labelEls = new Map();
-    const hiddenTypes = new Set();
-    const activeTagFilters = new Set();
-    let activeId = 'redelivery-hub';
-    let raf = null;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const panel = section.querySelector('.architecture-panel');
-
-    let legendButtons = [];
-    if (featureFlags.legendFilters && panel) {
-        const controls = document.createElement('div');
-        controls.className = 'architecture-controls';
-
-        const title = document.createElement('h4');
-        title.className = 'architecture-controls-title';
-        title.textContent = text('architecture.legendTitle', 'Node Layers');
-
-        const legend = document.createElement('div');
-        legend.className = 'architecture-legend';
-
-        const legendItems = [
-            { type: 'project', key: 'architecture.legend.projects', fallback: 'Projects' },
-            { type: 'skill', key: 'architecture.legend.skills', fallback: 'Skills' },
-            { type: 'impact', key: 'architecture.legend.impacts', fallback: 'Outcomes' }
-        ];
-
-        legendItems.forEach((item) => {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'architecture-legend-btn is-active';
-            button.dataset.type = item.type;
-            button.textContent = text(item.key, item.fallback);
-            button.setAttribute('aria-pressed', 'true');
-            legend.appendChild(button);
-        });
-
-        controls.appendChild(title);
-        controls.appendChild(legend);
-        panel.insertBefore(controls, panel.querySelector('.architecture-meta'));
-        legendButtons = Array.from(legend.querySelectorAll('.architecture-legend-btn'));
-    }
-
-    const pulsesLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    pulsesLayer.classList.add('architecture-pulses');
-    if (featureFlags.pulseTrails) {
-        svg.appendChild(pulsesLayer);
-    }
-
-    const shortLabel = (label) => {
-        if (label.length <= 14) return label;
-        const split = label.split(' ');
-        if (split.length === 2 && label.length <= 20) return label;
-        return split.length > 1 ? split[0] : `${label.slice(0, 12)}...`;
-    };
-
-    const positionFor = (node, time) => {
-        if (reducedMotion) {
-            return { x: node.x, y: node.y };
-        }
-
-        const driftA = node.type === 'project' ? 8 : node.type === 'skill' ? 6 : 5;
-        const driftB = node.type === 'project' ? 5 : node.type === 'skill' ? 4 : 3;
-        const seed = node.id.length * 0.47;
-        const x = node.x + Math.sin(time * 0.001 + seed) * driftA;
-        const y = node.y + Math.cos(time * 0.0014 + seed) * driftB;
-        return { x, y };
-    };
-
-    const renderTagChips = (node) => {
-        if (!node) {
-            tagsList.innerHTML = '';
-            return;
-        }
-
-        tagsList.innerHTML = node.tags
-            .map((tagKey) => {
-                const label = text(tagKey, tagKey);
-                const active = activeTagFilters.has(tagKey);
-                return `<li><button type="button" class="architecture-tag-btn${active ? ' is-active' : ''}" data-tag="${tagKey}" aria-pressed="${active ? 'true' : 'false'}">${label}</button></li>`;
-            })
-            .join('');
-    };
-
-    const setFocus = (nodeId) => {
-        const node = idToNode.get(nodeId);
-        if (!node) return;
-
-        if (hiddenTypes.has(node.type)) return;
-
-        activeId = nodeId;
-        panelTitle.textContent = text(node.labelKey, node.id);
-        panelSummary.textContent = text(node.summaryKey, '');
-        renderTagChips(node);
-
-        nodeEls.forEach((el, id) => {
-            el.classList.toggle('is-active', id === nodeId);
-            el.setAttribute('aria-pressed', id === nodeId ? 'true' : 'false');
-        });
-
-        linkEls.forEach(({ el, source, target }) => {
-            const active = source === nodeId || target === nodeId;
-            el.classList.toggle('is-active', active);
-        });
-    };
-
-    const isNodeVisible = (nodeId) => {
-        const node = idToNode.get(nodeId);
-        if (!node) return false;
-        if (hiddenTypes.has(node.type)) return false;
-        if (!activeTagFilters.size) return true;
-        return node.tags.some(tag => activeTagFilters.has(tag));
-    };
-
-    const resolveVisibleFocus = () => {
-        if (isNodeVisible(activeId)) return activeId;
-        return nodes.find((node) => isNodeVisible(node.id))?.id || activeId;
-    };
-
-    const applyTypeFilters = () => {
-        nodeEls.forEach((el, nodeId) => {
-            const node = idToNode.get(nodeId);
-            const hidden = node ? hiddenTypes.has(node.type) : false;
-            el.classList.toggle('is-hidden', hidden);
-        });
-
-        linkEls.forEach(({ el, source, target }) => {
-            const hidden = !isNodeVisible(source) || !isNodeVisible(target);
-            el.classList.toggle('is-hidden', hidden);
-        });
-
-        const nextFocus = resolveVisibleFocus();
-        if (nextFocus !== activeId) {
-            setFocus(nextFocus);
-        }
-    };
-
-    edges.forEach(([sourceId, targetId]) => {
-        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        line.classList.add('architecture-link');
-        linksLayer.appendChild(line);
-        const sourceNode = idToNode.get(sourceId);
-        const targetNode = idToNode.get(targetId);
-
-        let pulse = null;
-        if (featureFlags.pulseTrails) {
-            pulse = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            pulse.classList.add('architecture-pulse');
-            pulse.setAttribute('r', '3.6');
-            pulsesLayer.appendChild(pulse);
-            pulseEls.push(pulse);
-        }
-
-        linkEls.push({
-            el: line,
-            pulse,
-            source: sourceId,
-            target: targetId,
-            sourceType: sourceNode ? sourceNode.type : '',
-            targetType: targetNode ? targetNode.type : ''
-        });
-    });
-
-    nodes.forEach((node) => {
-        const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-        group.classList.add('architecture-node', `is-${node.type}`);
-        group.setAttribute('tabindex', '0');
-        group.setAttribute('role', 'button');
-        group.setAttribute('aria-label', text(node.labelKey, node.id));
-        group.dataset.id = node.id;
-
-        const ring = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        ring.setAttribute('r', String(node.r + 8));
-        ring.classList.add('architecture-ring');
-
-        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        circle.setAttribute('r', String(node.r));
-
-        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        label.textContent = shortLabel(text(node.labelKey, node.id));
-
-        group.appendChild(ring);
-        group.appendChild(circle);
-        group.appendChild(label);
-        nodesLayer.appendChild(group);
-        nodeEls.set(node.id, group);
-        labelEls.set(node.id, label);
-
-        group.addEventListener('click', () => {
-            setFocus(node.id);
-        });
-        group.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                setFocus(node.id);
-            }
-        });
-    });
-
-    legendButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const type = button.dataset.type;
-            if (!type) return;
-
-            const currentlyActive = !hiddenTypes.has(type);
-            const activeCount = ['project', 'skill', 'impact'].filter((nodeType) => !hiddenTypes.has(nodeType)).length;
-            if (currentlyActive && activeCount === 1) {
-                return;
-            }
-
-            if (currentlyActive) {
-                hiddenTypes.add(type);
-                button.classList.remove('is-active');
-                button.setAttribute('aria-pressed', 'false');
-            } else {
-                hiddenTypes.delete(type);
-                button.classList.add('is-active');
-                button.setAttribute('aria-pressed', 'true');
-            }
-
-            applyTypeFilters();
-        });
-    });
-
-    tagsList.addEventListener('click', (event) => {
-        const target = event.target;
-        if (!(target instanceof HTMLElement)) return;
-
-        const button = target.closest('.architecture-tag-btn');
-        if (!(button instanceof HTMLButtonElement)) return;
-
-        const tag = button.dataset.tag;
-        if (!tag) return;
-
-        if (activeTagFilters.has(tag)) {
-            activeTagFilters.delete(tag);
-        } else {
-            activeTagFilters.add(tag);
-        }
-        applyTypeFilters();
-        if (isNodeVisible(activeId)) {
-            setFocus(activeId);
-        }
-    });
-
-    const tick = (time) => {
-        const positions = new Map();
-        nodes.forEach((node) => {
-            positions.set(node.id, positionFor(node, time));
-        });
-
-        linkEls.forEach(({ el, pulse, source, target }) => {
-            const a = positions.get(source);
-            const b = positions.get(target);
-            if (!a || !b) return;
-
-            const hidden = !isNodeVisible(source) || !isNodeVisible(target);
-            if (hidden) {
-                el.classList.add('is-hidden');
-                if (pulse) pulse.classList.add('is-hidden');
-                return;
-            }
-
-            el.classList.remove('is-hidden');
-            el.setAttribute('x1', String(a.x));
-            el.setAttribute('y1', String(a.y));
-            el.setAttribute('x2', String(b.x));
-            el.setAttribute('y2', String(b.y));
-
-            if (pulse) {
-                const edgeIsActive = source === activeId || target === activeId;
-                if (!edgeIsActive) {
-                    pulse.classList.add('is-hidden');
-                } else {
-                    const phase = (time * 0.00022 + (source.length + target.length) * 0.061) % 1;
-                    pulse.classList.remove('is-hidden');
-                    pulse.setAttribute('cx', String(a.x + (b.x - a.x) * phase));
-                    pulse.setAttribute('cy', String(a.y + (b.y - a.y) * phase));
-                }
-            }
-        });
-
-        nodes.forEach((node) => {
-            const group = nodeEls.get(node.id);
-            const pos = positions.get(node.id);
-            if (!group || !pos) return;
-
-            if (!isNodeVisible(node.id)) {
-                group.classList.add('is-hidden');
-                return;
-            }
-
-            group.classList.remove('is-hidden');
-            group.setAttribute('transform', `translate(${pos.x} ${pos.y})`);
-
-            const label = labelEls.get(node.id);
-            if (label) {
-                const dy = node.type === 'project' ? node.r + 16 : node.r + 13;
-                label.setAttribute('y', String(dy));
-            }
-        });
-
-        raf = window.requestAnimationFrame(tick);
-    };
-
-    setFocus(activeId);
-    applyTypeFilters();
-    raf = window.requestAnimationFrame(tick);
-
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden && raf) {
-            window.cancelAnimationFrame(raf);
-            raf = null;
-            return;
-        }
-
-        if (!document.hidden && !raf) {
-            raf = window.requestAnimationFrame(tick);
-        }
-    });
-}
-
-// Project details data
 const projectDetails = {
     'redelivery-hub': {
         title: 'Redelivery Hub',
-        description: 'A comprehensive automation platform that streamlines redelivery workflows through intelligent automation and real-time monitoring.',
+        description: 'A unified automation platform for redelivery workflows, ticket creation, file processing, and status tracking.',
         features: [
-            'Multi-tool automation platform with unified interface',
-            'Automated ticket creation with Selenium WebDriver',
-            'Real-time status tracking and progress monitoring',
-            'File processing and validation systems',
-            'FileHunter for automated file discovery and copying',
-            'Redelivery Validator for quality assurance',
-            'TicketEye for bulk ticket management',
-            'Integrated SOP documentation system'
+            'Creates tickets with Selenium WebDriver',
+            'Tracks status and progress in real time',
+            'Processes and validates files',
+            'Finds and copies required files',
+            'Validates created tickets',
+            'Automates ticket monitoring',
+            'Includes standard operating procedures'
         ],
         technologies: ['Python', 'Flask', 'Selenium WebDriver', 'HTML/CSS', 'JavaScript', 'Pandas', 'PyAutoGUI'],
         impact: [
-            'Reduced manual ticket creation time by 90%',
-            'Automated file processing for 100+ jobs weekly',
-            'Eliminated human errors in repetitive tasks',
-            'Centralized multiple tools into single platform'
+            'Reduces manual ticket-creation time by 90%',
+            'Automates repetitive file and ticket workflows',
+            'Brings multiple operational tools into one platform'
         ],
         architecture: 'Flask web application with threaded background processes, real-time WebSocket communication, and modular tool integration.'
     },
     'lqa-extension': {
         title: 'LQA Tool Extension',
-        description: 'Chrome extension that enhances the LQA Tool workflow with convenient comment selection and improved user experience.',
+        description: 'A Chrome extension that streamlines the LQA Tool workflow with faster comment selection and a more consistent review experience.',
         features: [
-            'Select Comment button for quick comment insertion',
-            'Blurb selection popup for improved workflow efficiency',
-            'Seamless integration with existing LQA Tool interface',
-            'Localization support for es-419 language codes',
-            'Enhanced user interface elements'
+            'Adds a Select Comment shortcut',
+            'Provides a popup for reusable QA comments',
+            'Integrates with the existing LQA Tool interface',
+            'Supports es-419 localization',
+            'Improves interface clarity for reviewers'
         ],
         technologies: ['JavaScript', 'Chrome Extension API', 'HTML/CSS', 'JSON'],
         impact: [
-            'Improved QA workflow efficiency by 40%',
-            'Reduced comment selection time',
-            'Enhanced user experience for quality assurance team'
+            'Improves QA workflow efficiency by 40%',
+            'Reduces time spent selecting comments',
+            'Makes review workflows more consistent'
         ],
-        architecture: 'Manifest V3 Chrome extension with content scripts and web accessible resources for seamless integration.'
+        architecture: 'Manifest V3 Chrome extension with content scripts and web-accessible resources for seamless integration.'
     },
     'redelivery-agent': {
         title: 'Redelivery Agent',
-        description: 'Web-based tool for processing redelivery Excel files with clean separation of UI and business logic.',
+        description: 'A browser-based tool for processing redelivery spreadsheets and preparing files for export.',
         features: [
-            'Excel file processing with XLSX.js library',
-            'Multiple file upload and processing',
-            'Clean separation of UI and business logic',
-            'Modular JavaScript architecture',
-            'Export functionality for processed data',
-            'Requestor alias and intake source management'
+            'Processes Excel files with XLSX.js',
+            'Supports multiple file uploads',
+            'Separates interface code from processing logic',
+            'Exports processed data',
+            'Handles requester aliases and intake sources'
         ],
         technologies: ['JavaScript', 'HTML/CSS', 'XLSX.js', 'File API'],
         impact: [
-            'Streamlined redelivery file processing',
-            'Reduced manual data entry errors',
-            'Improved data consistency across workflows'
+            'Simplifies redelivery spreadsheet processing',
+            'Reduces manual data-entry errors',
+            'Improves consistency between workflows'
         ],
-        architecture: 'Client-side web application with modular JavaScript design and Excel processing capabilities.'
+        architecture: 'Client-side web application with modular JavaScript and in-browser Excel processing.'
     },
-    'filemaster': {
+    filemaster: {
         title: 'FileMaster',
-        description: 'Python utility for advanced file management and processing operations, streamlining file organization tasks.',
+        description: 'A Python utility for file management, batch processing, and organizing operational files.',
         features: [
-            'Advanced file management operations',
-            'Batch processing capabilities',
-            'File organization and sorting',
-            'Automated file operations',
-            'Error handling and logging'
+            'Performs advanced file-management operations',
+            'Processes files in batches',
+            'Organizes and sorts files',
+            'Automates repetitive file tasks',
+            'Includes error handling and logging'
         ],
         technologies: ['Python', 'File System APIs', 'OS Module'],
         impact: [
-            'Automated repetitive file operations',
-            'Improved file organization efficiency',
-            'Reduced manual file management tasks'
+            'Automates repetitive file operations',
+            'Improves file-organization workflows',
+            'Reduces manual file-management work'
         ],
-        architecture: 'Python script with modular functions for various file operations and comprehensive error handling.'
+        architecture: 'Modular Python script for file operations with comprehensive error handling.'
     },
     'timestamps-converter': {
         title: 'TimeStamps Converter',
-        description: 'Specialized tool for converting and processing timestamp formats in media files, essential for subtitle workflows.',
+        description: 'A utility for converting timestamp formats in media files and supporting subtitle synchronization workflows.',
         features: [
-            'Multiple timestamp format support',
-            'Batch conversion capabilities',
-            'Media file timestamp processing',
-            'Format validation and error checking',
-            'Subtitle synchronization support'
+            'Supports multiple timestamp formats',
+            'Converts timestamps in batches',
+            'Processes timestamps in media files',
+            'Validates formats and reports errors',
+            'Supports subtitle synchronization'
         ],
         technologies: ['Python', 'Regular Expressions', 'File I/O'],
         impact: [
-            'Automated timestamp conversion processes',
-            'Improved subtitle synchronization accuracy',
-            'Reduced manual timestamp editing time'
+            'Automates timestamp conversion',
+            'Improves subtitle synchronization accuracy',
+            'Reduces manual timestamp-editing time'
         ],
-        architecture: 'Python utility with regex-based parsing and conversion algorithms for various timestamp formats.'
+        architecture: 'Python utility using regular-expression parsing and conversion routines for multiple timestamp formats.'
     },
     'proxy-generation': {
         title: 'Proxy Generation Tool',
-        description: 'Template for proxy generation processes, including SOPs and Excel template.',
+        description: 'A standardized template and documented process for partner-support proxy generation.',
         features: [
-            'Excel template for partner support',
-            'Standard Operating Procedures (SOPs)',
-            'Partner support workflow template',
-            'Process standardization tool'
+            'Provides an Excel template for partner support',
+            'Documents standard operating procedures',
+            'Standardizes the proxy-generation workflow',
+            'Includes process guidance for partners'
         ],
         technologies: ['Microsoft Excel', 'Microsoft Word'],
         impact: [
-            'Standardized proxy generation processes',
-            'Improved partner support efficiency',
-            'Reduced process variation and errors'
+            'Standardizes proxy-generation workflows',
+            'Improves partner-support consistency',
+            'Reduces process variation and avoidable errors'
         ],
-        architecture: 'System based on standardized template and comprehensive process documentation.'
+        architecture: 'A standardized template supported by documented operating procedures.'
     },
     'capacity-timeslot-validator': {
         title: 'Capacity Pools & Timeslot Validator',
-        description: 'Client-side web tool to audit session capacities against baseline calendars and date-specific overrides from Excel/CSV reports.',
+        description: 'A browser-based tool for checking capacity reports against baseline schedules and date-specific overrides.',
         features: [
-            'Drag-and-drop XLSX/CSV ingestion with browser-side parsing',
-            'Baseline weekly calendars with date ranges and visual preview',
-            'Special-date and session-type override logic for flexible rules',
-            'Discrepancy dashboard with smart filters and CSV export',
-            'No backend required: all data processed locally in-browser'
+            'Parses XLSX and CSV files in the browser',
+            'Supports weekly baselines and date ranges',
+            'Applies special-date and session-type overrides',
+            'Highlights discrepancies with smart filters',
+            'Exports audit results to CSV without a backend'
         ],
         technologies: ['JavaScript', 'HTML/CSS', 'XLSX.js', 'File API'],
         impact: [
-            'Reduced manual QA time for capacity schedule audits',
-            'Improved consistency between planning grids and live report outputs',
-            'Made discrepancy triage faster through structured filtering'
+            'Reduces manual effort in capacity audits',
+            'Improves consistency between schedules and reports',
+            'Speeds up discrepancy triage'
         ],
-        architecture: 'Single-page client-side app with modular parsing and validation layers, combining baseline schedules, date overrides, and report normalization into a unified audit flow.'
+        architecture: 'A single-page client-side application with modular parsing, validation, and report-normalization stages.'
     },
     'qa-visual-dashboard': {
         title: 'QA Tool Visual Dashboard',
-        description: 'Static analytics dashboard for reviewing JSON mismatch reports with visual summaries, advanced filtering, and local note persistence.',
+        description: 'A static dashboard for exploring QA mismatch reports locally with filters, visual summaries, notes, and CSV export.',
         features: [
-            'Local JSON loading with zero-backend processing',
-            'Multi-select filters for category, area, ticket type, and issue type',
-            'Date range plus weekday filtering for timeslot analysis',
-            'Recurring pattern detection and chart-based summaries',
-            'Inline notes with localStorage persistence and CSV export'
+            'Loads JSON reports locally without a backend',
+            'Filters by category, area, ticket type, and issue',
+            'Filters by date range and weekday',
+            'Finds recurring patterns and summarizes them in charts',
+            'Saves notes locally and exports them to CSV'
         ],
         technologies: ['JavaScript', 'HTML/CSS', 'Chart.js', 'Web Worker'],
         impact: [
-            'Accelerated mismatch review cycles for operational QA',
-            'Improved signal detection through recurring-pattern analytics',
-            'Provided a portable, shareable tool without deployment overhead'
+            'Speeds up operational QA mismatch reviews',
+            'Makes recurring patterns easier to identify',
+            'Provides a portable tool without deployment overhead'
         ],
-        architecture: 'Static front-end dashboard with a worker-assisted data pipeline, virtualized table rendering, and chart-driven insight panels for high-volume report inspection.'
+        architecture: 'Static front-end dashboard with a worker-assisted data pipeline, virtualized table rendering, and chart-based insights.'
     }
 };
 
-// Show localization projects
 function showLocalizationProjects() {
     const t = window.currentLocaleData || locales.en;
     const modalBody = document.getElementById('modal-body');
@@ -1556,9 +1020,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to reset form and clear error states
-    function resetContactForm() {
-        contactForm.reset();
+    function clearContactFormFeedback() {
         formStatus.innerHTML = '';
         // Clear all error states
         document.querySelectorAll('.form-group').forEach(group => {
@@ -1572,7 +1034,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Close contact modal
     function closeContactModal() {
         clearTimeout(autoCloseTimer);
-        resetContactForm();
+        clearContactFormFeedback();
         contactModal.style.display = 'none';
         document.body.classList.remove('modal-open');
         document.documentElement.classList.remove('modal-open');

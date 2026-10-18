@@ -26,6 +26,9 @@ input, textarea { caret-color: #5ed4be; }
 .quick-nav { display: flex; gap: 28px; margin-left: auto; }
 .quick-nav a { color: var(--text-light); text-decoration: none; font-size: .94rem; }
 .quick-nav a:hover { color: var(--accent-light); }
+@media(min-width:801px) {
+ .nav-menu > li.nav-secondary-link { display: none; }
+}
 .hamburger { box-shadow: none; border-radius: 8px; background: transparent; }
 .skip-link { position: fixed; left: 20px; top: -100px; z-index: 3000; padding: 14px 20px; background: #5ed4be; color: #171918; }
 .skip-link:focus { top: 12px; }
@@ -51,7 +54,7 @@ input, textarea { caret-color: #5ed4be; }
 main > section:not(.hero) { padding: 72px 0; background: none; }
 main > section::before { display: none; }
 main > section > .container > h2, .contact h2 { text-align: left; font-size: clamp(2rem,3vw,2.75rem); line-height: 1.15; letter-spacing: -.035em; margin-bottom: 24px; }
-.demos-intro, .localization-intro, .architecture-intro { text-align: left; margin-left: 0; max-width: 66ch; }
+.demos-intro, .projects-intro, .localization-intro { text-align: left; margin-left: 0; max-width: 66ch; }
 .demos-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 40px; margin-top: 32px; }
 .demo-card, .game-card { background: none; border: 0; box-shadow: none; border-radius: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
 .demo-card:first-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0,1.7fr) minmax(0,1fr); align-items: center; gap: 36px; }
@@ -81,19 +84,17 @@ main > section > .container > h2, .contact h2 { text-align: left; font-size: cla
 .localization-stats { justify-content: flex-start; gap: 48px; text-align: left; padding: 24px 0; border-top: 1px solid var(--border-color); }
 .localization-stats .stat h3 { font-size: 1.5rem; }
 .localization-cta { text-align: left; }
-.project-filters { justify-content: flex-start; }
+.project-filters { justify-content: flex-start; gap: 8px; margin-top: 16px; }
 .filter-chip, .lang-pill { border-radius: 6px; min-height: 44px; }
+.filter-chip.active { color: #171918; box-shadow: none; }
 .projects-grid { grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 48px; row-gap: 0; }
 .project-card, .project-card.featured, .project-card:nth-child(odd), .project-card:nth-child(even), .project-card:hover, .project-card.featured:hover { border: 0; border-top: 1px solid var(--border-color); border-radius: 0; background: none; padding: 30px 0; box-shadow: none; transform: none; transition: border-color .2s ease, transform .2s ease; }
 .project-card h3 { transition: color .2s ease; }
 .project-card:hover, .project-card.featured:hover, .project-card:nth-child(odd):hover, .project-card:nth-child(even):hover { border-top-color: var(--accent-light); transform: translateY(-4px); }
 .project-card:hover h3 { color: var(--accent-light); }
 .project-tag { background: none; border: none; padding: 0; color: var(--accent-light); }
-.about-content { grid-template-columns: minmax(0,1.3fr) minmax(0,1fr); gap: 64px; padding: 0; }
+.about-content { grid-template-columns: minmax(0,1fr); gap: 0; padding: 0; max-width: 72ch; justify-items: stretch; }
 .about-text p { text-align: left; max-width: 65ch; font-size: 1.05rem; }
-.highlight { background: none; box-shadow: none; border: 0; border-radius: 0; padding: 0 0 24px; text-align: left; align-items: flex-start; }
-.highlight i { display: none; }
-.highlight h3, .highlight p { text-align: left; }
 .awards-grid { gap: 40px; max-width: none; margin: 0; }
 .award-card { padding: 24px 20px; margin: 0 -20px; background: none; border: 0; border-radius: 0; text-align: left; }
 .award-card::before { content: ''; position: absolute; top: 0; left: 20px; right: 20px; border-top: 1px solid var(--border-color); }
@@ -130,7 +131,6 @@ button.close { border: 0; background: transparent; font: inherit; font-size: 2re
  .demo-card:first-child { display: block; }
  .demo-card:first-child .demo-info { padding-top: 20px; }
  .about-content { grid-template-columns: 1fr; gap: 28px; }
- .highlight { display: block; }
  .skills-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
 }
 @media(max-width:560px) {

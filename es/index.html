@@ -121,15 +121,14 @@
             <a class="nav-logo" href="#home" data-i18n="nav.logo">Marco Tofani</a>
             <ul class="nav-menu" id="site-menu" inert>
                 <li><a href="#home" data-i18n="nav.home">Home</a></li>
-                <li><a href="#about" data-i18n="nav.about">About</a></li>
-                <li><a href="#awards" data-i18n="nav.awards">Awards</a></li>
-                <li><a href="#demos" data-i18n="nav.demos">Demos</a></li>
-                <li><a href="#timeline" data-i18n="nav.timeline">Timeline</a></li>
-                <li><a href="#localization" data-i18n="nav.localization">Localization</a></li>
+                <li class="nav-secondary-link"><a href="#demos" data-i18n="nav.demos">Demos</a></li>
+                <li class="nav-secondary-link"><a href="#localization" data-i18n="nav.localization">Localization</a></li>
                 <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
-                <li><a href="#architecture" data-i18n="nav.architecture">Architecture</a></li>
+                <li><a href="#about" data-i18n="nav.about">About</a></li>
+                <li><a href="#timeline" data-i18n="nav.timeline">Timeline</a></li>
+                <li><a href="#awards" data-i18n="nav.awards">Awards</a></li>
                 <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+                <li class="nav-secondary-link"><a href="#contact" data-i18n="nav.contact">Contact</a></li>
                 <li class="nav-language">
                     <div class="language-selector">
                         <label for="lang-select" class="sr-only" data-i18n="contact.selectLanguage">Select
@@ -167,7 +166,7 @@
                 <span class="hero-badge" data-i18n="hero.badge3">it-IT / en-US / es-ES</span>
             </div>
             <div class="hero-buttons">
-                <a href="#demos" class="btn-primary">Ver proyectos</a>
+                <a href="#demos" class="btn-primary" data-i18n="hero.selectedWork">Ver proyectos</a>
                 <a href="../Marco Tofani_Resume.pdf" class="btn-secondary" download target="_blank" rel="noopener noreferrer" data-i18n="btn.downloadResume">Descargar CV</a>
             </div>
         </div>
@@ -212,6 +211,10 @@
                         <div class="demo-impact">
                             <p data-i18n="demos.redelivery-hub.impact">90% reduction in manual ticket creation</p>
                         </div>
+                        <div class="project-links">
+                            <button type="button" class="btn-demo" onclick="showProjectDetails('redelivery-hub')"
+                                data-i18n="projects.viewDetails">View Details</button>
+                        </div>
                     </div>
                 </div>
 
@@ -234,6 +237,10 @@
                         <div class="demo-impact">
                             <p data-i18n="demos.lqa-extension.impact">40% improvement in QA process efficiency</p>
                         </div>
+                        <div class="project-links">
+                            <button type="button" class="btn-demo" onclick="showProjectDetails('lqa-extension')"
+                                data-i18n="projects.viewDetails">View Details</button>
+                        </div>
                     </div>
                 </div>
 
@@ -255,6 +262,10 @@
                         </div>
                         <div class="demo-impact">
                             <p data-i18n="demos.redelivery-agent.impact">Eliminates manual data entry errors</p>
+                        </div>
+                        <div class="project-links">
+                            <button type="button" class="btn-demo" onclick="showProjectDetails('redelivery-agent')"
+                                data-i18n="projects.viewDetails">View Details</button>
                         </div>
                     </div>
                 </div>
@@ -339,97 +350,21 @@
 
     <section id="projects" class="projects">
         <div class="container">
-            <h2 data-i18n="projects.title">Featured Projects</h2>
+            <h2 data-i18n="projects.title">More Projects</h2>
+            <p class="projects-intro" data-i18n="projects.intro">A few more tools I built for operations and quality workflows.</p>
             <div class="project-filters" role="group" aria-label="Project filters">
                 <button class="filter-chip active" type="button" data-filter="all"
                     data-i18n="projects.filterAll">All</button>
                 <button class="filter-chip" type="button" data-filter="automation"
                     data-i18n="projects.filterAutomation">Automation</button>
-                <button class="filter-chip" type="button" data-filter="web" data-i18n="projects.filterWeb">Web
-                    Apps</button>
-                <button class="filter-chip" type="button" data-filter="extension"
-                    data-i18n="projects.filterExtension">Extensions</button>
-                <button class="filter-chip" type="button" data-filter="utils"
+                <button class="filter-chip" type="button" data-filter="utilities"
                     data-i18n="projects.filterUtils">Utilities</button>
-                <button class="filter-chip" type="button" data-filter="python"
-                    data-i18n="projects.filterPython">Python</button>
-                <button class="filter-chip" type="button" data-filter="javascript"
-                    data-i18n="projects.filterJavaScript">JavaScript</button>
-                <button class="filter-chip" type="button" data-filter="excel"
-                    data-i18n="projects.filterDocs">Excel</button>
+                <button class="filter-chip" type="button" data-filter="templates"
+                    data-i18n="projects.filterTemplates">Templates</button>
             </div>
             <div class="projects-grid">
 
-                <div class="project-card featured" data-tech="automation web python">
-                    <div class="project-header">
-                        <h3 data-i18n="projects.redelivery-hub.cardTitle">Redelivery Hub</h3>
-                        <span class="project-tag" data-i18n="projects.redelivery-hub.featured">Featured</span>
-                    </div>
-                    <p data-i18n="projects.redelivery-hub.cardDesc">Comprehensive automation platform for redelivery
-                        workflows. Multi-tool hub with real-time status tracking and automated ticket creation.</p>
-                    <div class="project-features">
-                        <span>Flask Web App</span>
-                        <span>Selenium Automation</span>
-                        <span>File Processing</span>
-                        <span>Real-time Updates</span>
-                    </div>
-                    <div class="project-tech">
-                        <i class="fab fa-python"></i>
-                        <i class="fab fa-html5"></i>
-                        <i class="fab fa-js"></i>
-                    </div>
-                    <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('redelivery-hub')"
-                            data-i18n="projects.viewDetails">View Details</button>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tech="extension web javascript">
-                    <div class="project-header">
-                        <h3 data-i18n="projects.lqa-extension.cardTitle">LQA Tool Extension</h3>
-                    </div>
-                    <p data-i18n="projects.lqa-extension.cardDesc">Chrome extension that enhances the LQA Tool workflow
-                        with convenient comment selection and improved user experience for quality assurance processes.
-                    </p>
-                    <div class="project-features">
-                        <span>Chrome Extension</span>
-                        <span>Workflow Enhancement</span>
-                        <span>UI/UX Improvement</span>
-                    </div>
-                    <div class="project-tech">
-                        <i class="fab fa-js"></i>
-                        <i class="fab fa-chrome"></i>
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('lqa-extension')"
-                            data-i18n="projects.viewDetails">View Details</button>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tech="web javascript">
-                    <div class="project-header">
-                        <h3 data-i18n="projects.redelivery-agent.cardTitle">Redelivery Agent</h3>
-                    </div>
-                    <p data-i18n="projects.redelivery-agent.cardDesc">Web-based tool for processing redelivery Excel
-                        files with clean separation of UI and business logic. Handles multiple file formats and exports.
-                    </p>
-                    <div class="project-features">
-                        <span>Modular Architecture</span>
-                        <span>File Export</span>
-                    </div>
-                    <div class="project-tech">
-                        <i class="fab fa-js"></i>
-                        <i class="fab fa-html5"></i>
-                        <i class="fas fa-file-excel"></i>
-                    </div>
-                    <div class="project-links">
-                        <button class="btn-demo" onclick="showProjectDetails('redelivery-agent')"
-                            data-i18n="projects.viewDetails">View Details</button>
-                    </div>
-                </div>
-
-                <div class="project-card" data-tech="utils python">
+                <div class="project-card" data-category="utilities">
                     <div class="project-header">
                         <h3 data-i18n="projects.filemaster.cardTitle">FileMaster</h3>
                     </div>
@@ -450,7 +385,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tech="utils python">
+                <div class="project-card" data-category="utilities">
                     <div class="project-header">
                         <h3 data-i18n="projects.timestamps-converter.cardTitle">TimeStamps Converter</h3>
                     </div>
@@ -472,7 +407,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tech="docs excel">
+                <div class="project-card" data-category="templates">
                     <div class="project-header">
                         <h3 data-i18n="projects.proxy-generation.cardTitle">Proxy Generation Tool</h3>
                     </div>
@@ -492,7 +427,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tech="automation web javascript excel">
+                <div class="project-card" data-category="automation">
                     <div class="project-header">
                         <h3 data-i18n="projects.capacity-timeslot-validator.cardTitle">Capacity Pools &amp; Timeslot Validator</h3>
                     </div>
@@ -513,7 +448,7 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-tech="automation web javascript">
+                <div class="project-card" data-category="automation">
                     <div class="project-header">
                         <h3 data-i18n="projects.qa-visual-dashboard.cardTitle">QA Tool Visual Dashboard</h3>
                     </div>
@@ -545,24 +480,6 @@
                 <div class="about-text">
                     <p data-i18n="about.paragraph1">Soy traductor y desarrollador. He trabajado en más de 40 localizaciones de videojuegos al italiano, entre ellas Dragon’s Dogma II y Super Mario Party Jamboree.</p>
                     <p data-i18n="about.paragraph2">Mi trabajo de desarrollo se centra en las operaciones diarias: crear tickets, procesar hojas de cálculo, gestionar archivos y facilitar el uso de herramientas de QA. Utilizo Python, Flask, JavaScript y Selenium.</p>
-                </div>
-                <div class="about-highlights">
-                    <div class="highlight">
-                        <i class="fas fa-language"></i>
-                        <h3 data-i18n="about.highlight1Title">Video Game Localization</h3>
-                        <p data-i18n="about.highlight1">40+ projects, CAT tools, cultural adaptation, it-IT
-                            specialization</p>
-                    </div>
-                    <div class="highlight">
-                        <i class="fas fa-robot"></i>
-                        <h3 data-i18n="about.highlight2Title">Process Automation</h3>
-                        <p data-i18n="about.highlight2">Selenium WebDriver, Python scripting, workflow optimization</p>
-                    </div>
-                    <div class="highlight">
-                        <i class="fas fa-code"></i>
-                        <h3 data-i18n="about.highlight3Title">Full-Stack Development</h3>
-                        <p data-i18n="about.highlight3">Flask web applications, JavaScript, Chrome extensions</p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -637,31 +554,6 @@
                     <p data-i18n="awards.award2Desc">Award for innovation and process improvement through creative
                         automation solutions</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="architecture" class="architecture">
-        <div class="container">
-            <h2 data-i18n="architecture.title">Project Architecture Map</h2>
-            <p class="architecture-intro" data-i18n="architecture.intro">Explore how projects, tools, and outcomes connect in my automation ecosystem.</p>
-            <div class="architecture-layout">
-                <div class="architecture-canvas-wrap">
-                    <svg class="architecture-svg" viewBox="0 0 1000 620" aria-label="Interactive project architecture graph" role="img">
-                        <g class="architecture-links"></g>
-                        <g class="architecture-nodes"></g>
-                    </svg>
-                    <p class="architecture-hint" data-i18n="architecture.hint">Click nodes to change focus.</p>
-                </div>
-                <aside class="architecture-panel" aria-live="polite">
-                    <p class="architecture-panel-kicker" data-i18n="architecture.panelKicker">Focus Node</p>
-                    <h3 id="architecture-title">Redelivery Hub</h3>
-                    <p id="architecture-summary">Comprehensive automation platform for redelivery workflows.</p>
-                    <div class="architecture-meta">
-                        <h4 data-i18n="architecture.metaTitle">Connected Outcomes</h4>
-                        <ul id="architecture-tags"></ul>
-                    </div>
-                </aside>
             </div>
         </div>
     </section>
@@ -741,11 +633,13 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <a href="https://www.linkedin.com/in/marco-tofani/" class="contact-link" target="_blank"
-                        rel="noopener noreferrer" data-i18n="contact.linkedin">
+                        rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
+                        <span data-i18n="contact.linkedin">LinkedIn Profile</span>
                     </a>
-                    <button id="contact-form-btn" class="contact-link" data-i18n="contact.email">
+                    <button id="contact-form-btn" class="contact-link">
                         <i class="fas fa-envelope"></i>
+                        <span data-i18n="contact.sendMessage">Send me a message</span>
                     </button>
                 </div>
             </div>

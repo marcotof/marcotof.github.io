@@ -4,24 +4,24 @@ A modern, responsive portfolio website showcasing automation tools and full-stac
 
 **Live Site**: [https://marcotof.github.io/](https://marcotof.github.io/)
 
-**Current Version**: 1.8.0
+**Current Version**: 1.8.1
 
 ## Features
 
 - **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices with hamburger menu
 - **Permanent Dark Mode**: Always-on warm charcoal theme with soft white text and a single teal accent
 - **Editorial Layout**: Left-aligned sections with hairline dividers, flat cards and consistent hover states (4px lift, teal accent line and title) on demo and project cards
-- **Hamburger-only Navigation**: iOS-inspired open/close animation across devices
+- **Focused Navigation**: Desktop quick links for demos, localization, and contact, with the full section menu and language selector behind the menu button
 - **Desktop Scrollspy Dots**: Section-aware side navigation on larger screens for fast page traversal
 - **Mobile Section Arrows**: Minimal up/down floating controls for quick section jumps on phones
 - **Multi-language Support**: English, Italian, and Spanish controlled by URL paths
   - **Desktop & Mobile**: Full language names (English, Italiano, Español)
 - **URL-based Language Routing**: `/` for English, `/it/` for Italian, `/es/` for Spanish
-- **Interactive Project Showcase**: Detailed project modals with features, technologies, and impact metrics
-- **Interactive Architecture Map**: Animated node graph with focus panel, layer filters, and outcome-based filtering
+- **Focused Work Showcase**: Three featured video demos with project-detail modals, followed by five additional projects filtered by work type
+- **About & Skills**: A concise personal introduction alongside concrete technical skills and project examples
 - **Professional Timeline**: Career journey with current role highlighted
-- **Contact Form Modal**: Localized contact form integrated with Formspree for direct email submissions, with client-side validation and localized success/error notifications
-- **Streamlined Hero CTAs**: Two action buttons in Home card (`Download Resume`, `Get In Touch`)
+- **Contact Options**: LinkedIn and a localized Formspree contact form with client-side validation and localized success/error notifications
+- **Streamlined Hero CTAs**: Selected-work link and downloadable resume
 - **Touch-friendly Button States**: Hover effects scoped to hover-capable pointers to prevent sticky touch highlights
 - **Downloadable Resume**: Direct download link for Marco Tofani's resume
 - **Modern UI/UX**: Restrained editorial layout with flat cards and minimal motion
