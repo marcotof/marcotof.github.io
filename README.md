@@ -168,6 +168,12 @@ These optimizations improve:
 
 ## Recent Updates
 
+### v1.8.1 - Mobile CTA & Touch Interaction Polish (October 18, 2026)
+
+- **Mobile CTA Refinement**: Improved the home-page action buttons' spacing, sizing, and readability on small screens.
+- **Touch Interaction Polish**: Scoped hover effects to hover-capable devices to prevent sticky hover states on touchscreens.
+- **Localization Consistency**: Applied the refinements across the English, Italian, and Spanish pages.
+
 ### v1.8.0 - Editorial Redesign, Modal Fixes & Cleanup (October 16, 2026)
 
 - **Editorial Layout Refinement**: Added `refinement.css` and `refinement.js` on top of the base styles for a flat, left-aligned design with hairline dividers across all three languages.
